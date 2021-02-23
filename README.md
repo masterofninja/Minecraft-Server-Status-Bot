@@ -25,13 +25,13 @@ Use **`.info`** to know about bot Language , Library and many more .
 If you would like to self-host this bot you will need to have some file changes :
 
 ```
-Rename config.json_example to config.json
+Create a file named config.json
 ```
 
-After Renaming , In **conifg.json** Change These Values :
+In that **conifg.json** Replace These Values :
 ```javascript
-    "token": "your-token",
-    "prefix": "your-prefix";
+    "token": "your-bot-token",
+    "prefix": "your-bot-prefix";
 ```
 
 No other support will be available for self-hosting of this bot.
