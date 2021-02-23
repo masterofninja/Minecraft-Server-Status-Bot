@@ -14,32 +14,23 @@
 
 
 Minecraft Server Status Bot is a Discord Bot Which Gives You Status Of Your Minecraft Server .
-Use **`.info`** to know about bot Language , Library and many more .
-
-<img src="https://media.discordapp.net/attachments/702042187436785706/813809055260082196/iZp6LHM_-_Imgur.png" alt="Status Command" />
-
-**Add [Minecraft Server Status](https://top.gg/bot/628400349979344919) Bot to your server .**
-
-## Self-Hosting
-
-If you would like to self-host this bot you will need to have some file changes :
-
-```
-Create a file named config.json
-```
-
-In that **conifg.json** Copy and Paste This :
-```javascript
-{
-    "token": "your-bot-token",
-    "prefix": "your-bot-prefix";
-}
-```
-
-After Copy and Paste Replace **`your-bot-token`** wiht your bot original token and **`your-bot-prefix`** with prefix you want to set .
-
-No other support will be available for self-hosting of this bot .
 
 ## Usage
 
-To get a list of commands use the **`.help`** command .
+Use **`.setup`** to setup ip and port of your server .
+
+<img src="https://cdn.discordapp.com/attachments/771781595220017193/813824297919447140/Screenshot_2021-02-23_225624.png" alt="Setup Command" />
+
+Use **`.reset`** to reset ip and port of your server .
+
+<img src="https://cdn.discordapp.com/attachments/771781595220017193/813824270425784361/Screenshot_2021-02-23_225615.png" alt="Reset Command" />
+
+Use **`.status`** to know status of your minecraft server after setup has been done .
+
+<img src="https://media.discordapp.net/attachments/702042187436785706/813809055260082196/iZp6LHM_-_Imgur.png" alt="Status Command" />
+
+Use **`.info`** to know about bot Language , Library and many more .
+
+<img src="https://cdn.discordapp.com/attachments/771781595220017193/813824244147552296/Screenshot_2021-02-23_225607.png" alt="Info Command" />
+
+There Are Many More Commands in this bot , Add **[Minecraft Server Status](https://discord.com/oauth2/authorize?client_id=802868654957789204&permissions=84992&scope=bot)** Bot to your server and to get a list of commands use the **`.help`** command .
