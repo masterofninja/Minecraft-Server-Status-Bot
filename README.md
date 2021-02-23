@@ -24,7 +24,7 @@ This bot is **not** made to be self-hosted .
 If you would like to self-host this bot you will need to have some file changes :
 
 ```
-Rename **config.json_example** to **config.json**
+Rename config.json_example to config.json
 ```
 
 After Renaming , In **conifg.json** Change These Values :
@@ -37,4 +37,4 @@ No other support will be available for self-hosting of this bot.
 
 ## Usage
 
-To get a list of commands use the `***.help***` command. 
+To get a list of commands use the **`.help`** command. 
