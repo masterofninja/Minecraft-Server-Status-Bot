@@ -10,6 +10,34 @@ let request = require('request');
 // Bot Prefix
 const prefix = bconfig.prefix;
 
+// Top.gg API
+const ap = AutoPoster(bconfig.topggtoken, client)
+
+ap.on('posted', () => {
+    console.log('Updating stats to top.gg in every 30 minutes')
+})
+
+// BotsForDiscord.com API
+client.on('ready', () => {
+    setInterval(() => {
+        fetch("https://botsfordiscord.com/api/bot/802868654957789204", {
+            method: 'post',
+            data: {
+                "server_count": `${client.guilds.cache.size}`
+            },
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": bconfig.bfdtoken
+            },
+            body: JSON.stringify({ "server_count": client.guilds.cache.size }),
+        }).then(() => {
+            console.log('Updating stats to botsfordiscord.com in every 30 minutes');
+        }).catch((err) => {
+            console.error(err);
+        })
+    }, 1800000)
+})
+
 // Commands Setup Begins
 client.on('message', message => {
 
@@ -186,21 +214,23 @@ client.on('message', message => {
             embedStatus.setTitle("Minecraft Server Status")
             embedStatus.setDescription("Your Minecraft Server Panel Here :-")
             embedStatus.addFields(
-                [{
-                    "name": "Status",
-                    "value": status,
-                    "inline": true
-                },
-                {
-                    "name": "Player Count",
-                    "value": body.players.now + "/" + body.players.max,
-                    "inline": true
-                },
-                {
-                    "name": "Version",
-                    "value": body.server.name
-                }
-            ])
+                [
+                    {
+                        "name": "Status",
+                        "value": status,
+                        "inline": true
+                    },
+                    {
+                        "name": "Player Count",
+                        "value": body.players.now + "/" + body.players.max,
+                        "inline": true
+                    },
+                    {
+                        "name": "Version",
+                        "value": body.server.name
+                    }
+                ]
+            )
             embedStatus.setColor(color);
             embedStatus.setThumbnail(botlogo)
             embedStatus.setFooter('Requested By' + message.author.tag);
