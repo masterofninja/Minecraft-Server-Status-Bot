@@ -8,10 +8,11 @@
     <img src="https://botsfordiscord.com/api/bot/802868654957789204/widget" alt="Minecraft Server Status" />
 </a>
 
-<img src="https://imgur.com/aomDHdk" alt="Minecraft Server Status Bot Logo" />
+<img src="https://cdn.discordapp.com/attachments/771781595220017193/813814199770677279/Minecraft_Status_Bot_1.jpg" alt="Minecraft Server Status Bot Logo" />
 
 
-Minecraft Server Status Bot is a Discord bot that uses [MCAPI](http://mcapi.us). This Bot Gives You Status Of Your Minecraft Server . The bot connects to a [Quick.db](https://quickdb.js.org) database to save information of your server.
+Minecraft Server Status Bot is a Discord Bot Which Gives You Status Of Your Minecraft Server .
+Use **`.info`** to know about bot Language , Library and many more .
 
 <img src="https://media.discordapp.net/attachments/702042187436785706/813809055260082196/iZp6LHM_-_Imgur.png" alt="Status Command" />
 
