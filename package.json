@@ -1,7 +1,7 @@
 {
   "name": "minecraft-server-status-bot",
   "version": "1.0.0",
-  "description": "This Bot Gives You Status Of Your Minecraft Server .",
+  "description": "Minecraft Server Status Bot is a Discord Bot Which Gives You Status Of Your Minecraft Server .",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
