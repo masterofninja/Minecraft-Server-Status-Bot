@@ -8,7 +8,7 @@
     <img src="https://botsfordiscord.com/api/bot/802868654957789204/widget" alt="Minecraft Server Status" />
 </a>
 
-<img src="https://cdn.discordapp.com/attachments/771781595220017193/813814199770677279/Minecraft_Status_Bot_1.jpg" alt="Minecraft Server Status Bot Logo" />
+<img src="https://cdn.discordapp.com/attachments/771781595220017193/813814680509218906/Minecraft_Status_Bot_1.png" alt="Minecraft Server Status Bot Logo" />
 
 
 Minecraft Server Status Bot is a Discord Bot Which Gives You Status Of Your Minecraft Server .
