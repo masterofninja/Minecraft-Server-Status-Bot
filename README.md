@@ -28,13 +28,17 @@ If you would like to self-host this bot you will need to have some file changes 
 Create a file named config.json
 ```
 
-In that **conifg.json** Replace These Values :
+In that **conifg.json** Copy and Paste This :
 ```javascript
+{
     "token": "your-bot-token",
     "prefix": "your-bot-prefix";
+}
 ```
 
-No other support will be available for self-hosting of this bot.
+After Copy and Paste Replace **`your-bot-token`** wiht your bot original token and **`your-bot-prefix`** with prefix you want to set .
+
+No other support will be available for self-hosting of this bot .
 
 ## Usage
 
