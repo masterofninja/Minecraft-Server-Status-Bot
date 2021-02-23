@@ -10,7 +10,6 @@
 
 ## About
 
-
 <img src="https://cdn.discordapp.com/attachments/771781595220017193/813814680509218906/Minecraft_Status_Bot_1.png" alt="Minecraft Server Status Bot Logo" />
 
 
