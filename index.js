@@ -10,34 +10,6 @@ let request = require('request');
 // Bot Prefix
 const prefix = bconfig.prefix;
 
-// Top.gg API
-const ap = AutoPoster('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgwMjg2ODY1NDk1Nzc4OTIwNCIsImJvdCI6dHJ1ZSwiaWF0IjoxNjEzMTU2MTI1fQ.wj4IyiErGk2pgYvL_3j2ujD97smCP-WJTnB1B-RiPec', client)
-
-ap.on('posted', () => {
-    console.log('Updating stats to top.gg in every 30 minutes')
-})
-
-// BotsForDiscord.com API
-client.on('ready', () => {
-    setInterval(() => {
-        fetch("https://botsfordiscord.com/api/bot/802868654957789204", {
-            method: 'post',
-            data: {
-                "server_count": `${client.guilds.cache.size}`
-            },
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": "176f4031b89ff8d193f015e5618e79aa04483c6c19e4358a63e1877d668c6ece73e9acea94fb4aa2bce7bc172b7139db492c781ceb4468553ef3bfaaa39d5532"
-            },
-            body: JSON.stringify({ "server_count": client.guilds.cache.size }),
-        }).then(() => {
-            console.log('Updating stats to botsfordiscord.com in every 30 minutes');
-        }).catch((err) => {
-            console.error(err);
-        })
-    }, 1800000)
-})
-
 // Commands Setup Begins
 client.on('message', message => {
 
@@ -379,10 +351,10 @@ client.on('message', message => {
         if (!message.guild.me.hasPermission('EMBED_LINKS')) return message.channel.send('Please Give Me **EMBED_LINKS** permission in this channel .')
 
         let ifname = [
-            "Language", "Platform", "Library", "Packages", "Api", "Database"
+            "Language", "Platform", "Library", "Packages", "Api", "Database", "Github"
         ]
         let ifvalue = [
-            "**[JavaScript](https://www.javascript.com)**", "**[NodeJS](https://nodejs.org/en)**", "**[Discord.js](https://discordjs.guide)**", "**[NPM](https://www.npmjs.com)**", "**[McApi](http://mcapi.us)**", "**[Quick.db](https://quickdb.js.org)**"
+            "**[JavaScript](https://www.javascript.com)**", "**[NodeJS](https://nodejs.org/en)**", "**[Discord.js](https://discordjs.guide)**", "**[NPM](https://www.npmjs.com)**", "**[McApi](http://mcapi.us)**", "**[Quick.db](https://quickdb.js.org)**", "**[Here](https://github.com/LOG-LEGENDX/Minecraft-Server-Status-Bot)**"
         ]
         let embedInfo = new Discord.MessageEmbed();
         embedInfo.setTitle("Minecraft Server Status")
