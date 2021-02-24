@@ -35,15 +35,15 @@ Use **`.status`** to know status of your minecraft server after setup has been d
 
 Use **`.ip`** to know about bot Language , Library and many more .
 
-<img src="https://cdn.discordapp.com/attachments/771781595220017193/814067909294293042/Ip.png" alt="Ip and Port Command"/>
+<img src="https://cdn.discordapp.com/attachments/771781595220017193/814069185029472276/Ip.png" alt="Ip and Port Command"/>
 
 Use **`.invite`** to know about bot Language , Library and many more .
 
-<img src="https://cdn.discordapp.com/attachments/771781595220017193/814067908295917599/Invite.png" alt="Invite Command"/>
+<img src="https://cdn.discordapp.com/attachments/771781595220017193/814069186505736203/Invite.png" alt="Invite Command"/>
 
 Use **`.stats`** to know about bot Language , Library and many more .
 
-<img src="https://cdn.discordapp.com/attachments/771781595220017193/814067911403765780/Stats.png" alt="Stats Command"/>
+<img src="https://cdn.discordapp.com/attachments/771781595220017193/814069187281944586/Stats.png" alt="Stats Command"/>
 
 Use **`.info`** to know about bot Language , Library and many more .
 
@@ -51,14 +51,14 @@ Use **`.info`** to know about bot Language , Library and many more .
 
 Use **`.uptime`** to know about bot Language , Library and many more .
 
-<img src="https://cdn.discordapp.com/attachments/771781595220017193/814067913207054367/Uptime.png" alt="Uptime Command"/>
+<img src="https://cdn.discordapp.com/attachments/771781595220017193/814069188255285248/Uptime.png" alt="Uptime Command"/>
 
 Use **`.vote`** to know about bot Language , Library and many more .
 
-<img src="https://cdn.discordapp.com/attachments/771781595220017193/814067913534734406/Vote.png" alt="Vote Command"/>
+<img src="https://cdn.discordapp.com/attachments/771781595220017193/814069181934206986/Vote.png" alt="Vote Command"/>
 
 Use **`.report`** to know about bot Language , Library and many more .
 
-<img src="https://cdn.discordapp.com/attachments/771781595220017193/814067910740934686/Report.png" alt="Report Command"/>
+<img src="https://cdn.discordapp.com/attachments/771781595220017193/814069185293713408/Report.png" alt="Report Command"/>
 
 Add **[Minecraft Server Status](https://discord.com/oauth2/authorize?client_id=802868654957789204&permissions=84992&scope=bot)** Bot to your server and enjoy all of these commands in your server .
