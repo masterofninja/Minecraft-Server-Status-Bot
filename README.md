@@ -19,7 +19,7 @@ Minecraft Server Status Bot is a Discord Bot Which Gives You Status Of Your Mine
 
 Use **`.help`** to get all bot commands .
 
-<img src="https://cdn.discordapp.com/attachments/771781595220017193/813824297919447140/Screenshot_2021-02-23_225624.png" alt="Help Command"/>
+<img src="https://cdn.discordapp.com/attachments/771781595220017193/814067904261521418/Help.png" alt="Help Command"/>
 
 Use **`.setup`** to setup ip and port of your server .
 
@@ -35,15 +35,15 @@ Use **`.status`** to know status of your minecraft server after setup has been d
 
 Use **`.ip`** to know about bot Language , Library and many more .
 
-<img src="https://cdn.discordapp.com/attachments/771781595220017193/813824244147552296/Screenshot_2021-02-23_225607.png" alt="Ip and Port Command"/>
+<img src="https://cdn.discordapp.com/attachments/771781595220017193/814067909294293042/Ip.png" alt="Ip and Port Command"/>
 
 Use **`.invite`** to know about bot Language , Library and many more .
 
-<img src="https://cdn.discordapp.com/attachments/771781595220017193/813824244147552296/Screenshot_2021-02-23_225607.png" alt="Invite Command"/>
+<img src="https://cdn.discordapp.com/attachments/771781595220017193/814067908295917599/Invite.png" alt="Invite Command"/>
 
 Use **`.stats`** to know about bot Language , Library and many more .
 
-<img src="https://cdn.discordapp.com/attachments/771781595220017193/813824244147552296/Screenshot_2021-02-23_225607.png" alt="Stats Command"/>
+<img src="https://cdn.discordapp.com/attachments/771781595220017193/814067911403765780/Stats.png" alt="Stats Command"/>
 
 Use **`.info`** to know about bot Language , Library and many more .
 
@@ -51,14 +51,14 @@ Use **`.info`** to know about bot Language , Library and many more .
 
 Use **`.uptime`** to know about bot Language , Library and many more .
 
-<img src="https://cdn.discordapp.com/attachments/771781595220017193/813824244147552296/Screenshot_2021-02-23_225607.png" alt="Uptime Command"/>
+<img src="https://cdn.discordapp.com/attachments/771781595220017193/814067913207054367/Uptime.png" alt="Uptime Command"/>
 
 Use **`.vote`** to know about bot Language , Library and many more .
 
-<img src="https://cdn.discordapp.com/attachments/771781595220017193/813824244147552296/Screenshot_2021-02-23_225607.png" alt="Vote Command"/>
+<img src="https://cdn.discordapp.com/attachments/771781595220017193/814067913534734406/Vote.png" alt="Vote Command"/>
 
 Use **`.report`** to know about bot Language , Library and many more .
 
-<img src="https://cdn.discordapp.com/attachments/771781595220017193/813824244147552296/Screenshot_2021-02-23_225607.png" alt="Report Command"/>
+<img src="https://cdn.discordapp.com/attachments/771781595220017193/814067910740934686/Report.png" alt="Report Command"/>
 
 Add **[Minecraft Server Status](https://discord.com/oauth2/authorize?client_id=802868654957789204&permissions=84992&scope=bot)** Bot to your server and enjoy all of these commands in your server .
