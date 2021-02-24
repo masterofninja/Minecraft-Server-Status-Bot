@@ -17,6 +17,18 @@ ap.on('posted', () => {
     console.log('Updating stats to top.gg')
 })
 
+// Topcord.xyz API
+const TCAPI = require('tcapi.js');
+const tcapi = new TCAPI(bconfig.tctoken, {}, client);
+
+tcapi.on('success', () => {
+    console.log('Updating stats to topcord.xyz');
+});
+
+tcapi.on('error', (e) => {
+    console.log(`Error: ${e}`);
+});
+
 // BotsForDiscord.com API
 client.on('ready', () => {
     setInterval(() => {
@@ -69,6 +81,14 @@ client.on('message', message => {
 
         if (!args[1]) return message.channel.send(embedargs)
         if (!args[2]) return message.channel.send(embedargs)
+
+        let embedportlength = new Discord.MessageEmbed()
+        embedportlength.setDescription(`Make Sure That The **PORT** you are entering is not more than 5 numbers`)
+        embedportlength.setColor('RED')
+        embedportlength.setFooter('Requested By' + message.author.tag)
+        embedportlength.setTimestamp()
+
+        if (args[2].length > 5) return message.channel.send(embedportlength)
 
         let embedsameip = new Discord.MessageEmbed()
         embedsameip.setDescription(`This One Is Already Your IP , For Reset Use **${prefix}reset**`)
@@ -313,10 +333,10 @@ client.on('message', message => {
         if (!message.guild.me.hasPermission('EMBED_LINKS')) return message.channel.send('Please Give Me **EMBED_LINKS** permission in this channel .')
 
         let vote = [
-            "Top.gg", "BotsForDiscord"
+            "top.gg", "topcord.xyz", "botsfordiscord.com"
         ]
         let votelink = [
-            "[Here](https://top.gg/bot/802868654957789204)", "[Here](https://botsfordiscord.com/bot/802868654957789204)"
+            "[Here](https://top.gg/bot/802868654957789204)", "[Here](https://topcord.xyz/bot/802868654957789204)", "[Here](https://botsfordiscord.com/bot/802868654957789204)"
         ]
         let embedVote = new Discord.MessageEmbed();
         embedVote.setTitle("Minecraft Server Status")
