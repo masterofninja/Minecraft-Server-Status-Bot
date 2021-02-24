@@ -457,7 +457,7 @@ client.on('message', message => {
         const ReportInvLink = args[1];
 
         let embednoinv = new Discord.MessageEmbed()
-        embednoinv.setDescription(`Please Use **${prefix}report** command like : **${prefix}report your-server-id your-issue**`)
+        embednoinv.setDescription(`Please Use **${prefix}report** command like : **${prefix}report your-server-invite-link your-issue**`)
         embednoinv.setColor('RED')
         embednoinv.setFooter('Requested By' + message.author.tag);
         embednoinv.setTimestamp()
