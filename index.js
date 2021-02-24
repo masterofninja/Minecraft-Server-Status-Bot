@@ -169,6 +169,7 @@ client.on('message', message => {
         embedstatuserr.setTimestamp()
 
         if (!message.guild.id === predb.has(`guild_${message.guild.id}_ip`)) return message.channel.send(embedstatuserr)
+        if (!message.guild.id === predb.has(`guild_${message.guild.id}_port`)) return message.channel.send(embedstatuserr)
 
         let url = 'http://mcapi.us/server/status?ip=' + mcIP + '&port=' + mcPort;
         request(url, function (err, _response, body) {
