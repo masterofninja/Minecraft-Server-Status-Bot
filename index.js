@@ -14,7 +14,7 @@ const prefix = bconfig.prefix;
 const ap = AutoPoster(bconfig.topggtoken, client)
 
 ap.on('posted', () => {
-    console.log('Updating stats to top.gg in every 30 minutes')
+    console.log('Updating stats to top.gg')
 })
 
 // BotsForDiscord.com API
@@ -31,22 +31,22 @@ client.on('ready', () => {
             },
             body: JSON.stringify({ "server_count": client.guilds.cache.size }),
         }).then(() => {
-            console.log('Updating stats to botsfordiscord.com in every 30 minutes');
+            console.log('Updating stats to botsfordiscord.com');
         }).catch((err) => {
             console.error(err);
         })
-    }, 1800000)
+    }, 600000)
 })
 
 // Commands Setup Begins
 client.on('message', message => {
 
     // Required Credentials
-    let mcIP = predb.get(`guild_${message.guild.id}_ip`) || "Not Setuped"
+    let mcIP = predb.get(`guild_${message.guild.id}_ip`) || "Not Setup"
 
     let botlogo = 'https://cdn.discordapp.com/attachments/715672683207196803/803324498992169099/Minecraft_Status_Bot.jpg'
 
-    let mcPort = predb.get(`guild_${message.guild.id}_port`) || "Not Setuped"
+    let mcPort = predb.get(`guild_${message.guild.id}_port`) || "Not Setup"
 
     const args = message.content.slice(prefix.length).trim().split(/ +/);
 
@@ -129,7 +129,7 @@ client.on('message', message => {
             "IP", "PORT"
         ]
         let after = [
-            "**Successfully Reseted**", "**Successfully Reseted**"
+            "**Successfully Reset**", "**Successfully Reset**"
         ]
 
         predb.delete(`guild_${message.guild.id}_ip`)
