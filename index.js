@@ -50,6 +50,49 @@ client.on('ready', () => {
     }, 600000)
 })
 
+// Discord.Bots.gg API
+client.on('ready', () => {
+    setInterval(() => {
+        fetch("https://discord.bots.gg/api/v1/bots/802868654957789204/stats", {
+            method: 'post',
+            data: {
+                "guildCount": `${client.guilds.cache.size}`
+            },
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": bconfig.dbgg
+            },
+            body: JSON.stringify({ "guildCount": client.guilds.cache.size }),
+        }).then(() => {
+            console.log('Updating stats to discord.bots.gg');
+        }).catch((err) => {
+            console.error(err);
+        })
+    }, 600000)
+})
+
+// Discordbotlist.com API
+client.on('ready', () => {
+    setInterval(() => {
+        fetch("https://discordbotlist.com/api/v1/bots/802868654957789204/stats", {
+            method: 'post',
+            data: {
+                "guilds": `${client.guilds.cache.size}`,
+                "users": `${client.guilds.cache.reduce((total, guild) => total + guild.memberCount, 0)}`
+            },
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": bconfig.dblcom
+            },
+            body: JSON.stringify({ "guilds": client.guilds.cache.size, "users": client.guilds.cache.reduce((total, guild) => total + guild.memberCount, 0) }),
+        }).then(() => {
+            console.log('Updating stats to discordbotlist.com');
+        }).catch((err) => {
+            console.error(err);
+        })
+    }, 600000)
+})
+
 // Commands Setup Begins
 client.on('message', message => {
 
@@ -333,10 +376,10 @@ client.on('message', message => {
         if (!message.guild.me.hasPermission('EMBED_LINKS')) return message.channel.send('Please Give Me **EMBED_LINKS** permission in this channel .')
 
         let vote = [
-            "top.gg", "topcord.xyz", "botsfordiscord.com"
+            "top.gg", "topcord.xyz", "botsfordiscord.com", "discord.bots.gg", "discordbotlist.com"
         ]
         let votelink = [
-            "[Here](https://top.gg/bot/802868654957789204)", "[Here](https://topcord.xyz/bot/802868654957789204)", "[Here](https://botsfordiscord.com/bot/802868654957789204)"
+            "[Here](https://top.gg/bot/802868654957789204)", "[Here](https://topcord.xyz/bot/802868654957789204)", "[Here](https://botsfordiscord.com/bot/802868654957789204)", "[Here](https://discord.bots.gg/bots/802868654957789204)", "[Here](https://discordbotlist.com/bots/minecraft-server-status-5845)"
         ]
         let embedVote = new Discord.MessageEmbed();
         embedVote.setTitle("Minecraft Server Status")
