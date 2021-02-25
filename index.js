@@ -11,6 +11,14 @@ const prefix = bconfig.prefix;
 
 // Top.gg API
 client.on('ready', () => {
+
+    const topggtext = ` 
+    ______________________________
+    Website: top.gg
+    Stats: Posted
+    ______________________________
+    `
+
     setInterval(() => {
         fetch("https://top.gg/api/bots/802868654957789204/stats", {
             method: 'post',
@@ -23,15 +31,23 @@ client.on('ready', () => {
             },
             body: JSON.stringify({ "server_count": client.guilds.cache.size }),
         }).then(() => {
-            console.log('Updating stats to top.gg');
+            console.log(topggtext);
         }).catch((err) => {
             console.error(err);
         })
-    }, 600000)
+    }, 300000)
 })
 
 // Topcord.xyz API
 client.on('ready', () => {
+
+    const topcordxyztext = ` 
+    ______________________________
+    Website: topcord.xyz
+    Stats: Posted
+    ______________________________
+    `
+
     setInterval(() => {
         fetch("https://api.topcord.xyz/bot/802868654957789204/stats", {
             method: 'post',
@@ -44,15 +60,24 @@ client.on('ready', () => {
             },
             body: JSON.stringify({ "guilds": client.guilds.cache.size }),
         }).then(() => {
-            console.log('Updating stats to topcord.xyz');
+            console.log(topcordxyztext);
         }).catch((err) => {
             console.error(err);
         })
-    }, 600000)
+    }, 300000)
 })
 
 // BotsForDiscord.com API
 client.on('ready', () => {
+
+    const botsfordiscordcomtext = ` 
+    ______________________________
+    Website: botsfordiscord.com
+    Stats: Posted
+    Guilds: ${client.guilds.cache.size}
+    ______________________________
+    `
+
     setInterval(() => {
         fetch("https://botsfordiscord.com/api/bot/802868654957789204", {
             method: 'post',
@@ -65,15 +90,24 @@ client.on('ready', () => {
             },
             body: JSON.stringify({ "server_count": client.guilds.cache.size }),
         }).then(() => {
-            console.log('Updating stats to botsfordiscord.com');
+            console.log(botsfordiscordcomtext);
         }).catch((err) => {
             console.error(err);
         })
-    }, 600000)
+    }, 300000)
 })
 
 // Discord.Bots.gg API
 client.on('ready', () => {
+
+    const discordbotsggtext = ` 
+    ______________________________
+    Website: discord.bots.gg
+    Stats: Posted
+    Guilds: ${client.guilds.cache.size}
+    ______________________________
+    `
+
     setInterval(() => {
         fetch("https://discord.bots.gg/api/v1/bots/802868654957789204/stats", {
             method: 'post',
@@ -82,19 +116,28 @@ client.on('ready', () => {
             },
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": bconfig.dbgg
+                "Authorization": bconfig.dbggtoken
             },
             body: JSON.stringify({ "guildCount": client.guilds.cache.size }),
         }).then(() => {
-            console.log('Updating stats to discord.bots.gg');
+            console.log(discordbotsggtext);
         }).catch((err) => {
             console.error(err);
         })
-    }, 600000)
+    }, 300000)
 })
 
 // Discordbotlist.com API
 client.on('ready', () => {
+
+    const discordbotlisttext = ` 
+    ______________________________
+    Website: discordbotlist.com
+    Stats: Posted
+    Guilds: ${client.guilds.cache.size}
+    ______________________________
+    `
+
     setInterval(() => {
         fetch("https://discordbotlist.com/api/v1/bots/802868654957789204/stats", {
             method: 'post',
@@ -104,15 +147,15 @@ client.on('ready', () => {
             },
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": bconfig.dblcom
+                "Authorization": bconfig.dblcomtoken
             },
             body: JSON.stringify({ "guilds": client.guilds.cache.size, "users": client.guilds.cache.reduce((total, guild) => total + guild.memberCount, 0) }),
         }).then(() => {
-            console.log('Updating stats to discordbotlist.com');
+            console.log(discordbotlisttext);
         }).catch((err) => {
             console.error(err);
         })
-    }, 600000)
+    }, 300000)
 })
 
 // Commands Setup Begins
