@@ -8,9 +8,6 @@
     <img src="https://botsfordiscord.com/api/bot/802868654957789204/widget" alt="Minecraft Server Status Bot Stats"/>
 </a>
 
-<script src="https://discordbotlist.com/widget/index.js" async></script>
-<dbl-widget bot-id="bot-minecraft-server-status-5845" centered></dbl-widget>
-
 ## About
 
 <img src="https://cdn.discordapp.com/attachments/771781595220017193/813814680509218906/Minecraft_Status_Bot_1.png" alt="Minecraft Server Status Bot Logo"/>
