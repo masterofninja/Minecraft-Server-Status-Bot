@@ -3,7 +3,6 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const predb = require('quick.db')
 const fetch = require('node-fetch')
-const AutoPoster = require('topgg-autoposter')
 const bconfig = require("./config.json");
 let request = require('request');
 
@@ -11,23 +10,46 @@ let request = require('request');
 const prefix = bconfig.prefix;
 
 // Top.gg API
-const ap = AutoPoster(bconfig.topggtoken, client)
-
-ap.on('posted', () => {
-    console.log('Updating stats to top.gg')
+client.on('ready', () => {
+    setInterval(() => {
+        fetch("https://top.gg/api/bots/802868654957789204/stats", {
+            method: 'post',
+            data: {
+                "server_count": `${client.guilds.cache.size}`
+            },
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": bconfig.topggtoken
+            },
+            body: JSON.stringify({ "server_count": client.guilds.cache.size }),
+        }).then(() => {
+            console.log('Updating stats to top.gg');
+        }).catch((err) => {
+            console.error(err);
+        })
+    }, 600000)
 })
 
 // Topcord.xyz API
-const TCAPI = require('tcapi.js');
-const tcapi = new TCAPI(bconfig.tctoken, {}, client);
-
-tcapi.on('success', () => {
-    console.log('Updating stats to topcord.xyz');
-});
-
-tcapi.on('error', (e) => {
-    console.log(`Error: ${e}`);
-});
+client.on('ready', () => {
+    setInterval(() => {
+        fetch("https://api.topcord.xyz/bot/802868654957789204/stats", {
+            method: 'post',
+            data: {
+                "guilds": `${client.guilds.cache.size}`
+            },
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": bconfig.tctoken
+            },
+            body: JSON.stringify({ "guilds": client.guilds.cache.size }),
+        }).then(() => {
+            console.log('Updating stats to topcord.xyz');
+        }).catch((err) => {
+            console.error(err);
+        })
+    }, 600000)
+})
 
 // BotsForDiscord.com API
 client.on('ready', () => {
