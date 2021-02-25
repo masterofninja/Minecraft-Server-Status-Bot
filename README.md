@@ -4,10 +4,6 @@
     <img src="https://top.gg/api/widget/802868654957789204.svg" alt="Minecraft Server Status Bot Stats"/>
 </a>
 
-<a href="https://botsfordiscord.com/bots/802868654957789204" target="_blank">
-    <img src="https://botsfordiscord.com/api/bot/802868654957789204/widget" alt="Minecraft Server Status Bot Stats"/>
-</a>
-
 ## About
 
 <img src="https://cdn.discordapp.com/attachments/771781595220017193/813814680509218906/Minecraft_Status_Bot_1.png" alt="Minecraft Server Status Bot Logo"/>
