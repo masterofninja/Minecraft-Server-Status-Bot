@@ -268,7 +268,7 @@ client.on('ready', () => {
         }).catch((err) => {
             console.error(err);
         })
-    }, 5000)
+    }, 300000)
 })
 
 // Commands Setup Begins
@@ -554,10 +554,10 @@ client.on('message', message => {
         if (!message.guild.me.hasPermission('EMBED_LINKS')) return message.channel.send('Please Give Me **EMBED_LINKS** permission in this channel .')
 
         let vote = [
-            "top.gg", "topcord.xyz", "botsfordiscord.com", "discordbotlist.com", "botlist.space", "discord.boats", ""
+            "top.gg", "topcord.xyz", "botsfordiscord.com", "discordbotlist.com", "botlist.space", "discord.boats", "discordextremelist.xyz"
         ]
         let votelink = [
-            "[Here](https://top.gg/bot/802868654957789204)", "[Here](https://topcord.xyz/bot/802868654957789204)", "[Here](https://botsfordiscord.com/bot/802868654957789204)", "[Here](https://discordbotlist.com/bots/minecraft-server-status-5845)", "[Here](https://botlist.space/bot/802868654957789204)", "[Here]()", "[Here]()"
+            "[Here](https://top.gg/bot/802868654957789204)", "[Here](https://topcord.xyz/bot/802868654957789204)", "[Here](https://botsfordiscord.com/bot/802868654957789204)", "[Here](https://discordbotlist.com/bots/minecraft-server-status-5845)", "[Here](https://botlist.space/bot/802868654957789204)", "[Here]()", "[Here](https://discordextremelist.xyz/en-US/bots/802868654957789204)"
         ]
         let embedVote = new Discord.MessageEmbed();
         embedVote.setTitle("Minecraft Server Status")
@@ -623,10 +623,10 @@ client.on('message', message => {
         if (!message.guild.me.hasPermission('EMBED_LINKS')) return message.channel.send('Please Give Me **EMBED_LINKS** permission in this channel .')
 
         let ifname = [
-            "Language", "Platform", "Library", "Packages", "Api", "Database", "Github"
+            "Language", "Platform", "Library", "Packages", "Api", "Database", "Github", "Privacy"
         ]
         let ifvalue = [
-            "**[JavaScript](https://www.javascript.com)**", "**[NodeJS](https://nodejs.org/en)**", "**[Discord.js](https://discordjs.guide)**", "**[NPM](https://www.npmjs.com)**", "**[McApi](http://mcapi.us)**", "**[Quick.db](https://quickdb.js.org)**", "**[Here](https://github.com/LOG-LEGENDX/Minecraft-Server-Status-Bot)**"
+            "**[JavaScript](https://www.javascript.com)**", "**[NodeJS](https://nodejs.org/en)**", "**[Discord.js](https://discordjs.guide)**", "**[NPM](https://www.npmjs.com)**", "**[McApi](http://mcapi.us)**", "**[Quick.db](https://quickdb.js.org)**", "**[Here](https://github.com/LOG-LEGENDX/Minecraft-Server-Status-Bot)**", "[Here](https://github.com/LOG-LEGENDX/Minecraft-Server-Status-Bot/blob/master/PRIVACY.md)"
         ]
         let embedInfo = new Discord.MessageEmbed();
         embedInfo.setTitle("Minecraft Server Status")
