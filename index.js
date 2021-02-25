@@ -253,7 +253,7 @@ client.on('ready', () => {
     `
 
     setInterval(() => {
-        fetch("https://sentcord.com/api/bot/802868654957789204", {
+        fetch("https://api.discordextremelist.xyz/v2/bot/802868654957789204/stats", {
             method: 'post',
             data: {
                 "ServerCount": `${client.guilds.cache.size}`
