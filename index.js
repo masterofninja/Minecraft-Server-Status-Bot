@@ -74,7 +74,6 @@ client.on('ready', () => {
     ______________________________
     Website: botsfordiscord.com
     Stats: Posted
-    Guilds: ${client.guilds.cache.size}
     ______________________________
     `
 
@@ -104,7 +103,6 @@ client.on('ready', () => {
     ______________________________
     Website: discord.bots.gg
     Stats: Posted
-    Guilds: ${client.guilds.cache.size}
     ______________________________
     `
 
@@ -127,6 +125,35 @@ client.on('ready', () => {
     }, 300000)
 })
 
+// Discord.Boats API
+client.on('ready', () => {
+
+    const discordboatstext = ` 
+    ______________________________
+    Website: discord.boats
+    Stats: Posted
+    ______________________________
+    `
+
+    setInterval(() => {
+        fetch("https://discord.boats/api/bot/802868654957789204", {
+            method: 'post',
+            data: {
+                "server_count": `${client.guilds.cache.size}`
+            },
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": bconfig.dbtoken
+            },
+            body: JSON.stringify({ "server_count": client.guilds.cache.size }),
+        }).then(() => {
+            console.log(discordboatstext);
+        }).catch((err) => {
+            console.error(err);
+        })
+    }, 300000)
+})
+
 // Discordbotlist.com API
 client.on('ready', () => {
 
@@ -134,7 +161,6 @@ client.on('ready', () => {
     ______________________________
     Website: discordbotlist.com
     Stats: Posted
-    Guilds: ${client.guilds.cache.size}
     ______________________________
     `
 
@@ -441,10 +467,10 @@ client.on('message', message => {
         if (!message.guild.me.hasPermission('EMBED_LINKS')) return message.channel.send('Please Give Me **EMBED_LINKS** permission in this channel .')
 
         let vote = [
-            "top.gg", "topcord.xyz", "botsfordiscord.com", "discord.bots.gg", "discordbotlist.com"
+            "top.gg", "topcord.xyz", "botsfordiscord.com", "discord.boats", "discordbotlist.com"
         ]
         let votelink = [
-            "[Here](https://top.gg/bot/802868654957789204)", "[Here](https://topcord.xyz/bot/802868654957789204)", "[Here](https://botsfordiscord.com/bot/802868654957789204)", "[Here](https://discord.bots.gg/bots/802868654957789204)", "[Here](https://discordbotlist.com/bots/minecraft-server-status-5845)"
+            "[Here](https://top.gg/bot/802868654957789204)", "[Here](https://topcord.xyz/bot/802868654957789204)", "[Here](https://botsfordiscord.com/bot/802868654957789204)", "[Here](https://discord.boats/bot/802868654957789204)", "[Here](https://discordbotlist.com/bots/minecraft-server-status-5845)"
         ]
         let embedVote = new Discord.MessageEmbed();
         embedVote.setTitle("Minecraft Server Status")
