@@ -13,10 +13,8 @@ const prefix = bconfig.prefix;
 client.on('ready', () => {
 
     const topggtext = ` 
-    ______________________________
     Website: top.gg
     Stats: Posted
-    ______________________________
     `
 
     setInterval(() => {
@@ -42,10 +40,8 @@ client.on('ready', () => {
 client.on('ready', () => {
 
     const topcordxyztext = ` 
-    ______________________________
     Website: topcord.xyz
     Stats: Posted
-    ______________________________
     `
 
     setInterval(() => {
@@ -71,10 +67,8 @@ client.on('ready', () => {
 client.on('ready', () => {
 
     const botsfordiscordcomtext = ` 
-    ______________________________
     Website: botsfordiscord.com
     Stats: Posted
-    ______________________________
     `
 
     setInterval(() => {
@@ -100,10 +94,8 @@ client.on('ready', () => {
 client.on('ready', () => {
 
     const discordbotsggtext = ` 
-    ______________________________
     Website: discord.bots.gg
     Stats: Posted
-    ______________________________
     `
 
     setInterval(() => {
@@ -126,42 +118,38 @@ client.on('ready', () => {
 })
 
 // Discord.Boats API
-// client.on('ready', () => {
+client.on('ready', () => {
 
-//     const discordboatstext = ` 
-//     ______________________________
-//     Website: discord.boats
-//     Stats: Posted
-//     ______________________________
-//     `
+    const discordboatstext = ` 
+    Website: discord.boats
+    Stats: Posted
+    `
 
-//     setInterval(() => {
-//         fetch("https://discord.boats/api/bot/802868654957789204", {
-//             method: 'post',
-//             data: {
-//                 "server_count": `${client.guilds.cache.size}`
-//             },
-//             headers: {
-//                 "Content-Type": "application/json",
-//                 "Authorization": bconfig.dbtoken
-//             },
-//             body: JSON.stringify({ "server_count": client.guilds.cache.size }),
-//         }).then(() => {
-//             console.log(discordboatstext);
-//         }).catch((err) => {
-//             console.error(err);
-//         })
-//     }, 300000)
-// })
+    setInterval(() => {
+        fetch("https://discord.boats/api/bot/802868654957789204", {
+            method: 'post',
+            data: {
+                "server_count": `${client.guilds.cache.size}`
+            },
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": bconfig.dbtoken
+            },
+            body: JSON.stringify({ "server_count": client.guilds.cache.size }),
+        }).then(() => {
+            console.log(discordboatstext);
+        }).catch((err) => {
+            console.error(err);
+        })
+    }, 300000)
+})
 
 // Discordbotlist.com API
 client.on('ready', () => {
 
     const discordbotlisttext = ` 
-    ______________________________
     Website: discordbotlist.com
     Stats: Posted
-    ______________________________
     `
 
     setInterval(() => {
@@ -188,10 +176,8 @@ client.on('ready', () => {
 client.on('ready', () => {
 
     const botlistspacetext = ` 
-    ______________________________
     Website: botlist.space
     Stats: Posted
-    ______________________________
     `
 
     setInterval(() => {
@@ -217,10 +203,8 @@ client.on('ready', () => {
 // client.on('ready', () => {
 
 //     const sentcordcomtext = ` 
-//     ______________________________
 //     Website: sentcord.com
 //     Stats: Posted
-//     ______________________________
 //     `
 
 //     setInterval(() => {
@@ -246,23 +230,21 @@ client.on('ready', () => {
 client.on('ready', () => {
 
     const discordextremelistxyztext = ` 
-    ______________________________
     Website: discordextremelist.xyz
     Stats: Posted
-    ______________________________
     `
 
     setInterval(() => {
         fetch("https://api.discordextremelist.xyz/v2/bot/802868654957789204/stats", {
             method: 'post',
             data: {
-                "ServerCount": `${client.guilds.cache.size}`
+                "guildCount": `${client.guilds.cache.size}`
             },
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": bconfig.detoken
             },
-            body: JSON.stringify({ "ServerCount": client.guilds.cache.size }),
+            body: JSON.stringify({ "guildCount": client.guilds.cache.size }),
         }).then(() => {
             console.log(discordextremelistxyztext);
         }).catch((err) => {
@@ -557,7 +539,7 @@ client.on('message', message => {
             "top.gg", "topcord.xyz", "botsfordiscord.com", "discordbotlist.com", "botlist.space", "discord.boats", "discordextremelist.xyz"
         ]
         let votelink = [
-            "[Here](https://top.gg/bot/802868654957789204)", "[Here](https://topcord.xyz/bot/802868654957789204)", "[Here](https://botsfordiscord.com/bot/802868654957789204)", "[Here](https://discordbotlist.com/bots/minecraft-server-status-5845)", "[Here](https://botlist.space/bot/802868654957789204)", "[Here]()", "[Here](https://discordextremelist.xyz/en-US/bots/802868654957789204)"
+            "[Here](https://top.gg/bot/802868654957789204)", "[Here](https://topcord.xyz/bot/802868654957789204)", "[Here](https://botsfordiscord.com/bot/802868654957789204)", "[Here](https://discordbotlist.com/bots/minecraft-server-status-5845)", "[Here](https://botlist.space/bot/802868654957789204)", "[Here](https://discord.boats/bot/802868654957789204)", "[Here](https://discordextremelist.xyz/en-US/bots/802868654957789204)"
         ]
         let embedVote = new Discord.MessageEmbed();
         embedVote.setTitle("Minecraft Server Status")
@@ -626,7 +608,7 @@ client.on('message', message => {
             "Language", "Platform", "Library", "Packages", "Api", "Database", "Github", "Privacy"
         ]
         let ifvalue = [
-            "**[JavaScript](https://www.javascript.com)**", "**[NodeJS](https://nodejs.org/en)**", "**[Discord.js](https://discordjs.guide)**", "**[NPM](https://www.npmjs.com)**", "**[McApi](http://mcapi.us)**", "**[Quick.db](https://quickdb.js.org)**", "**[Here](https://github.com/LOG-LEGENDX/Minecraft-Server-Status-Bot)**", "[Here](https://github.com/LOG-LEGENDX/Minecraft-Server-Status-Bot/blob/master/PRIVACY.md)"
+            "**[JavaScript](https://www.javascript.com)**", "**[NodeJS](https://nodejs.org/en)**", "**[Discord.js](https://discordjs.guide)**", "**[NPM](https://www.npmjs.com)**", "**[McApi](http://mcapi.us)**", "**[Quick.db](https://quickdb.js.org)**", "**[Here](https://github.com/LOG-LEGENDX/Minecraft-Server-Status-Bot)**", "**[Here](https://github.com/LOG-LEGENDX/Minecraft-Server-Status-Bot/blob/master/PRIVACY.md)**"
         ]
         let embedInfo = new Discord.MessageEmbed();
         embedInfo.setTitle("Minecraft Server Status")
