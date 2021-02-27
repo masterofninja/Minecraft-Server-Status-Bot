@@ -801,4 +801,4 @@ client.on('ready', () => {
 })
 
 // Bot Login
-client.login(bconfig.token);
+client.login(bconfig.bottoken);
