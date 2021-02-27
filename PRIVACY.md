@@ -19,3 +19,7 @@ Users Can Contact Bot Developers By `.report` command - !report (guild-invite-li
 5 - How Users Can Remove Their Data ?
 
 Users Can Remove Their Data By `.reset` command .
+
+API of Minecraft Server Status Bot -
+
+**[MCAPI](http://mcapi.us)**
