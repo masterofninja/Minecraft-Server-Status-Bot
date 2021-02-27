@@ -62,10 +62,14 @@ Use **`.report`** to report any Issue regarding Bot to Developer .
 
 <img src="https://cdn.discordapp.com/attachments/771781595220017193/814069185293713408/Report.png" alt="Report Command"/>
 
-# Add Bot
+# Invite Bot
 
 Add **[Minecraft Server Status](https://discord.com/oauth2/authorize?client_id=802868654957789204&permissions=84992&scope=bot)** Bot to your server and enjoy all of these commands in your server .
 
-# Support
+# Privacy-Policy
 
-**[Discord]()**
+Click **[Here](https://github.com/LOG-LEGENDX/Minecraft-Server-Status-Bot/blob/master/PRIVACY.md)** To View Bot Privacy-Policy .
+
+# Developer Contact
+
+**[Discord](https://discord.gg/EtCsyts)**
