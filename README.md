@@ -10,9 +10,11 @@
 
 # Stats
 
-<a href="https://top.gg/bot/802868654957789204" target="_blank">
-    <img src="https://top.gg/api/widget/802868654957789204.svg" align="center" alt="Minecraft Server Status Bot Stats"/>
-</a>
+<div align="center">
+    <a href="https://top.gg/bot/802868654957789204" target="_blank">
+        <img src="https://top.gg/api/widget/802868654957789204.svg" alt="Minecraft Server Status Bot Stats"/>
+    </a>
+</div>
 
 ## Usage
 
