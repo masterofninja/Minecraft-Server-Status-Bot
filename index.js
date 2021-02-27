@@ -384,7 +384,7 @@ client.on('message', message => {
                     },
                     {
                         "name": "Version",
-                        "value": body.server.name
+                        "value": body.server.name + " - v" + body.server.protocol
                     }
                 ]
             )
