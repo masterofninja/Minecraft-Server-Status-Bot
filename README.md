@@ -1,15 +1,14 @@
 # Minecraft Server Status Discord Bot
 
-<a href="https://top.gg/bot/802868654957789204" target="_blank" align="center">
-    <img src="https://top.gg/api/widget/802868654957789204.svg" alt="Minecraft Server Status Bot Stats"/>
-</a>
-
-## About
-
-<img src="https://cdn.discordapp.com/attachments/771781595220017193/813814680509218906/Minecraft_Status_Bot_1.png" alt="Minecraft Server Status Bot Logo"/>
-
+<img src="https://cdn.discordapp.com/attachments/771781595220017193/813814680509218906/Minecraft_Status_Bot_1.png" align="center" alt="Minecraft Server Status Bot Logo"/>
 
 Minecraft Server Status Bot is a Discord Bot Which Gives You Status Of Your Minecraft Server .
+
+# Stats
+
+<a href="https://top.gg/bot/802868654957789204" target="_blank">
+    <img src="https://top.gg/api/widget/802868654957789204.svg" alt="Minecraft Server Status Bot Stats"/>
+</a>
 
 ## Usage
 
