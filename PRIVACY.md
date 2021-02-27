@@ -1,8 +1,8 @@
 # Minecraft Server Status Discord Bot Privacy Policy
 
-Thank you for supporting **`Minecraft Server Status Bot`** . If you have any questions about privacy with your personal information , please contact us at discord server - **[Here](https://discord.gg/EtCsyts)** .
+Thank You For Supporting **`Minecraft Server Status Bot`** . If You Have Any Questions About Privacy With Your Personal Information , Please Ccontact Us At Our Discord Server - **[Here](https://discord.gg/EtCsyts)** .
 
-Please read this privacy policy because it will help you to get that what we do with your collected information .
+Please Read This Privacy Policy Because It Will Help You To Get Tthat What We Do With Your Collected Iinformation .
 
 Q - What Data We Collect From Users ?
 
