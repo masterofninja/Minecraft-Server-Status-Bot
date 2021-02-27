@@ -18,21 +18,14 @@
 
 # Usage
 
-<p align="center">
-    Use **`.help`** to get all Bot Commands .
-</p>
+Use **`.help`** to get all Bot Commands .
 
-<p>
-    <img src="https://cdn.discordapp.com/attachments/771781595220017193/814067904261521418/Help.png" alt="Help Command"/>
-</p>
+<img src="https://cdn.discordapp.com/attachments/771781595220017193/814067904261521418/Help.png" alt="Help Command"/>
 
-<p>
-    Use **`.setup`** to setup Ip and Port of your server .
-</p>
+Use **`.setup`** to setup Ip and Port of your server .
 
-<p>
-    <img src="https://cdn.discordapp.com/attachments/771781595220017193/813824297919447140/Screenshot_2021-02-23_225624.png" alt="Setup Command"/>
-</p>
+<img src="https://cdn.discordapp.com/attachments/771781595220017193/813824297919447140/Screenshot_2021-02-23_225624.png" alt="Setup Command"/>
+
 Use **`.reset`** to reset Ip and Port of your server .
 
 <img src="https://cdn.discordapp.com/attachments/771781595220017193/813824270425784361/Screenshot_2021-02-23_225615.png" alt="Reset Command"/>
