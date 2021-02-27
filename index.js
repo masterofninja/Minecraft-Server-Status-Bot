@@ -12,11 +12,6 @@ const prefix = bconfig.prefix;
 // Top.gg API
 client.on('ready', () => {
 
-    const topggtext = ` 
-    Website: top.gg
-    Stats: Posted
-    `
-
     setInterval(() => {
         fetch("https://top.gg/api/bots/802868654957789204/stats", {
             method: 'post',
@@ -29,7 +24,7 @@ client.on('ready', () => {
             },
             body: JSON.stringify({ "server_count": client.guilds.cache.size }),
         }).then(() => {
-            console.log(topggtext);
+            console.log("Updating Stats to top.gg");
         }).catch((err) => {
             console.error(err);
         })
@@ -38,11 +33,6 @@ client.on('ready', () => {
 
 // Topcord.xyz API
 client.on('ready', () => {
-
-    const topcordxyztext = ` 
-    Website: topcord.xyz
-    Stats: Posted
-    `
 
     setInterval(() => {
         fetch("https://api.topcord.xyz/bot/802868654957789204/stats", {
@@ -56,7 +46,7 @@ client.on('ready', () => {
             },
             body: JSON.stringify({ "guilds": client.guilds.cache.size }),
         }).then(() => {
-            console.log(topcordxyztext);
+            console.log("Updating Stats to topcord.xyz");
         }).catch((err) => {
             console.error(err);
         })
@@ -65,11 +55,6 @@ client.on('ready', () => {
 
 // BotsForDiscord.com API
 client.on('ready', () => {
-
-    const botsfordiscordcomtext = ` 
-    Website: botsfordiscord.com
-    Stats: Posted
-    `
 
     setInterval(() => {
         fetch("https://botsfordiscord.com/api/bot/802868654957789204", {
@@ -83,7 +68,7 @@ client.on('ready', () => {
             },
             body: JSON.stringify({ "server_count": client.guilds.cache.size }),
         }).then(() => {
-            console.log(botsfordiscordcomtext);
+            console.log("Updating Stats to botsfordiscord.com");
         }).catch((err) => {
             console.error(err);
         })
@@ -92,11 +77,6 @@ client.on('ready', () => {
 
 // Discord.Bots.gg API
 client.on('ready', () => {
-
-    const discordbotsggtext = ` 
-    Website: discord.bots.gg
-    Stats: Posted
-    `
 
     setInterval(() => {
         fetch("https://discord.bots.gg/api/v1/bots/802868654957789204/stats", {
@@ -110,7 +90,7 @@ client.on('ready', () => {
             },
             body: JSON.stringify({ "guildCount": client.guilds.cache.size }),
         }).then(() => {
-            console.log(discordbotsggtext);
+            console.log("Updating Stats to discord.bots.gg");
         }).catch((err) => {
             console.error(err);
         })
@@ -119,11 +99,6 @@ client.on('ready', () => {
 
 // Discord.Boats API
 client.on('ready', () => {
-
-    const discordboatstext = ` 
-    Website: discord.boats
-    Stats: Posted
-    `
 
     setInterval(() => {
         fetch("https://discord.boats/api/bot/802868654957789204", {
@@ -137,7 +112,7 @@ client.on('ready', () => {
             },
             body: JSON.stringify({ "server_count": client.guilds.cache.size }),
         }).then(() => {
-            console.log(discordboatstext);
+            console.log("Updating Stats to discord.boats");
         }).catch((err) => {
             console.error(err);
         })
@@ -146,11 +121,6 @@ client.on('ready', () => {
 
 // Discordbotlist.com API
 client.on('ready', () => {
-
-    const discordbotlisttext = ` 
-    Website: discordbotlist.com
-    Stats: Posted
-    `
 
     setInterval(() => {
         fetch("https://discordbotlist.com/api/v1/bots/802868654957789204/stats", {
@@ -165,7 +135,7 @@ client.on('ready', () => {
             },
             body: JSON.stringify({ "guilds": client.guilds.cache.size, "users": client.guilds.cache.reduce((total, guild) => total + guild.memberCount, 0) }),
         }).then(() => {
-            console.log(discordbotlisttext);
+            console.log("Updating Stats to discordbotlist.com");
         }).catch((err) => {
             console.error(err);
         })
@@ -174,11 +144,6 @@ client.on('ready', () => {
 
 // Botlist.space API
 client.on('ready', () => {
-
-    const botlistspacetext = ` 
-    Website: botlist.space
-    Stats: Posted
-    `
 
     setInterval(() => {
         fetch("https://api.botlist.space/v1/bots/802868654957789204", {
@@ -192,7 +157,7 @@ client.on('ready', () => {
             },
             body: JSON.stringify({ "server_count": client.guilds.cache.size }),
         }).then(() => {
-            console.log(botlistspacetext);
+            console.log("Updating Stats to botlist.space");
         }).catch((err) => {
             console.error(err);
         })
@@ -201,11 +166,6 @@ client.on('ready', () => {
 
 // Sentcord.com API
 // client.on('ready', () => {
-
-//     const sentcordcomtext = ` 
-//     Website: sentcord.com
-//     Stats: Posted
-//     `
 
 //     setInterval(() => {
 //         fetch("https://sentcord.com/api/bot/802868654957789204", {
@@ -219,7 +179,7 @@ client.on('ready', () => {
 //             },
 //             body: JSON.stringify({ "ServerCount": client.guilds.cache.size }),
 //         }).then(() => {
-//             console.log(sentcordcomtext);
+//             console.log("Updating Stats to sentcord.com");
 //         }).catch((err) => {
 //             console.error(err);
 //         })
@@ -228,11 +188,6 @@ client.on('ready', () => {
 
 // Discordextremelist.xyz API
 client.on('ready', () => {
-
-    const discordextremelistxyztext = ` 
-    Website: discordextremelist.xyz
-    Stats: Posted
-    `
 
     setInterval(() => {
         fetch("https://api.discordextremelist.xyz/v2/bot/802868654957789204/stats", {
@@ -246,7 +201,7 @@ client.on('ready', () => {
             },
             body: JSON.stringify({ "guildCount": client.guilds.cache.size }),
         }).then(() => {
-            console.log(discordextremelistxyztext);
+            console.log("Updating Stats to discordextremelist.xyz");
         }).catch((err) => {
             console.error(err);
         })
