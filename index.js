@@ -164,28 +164,6 @@ client.on('ready', () => {
     }, 300000)
 })
 
-// Sentcord.com API
-// client.on('ready', () => {
-
-//     setInterval(() => {
-//         fetch("https://sentcord.com/api/bot/802868654957789204", {
-//             method: 'post',
-//             data: {
-//                 "ServerCount": `${client.guilds.cache.size}`
-//             },
-//             headers: {
-//                 "Content-Type": "application/json",
-//                 "Authorization": bconfig.sctoken
-//             },
-//             body: JSON.stringify({ "ServerCount": client.guilds.cache.size }),
-//         }).then(() => {
-//             console.log("Updating Stats to sentcord.com");
-//         }).catch((err) => {
-//             console.error(err);
-//         })
-//     }, 5000)
-// })
-
 // Discordextremelist.xyz API
 client.on('ready', () => {
 
