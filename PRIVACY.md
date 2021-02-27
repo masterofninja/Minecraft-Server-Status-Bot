@@ -4,13 +4,9 @@ Thank You For Supporting **`Minecraft Server Status Bot`** . If You Have Any Que
 
 Please Read This Privacy Policy Because It Will Help You To Get Tthat What We Do With Your Collected Iinformation .
 
-1 - What Data We Collect From Users ?
+1 - **What Information Do We Collect From Users** - `Guild ID`
 
-We Collect Guild's ID's so that every guild IP and PORT are seprated with their guild's id's .
-
-2 - Why Do We Need This Data ?
-
-We Need This Data So That Bot Get Correct IP and PORT of every guild and display their server status .
+2 - **Why Do We Need This Information** - `We Need This Information So That Every Guild IP And PORT Remain Seprated With Their Guild ID , This Also Help Minecraft Server Status Bot To Get Correct IP and PORT Of Every Guild And Display Their Minecraft Server Status` .
 
 3 - How Do We Use This Data ?
 
