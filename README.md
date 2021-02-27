@@ -62,4 +62,10 @@ Use **`.report`** to report any Issue regarding Bot to Developer .
 
 <img src="https://cdn.discordapp.com/attachments/771781595220017193/814069185293713408/Report.png" alt="Report Command"/>
 
+# Add Bot
+
 Add **[Minecraft Server Status](https://discord.com/oauth2/authorize?client_id=802868654957789204&permissions=84992&scope=bot)** Bot to your server and enjoy all of these commands in your server .
+
+# Support
+
+**[Discord]()**
