@@ -23,9 +23,9 @@ client.on('ready', () => {
 
     setInterval(() => {
 
-        const statuses = [
+        let statuses = [
             `${prefix}help | ${prefix}setup`,
-            `${client.guilds.cache.size} Minecraft Servers`
+            `${client.guilds.cache.reduce((total, guild) => total + guild.memberCount, 0)} Users on ${client.guilds.cache.size} Servers`
         ]
 
         let status = statuses[Math.floor(Math.random() * statuses.length)]
