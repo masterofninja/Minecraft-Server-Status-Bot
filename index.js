@@ -1,4 +1,4 @@
-// Required Modules
+// Bot Required Modules
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const predb = require('quick.db')
@@ -9,9 +9,32 @@ let request = require('request');
 // Bot Prefix
 const prefix = bconfig.prefix;
 
-// Top.gg API
+// Bot Activity , Login Text and Website Post Stats API's
 client.on('ready', () => {
 
+    const ontext = ` 
+    ______________________________
+    Logged in as: ${client.user.tag}
+    Servers: ${client.guilds.cache.size}
+    Users: ${client.guilds.cache.reduce((total, guild) => total + guild.memberCount, 0)}
+    ______________________________
+    `
+    console.log(ontext);
+
+    setInterval(() => {
+
+        const statuses = [
+            `${prefix}help | ${prefix}setup`,
+            `${client.guilds.cache.size} Minecraft Servers`
+        ]
+
+        let status = statuses[Math.floor(Math.random() * statuses.length)]
+
+        client.user.setActivity(status, { type: "WATCHING" })
+
+    }, 5000)
+
+    // Top.gg API
     setInterval(() => {
         fetch("https://top.gg/api/bots/802868654957789204/stats", {
             method: 'post',
@@ -29,11 +52,8 @@ client.on('ready', () => {
             console.error(err);
         })
     }, 300000)
-})
 
-// Topcord.xyz API
-client.on('ready', () => {
-
+    // Topcord.xyz API
     setInterval(() => {
         fetch("https://api.topcord.xyz/bot/802868654957789204/stats", {
             method: 'post',
@@ -51,11 +71,8 @@ client.on('ready', () => {
             console.error(err);
         })
     }, 300000)
-})
 
-// BotsForDiscord.com API
-client.on('ready', () => {
-
+    // BotsForDiscord.com API
     setInterval(() => {
         fetch("https://botsfordiscord.com/api/bot/802868654957789204", {
             method: 'post',
@@ -73,11 +90,8 @@ client.on('ready', () => {
             console.error(err);
         })
     }, 300000)
-})
 
-// Discord.Bots.gg API
-client.on('ready', () => {
-
+    // Discord.Bots.gg API
     setInterval(() => {
         fetch("https://discord.bots.gg/api/v1/bots/802868654957789204/stats", {
             method: 'post',
@@ -95,11 +109,8 @@ client.on('ready', () => {
             console.error(err);
         })
     }, 300000)
-})
 
-// Discord.Boats API
-client.on('ready', () => {
-
+    // Discord.Boats API
     setInterval(() => {
         fetch("https://discord.boats/api/bot/802868654957789204", {
             method: 'post',
@@ -117,11 +128,8 @@ client.on('ready', () => {
             console.error(err);
         })
     }, 300000)
-})
 
-// Discordbotlist.com API
-client.on('ready', () => {
-
+    // Discordbotlist.com API
     setInterval(() => {
         fetch("https://discordbotlist.com/api/v1/bots/802868654957789204/stats", {
             method: 'post',
@@ -140,11 +148,8 @@ client.on('ready', () => {
             console.error(err);
         })
     }, 300000)
-})
 
-// Botlist.space API
-client.on('ready', () => {
-
+    // Botlist.space API
     setInterval(() => {
         fetch("https://api.botlist.space/v1/bots/802868654957789204", {
             method: 'post',
@@ -162,11 +167,8 @@ client.on('ready', () => {
             console.error(err);
         })
     }, 300000)
-})
 
-// Discordextremelist.xyz API
-client.on('ready', () => {
-
+    // Discordextremelist.xyz API
     setInterval(() => {
         fetch("https://api.discordextremelist.xyz/v2/bot/802868654957789204/stats", {
             method: 'post',
@@ -184,9 +186,10 @@ client.on('ready', () => {
             console.error(err);
         })
     }, 300000)
+
 })
 
-// Commands Setup Begins
+// Bot Commands Setup Begins
 client.on('message', message => {
 
     // Required Credentials
@@ -713,36 +716,6 @@ client.on('message', message => {
         message.channel.send(embedHelp);
     }
 });
-
-// Bot Activity and Status
-client.on('ready', () => {
-
-    setInterval(() => {
-
-        let statuses = [
-            `${prefix}help | ${prefix}setup`,
-            `${client.guilds.cache.size} Minecraft Servers`
-        ]
-
-        let status = statuses[Math.floor(Math.random * statuses.length)]
-
-        client.user.setActivity(status, { type: "WATCHING" })
-
-    }, 5000)
-});
-
-// Bot Starting Console Logs
-client.on('ready', () => {
-
-    const ontext = ` 
-  ______________________________
-  Logged in as: ${client.user.tag}
-  Servers: ${client.guilds.cache.size}
-  Users: ${client.guilds.cache.reduce((total, guild) => total + guild.memberCount, 0)}
-  ______________________________
-  `
-    console.log(ontext);
-})
 
 // Bot Login
 client.login(bconfig.bottoken);
