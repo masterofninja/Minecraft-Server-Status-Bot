@@ -48,7 +48,7 @@ Use **`.stats`** to know about Bot Stats .
 
 Use **`.info`** to know about bot Language , Library and many more .
 
-<img src="" alt="Info Command"/>
+<img src="https://cdn.discordapp.com/attachments/771781595220017193/815551397583388732/Info.png" alt="Info Command"/>
 
 Use **`.uptime`** to know about Bot Uptime .
 
