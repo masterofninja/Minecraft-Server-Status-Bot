@@ -332,10 +332,10 @@ client.on('message', message => {
             if (err) {
                 console.log(err)
                 let issues = [
-                    "Query-Port on SERVER.PROPERTIES"
+                    "Query-Port on SERVER.PROPERTIES" , "IP/PORT"
                 ]
                 let fixes = [
-                    "Must Be Set To TRUE"
+                    "Must Be Set To TRUE" , "Invalid"
                 ]
                 let embedError = new Discord.MessageEmbed();
                 embedError.setTitle("Minecraft Server Status")
