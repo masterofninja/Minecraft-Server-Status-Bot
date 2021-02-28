@@ -717,8 +717,6 @@ client.on('message', message => {
 // Bot Activity and Status
 client.on('ready', () => {
 
-    client.user.setStatus('online')
-
     setInterval(() => {
 
         let statuses = [
