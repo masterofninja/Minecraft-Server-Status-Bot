@@ -48,7 +48,7 @@ Use **`.stats`** to know about Bot Stats .
 
 Use **`.info`** to know about bot Language , Library and many more .
 
-<img src="https://cdn.discordapp.com/attachments/771781595220017193/813824244147552296/Screenshot_2021-02-23_225607.png" alt="Info Command"/>
+<img src="https://cdn.discordapp.com/attachments/771781595220017193/815551397583388732/Info.png" alt="Info Command"/>
 
 Use **`.uptime`** to know about Bot Uptime .
 
@@ -56,7 +56,7 @@ Use **`.uptime`** to know about Bot Uptime .
 
 Use **`.vote`** to vote for Bot .
 
-<img src="https://cdn.discordapp.com/attachments/771781595220017193/814069181934206986/Vote.png" alt="Vote Command"/>
+<img src="https://cdn.discordapp.com/attachments/771781595220017193/815551404525355008/Vote.png" alt="Vote Command"/>
 
 Use **`.report`** to report any Issue regarding Bot to Developer .
 
