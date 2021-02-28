@@ -332,10 +332,10 @@ client.on('message', message => {
             if (err) {
                 console.log(err)
                 let issues = [
-                    "Query-Port on SERVER.PROPERTIES" , "IP/PORT"
+                    "Query-Port on SERVER.PROPERTIES", "IP/PORT"
                 ]
                 let fixes = [
-                    "Must Be Set To TRUE" , "Invalid"
+                    "Must Be Set To TRUE", "Invalid"
                 ]
                 let embedError = new Discord.MessageEmbed();
                 embedError.setTitle("Minecraft Server Status")
@@ -714,10 +714,23 @@ client.on('message', message => {
     }
 });
 
-// Bot Activity
+// Bot Activity and Status
 client.on('ready', () => {
-    let status = `${prefix}help | ${prefix}setup`
-    client.user.setActivity(status, { type: "WATCHING" })
+
+    client.user.setStatus('online')
+
+    setInterval(() => {
+
+        let statuses = [
+            `${prefix}help | ${prefix}setup`,
+            `${client.guilds.cache.size} Minecraft Servers`
+        ]
+
+        let status = statuses[Math.floor(Math.random * statuses.length)]
+
+        client.user.setActivity(status, { type: "WATCHING" })
+
+    }, 5000)
 });
 
 // Bot Starting Console Logs
