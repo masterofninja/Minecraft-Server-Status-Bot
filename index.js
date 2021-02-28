@@ -23,9 +23,14 @@ client.on('ready', () => {
 
     setInterval(() => {
 
+        let a = `${client.guilds.cache.reduce((total, guild) => total + guild.memberCount, 0)}`
+        let b = 1000
+    
+        let c = Math.round(a/b)
+
         let statuses = [
             `${prefix}help | ${prefix}setup`,
-            `${client.guilds.cache.reduce((total, guild) => total + guild.memberCount, 0)} Users on ${client.guilds.cache.size} Servers`
+            `${c}k Users on ${client.guilds.cache.size} Servers`
         ]
 
         let status = statuses[Math.floor(Math.random() * statuses.length)]
