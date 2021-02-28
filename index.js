@@ -187,6 +187,22 @@ client.on('ready', () => {
         })
     }, 300000)
 
+    // Sentcord.com API
+    setInterval(() => {
+        fetch("https://sentcord.com/api/bot/802868654957789204", {
+            method: 'post',
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": bconfig.sctoken
+            },
+            body: JSON.stringify({ "serverCount": client.guilds.cache.size }),
+        }).then(() => {
+            console.log("Updating Stats to sentcord.com");
+        }).catch((err) => {
+            console.error(err);
+        })
+    }, 300000)
+
 })
 
 // Bot Commands Setup Begins
