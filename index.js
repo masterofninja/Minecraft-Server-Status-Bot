@@ -248,15 +248,7 @@ client.on('message', message => {
         embedipnum.setFooter(`${message.author.tag}`, message.author.displayAvatarURL())
         embedipnum.setTimestamp()
 
-        if (isNaN(args[1])) return message.channel.send(embedipnum)
-
-        let embedportnum = new Discord.MessageEmbed()
-        embedportnum.setDescription(`Make Sure That The **PORT** you are entering is numeric`)
-        embedportnum.setColor('RED')
-        embedportnum.setFooter(`${message.author.tag}`, message.author.displayAvatarURL())
-        embedportnum.setTimestamp()
-
-        if (isNaN(args[2])) return message.channel.send(embedportnum)
+        if (!isNaN(args[1])) return message.channel.send(embedipnum)
 
         let embedportlength = new Discord.MessageEmbed()
         embedportlength.setDescription(`Make Sure That The **PORT** you are entering is not more than 5 numbers`)

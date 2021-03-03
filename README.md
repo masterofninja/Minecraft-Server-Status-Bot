@@ -20,47 +20,47 @@
 
 Use **`.help`** to get all Bot Commands .
 
-<img src="https://cdn.discordapp.com/attachments/771781595220017193/814067904261521418/Help.png" alt="Help Command"/>
+<img src="https://cdn.discordapp.com/attachments/771781595220017193/816629926714540047/Help.png" alt="Help Command"/>
 
 Use **`.setup`** to setup Ip and Port of your server .
 
-<img src="https://cdn.discordapp.com/attachments/771781595220017193/813824297919447140/Screenshot_2021-02-23_225624.png" alt="Setup Command"/>
+<img src="https://cdn.discordapp.com/attachments/771781595220017193/816634953341075526/Setup.png" alt="Setup Command"/>
 
 Use **`.reset`** to reset Ip and Port of your server .
 
-<img src="https://cdn.discordapp.com/attachments/771781595220017193/813824270425784361/Screenshot_2021-02-23_225615.png" alt="Reset Command"/>
+<img src="https://cdn.discordapp.com/attachments/771781595220017193/816629938236686356/Reset.png" alt="Reset Command"/>
 
 Use **`.status`** to know Status of your minecraft server after setup has been done .
 
-<img src="https://media.discordapp.net/attachments/702042187436785706/813809055260082196/iZp6LHM_-_Imgur.png" alt="Status Command"/>
+<img src="https://cdn.discordapp.com/attachments/771781595220017193/816631194041057320/Status.png" alt="Status Command"/>
 
 Use **`.ip`** to know that server Ip and Port if setuped .
 
-<img src="https://cdn.discordapp.com/attachments/771781595220017193/814069185029472276/Ip.png" alt="Ip and Port Command"/>
+<img src="https://cdn.discordapp.com/attachments/771781595220017193/816634952745091112/Ip.png" alt="Ip and Port Command"/>
 
 Use **`.invite`** to Invite bot to your server .
 
-<img src="https://cdn.discordapp.com/attachments/771781595220017193/814069186505736203/Invite.png" alt="Invite Command"/>
+<img src="https://cdn.discordapp.com/attachments/771781595220017193/816629929047228426/Invite.png" alt="Invite Command"/>
 
 Use **`.stats`** to know about Bot Stats .
 
-<img src="https://cdn.discordapp.com/attachments/771781595220017193/814069187281944586/Stats.png" alt="Stats Command"/>
+<img src="https://cdn.discordapp.com/attachments/771781595220017193/816629940023459870/Stats.png" alt="Stats Command"/>
 
 Use **`.info`** to know about bot Language , Library and many more .
 
-<img src="https://cdn.discordapp.com/attachments/771781595220017193/815551397583388732/Info.png" alt="Info Command"/>
+<img src="https://cdn.discordapp.com/attachments/771781595220017193/816629926878248990/Info.png" alt="Info Command"/>
 
 Use **`.uptime`** to know about Bot Uptime .
 
-<img src="https://cdn.discordapp.com/attachments/771781595220017193/814069188255285248/Uptime.png" alt="Uptime Command"/>
+<img src="https://cdn.discordapp.com/attachments/771781595220017193/816629941990195200/Uptime.png" alt="Uptime Command"/>
 
 Use **`.vote`** to vote for Bot .
 
-<img src="https://cdn.discordapp.com/attachments/771781595220017193/815551404525355008/Vote.png" alt="Vote Command"/>
+<img src="https://cdn.discordapp.com/attachments/771781595220017193/816629944067162122/Vote.png" alt="Vote Command"/>
 
 Use **`.report`** to report any Issue regarding Bot to Developer .
 
-<img src="https://cdn.discordapp.com/attachments/771781595220017193/814069185293713408/Report.png" alt="Report Command"/>
+<img src="https://cdn.discordapp.com/attachments/771781595220017193/816629936038871040/Report.png" alt="Report Command"/>
 
 # Invite Bot
 
