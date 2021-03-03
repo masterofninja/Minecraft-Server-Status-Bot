@@ -7,7 +7,7 @@ const bconfig = require("./config.json");
 let request = require('request');
 
 // Bot Prefix
-const prefix = bconfig.botprefix;
+const prefix = bconfig.prefix;
 
 // Bot Activity , Login Text and Website Post Stats API's
 client.on('ready', () => {
@@ -422,7 +422,7 @@ client.on('message', message => {
         if (!message.guild.id === predb.has(`guild_${message.guild.id}_ip`)) return message.channel.send(embedstatuserr)
         if (!message.guild.id === predb.has(`guild_${message.guild.id}_port`)) return message.channel.send(embedstatuserr)
 
-        let url = 'http://mcapi.us/server/status?ip=' + mcIP + '&port=' + mcPort;
+        let url = 'http://mcapi.us/server/status?ip='+mcIP+'&port='+mcPort;
         request(url, function (err, _response, body) {
             if (err) {
                 console.log(err)
