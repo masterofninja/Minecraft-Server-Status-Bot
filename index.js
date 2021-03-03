@@ -7,7 +7,7 @@ const bconfig = require("./config.json");
 let request = require('request');
 
 // Bot Prefix
-const prefix = bconfig.prefix;
+const prefix = bconfig.botprefix;
 
 // Bot Activity , Login Text and Website Post Stats API's
 client.on('ready', () => {
@@ -25,8 +25,8 @@ client.on('ready', () => {
 
         let a = `${client.guilds.cache.reduce((total, guild) => total + guild.memberCount, 0)}`
         let b = 1000
-        
-        let c = Math.round(a/b)
+
+        let c = Math.round(a / b)
 
         let statuses = [
             `${prefix}help | ${prefix}setup`,
@@ -52,7 +52,13 @@ client.on('ready', () => {
             },
             body: JSON.stringify({ "server_count": client.guilds.cache.size }),
         }).then(() => {
-            console.log("Updating Stats to top.gg");
+            let webembed = new Discord.MessageEmbed()
+            webembed.setTitle("Top.gg")
+            webembed.setURL("https://top.gg/bot/802868654957789204")
+            webembed.setDescription("Bot Stats - Updated")
+            webembed.setColor('GREEN')
+            webembed.setTimestamp()
+            client.channels.cache.get("807298871486709803").send(webembed)
         }).catch((err) => {
             console.error(err);
         })
@@ -71,7 +77,13 @@ client.on('ready', () => {
             },
             body: JSON.stringify({ "guilds": client.guilds.cache.size }),
         }).then(() => {
-            console.log("Updating Stats to topcord.xyz");
+            let webembed = new Discord.MessageEmbed()
+            webembed.setTitle("Topcord.xyz")
+            webembed.setURL("https://topcord.xyz/bot/802868654957789204")
+            webembed.setDescription("Bot Stats - Updated")
+            webembed.setColor('GREEN')
+            webembed.setTimestamp()
+            client.channels.cache.get("807298871486709803").send(webembed)
         }).catch((err) => {
             console.error(err);
         })
@@ -90,7 +102,13 @@ client.on('ready', () => {
             },
             body: JSON.stringify({ "server_count": client.guilds.cache.size }),
         }).then(() => {
-            console.log("Updating Stats to botsfordiscord.com");
+            let webembed = new Discord.MessageEmbed()
+            webembed.setTitle("Botsfordiscord.com")
+            webembed.setURL("https://botsfordiscord.com/bot/802868654957789204")
+            webembed.setDescription("Bot Stats - Updated")
+            webembed.setColor('GREEN')
+            webembed.setTimestamp()
+            client.channels.cache.get("807298871486709803").send(webembed)
         }).catch((err) => {
             console.error(err);
         })
@@ -109,7 +127,13 @@ client.on('ready', () => {
             },
             body: JSON.stringify({ "guildCount": client.guilds.cache.size }),
         }).then(() => {
-            console.log("Updating Stats to discord.bots.gg");
+            let webembed = new Discord.MessageEmbed()
+            webembed.setTitle("Discord.bots.gg")
+            webembed.setURL("https://discord.bots.gg/bots/802868654957789204")
+            webembed.setDescription("Bot Stats - Updated")
+            webembed.setColor('GREEN')
+            webembed.setTimestamp()
+            client.channels.cache.get("807298871486709803").send(webembed)
         }).catch((err) => {
             console.error(err);
         })
@@ -128,7 +152,13 @@ client.on('ready', () => {
             },
             body: JSON.stringify({ "server_count": client.guilds.cache.size }),
         }).then(() => {
-            console.log("Updating Stats to discord.boats");
+            let webembed = new Discord.MessageEmbed()
+            webembed.setTitle("Discord.boats")
+            webembed.setURL("https://discord.boats/bot/802868654957789204")
+            webembed.setDescription("Bot Stats - Updated")
+            webembed.setColor('GREEN')
+            webembed.setTimestamp()
+            client.channels.cache.get("807298871486709803").send(webembed)
         }).catch((err) => {
             console.error(err);
         })
@@ -148,7 +178,13 @@ client.on('ready', () => {
             },
             body: JSON.stringify({ "guilds": client.guilds.cache.size, "users": client.guilds.cache.reduce((total, guild) => total + guild.memberCount, 0) }),
         }).then(() => {
-            console.log("Updating Stats to discordbotlist.com");
+            let webembed = new Discord.MessageEmbed()
+            webembed.setTitle("Discordbotlist.com")
+            webembed.setURL("https://discordbotlist.com/bots/minecraft-server-status-5845")
+            webembed.setDescription("Bot Stats - Updated")
+            webembed.setColor('GREEN')
+            webembed.setTimestamp()
+            client.channels.cache.get("807298871486709803").send(webembed)
         }).catch((err) => {
             console.error(err);
         })
@@ -167,7 +203,13 @@ client.on('ready', () => {
             },
             body: JSON.stringify({ "server_count": client.guilds.cache.size }),
         }).then(() => {
-            console.log("Updating Stats to botlist.space");
+            let webembed = new Discord.MessageEmbed()
+            webembed.setTitle("Botlist.space")
+            webembed.setURL("https://botlist.space/bot/802868654957789204")
+            webembed.setDescription("Bot Stats - Updated")
+            webembed.setColor('GREEN')
+            webembed.setTimestamp()
+            client.channels.cache.get("807298871486709803").send(webembed)
         }).catch((err) => {
             console.error(err);
         })
@@ -186,7 +228,13 @@ client.on('ready', () => {
             },
             body: JSON.stringify({ "guildCount": client.guilds.cache.size }),
         }).then(() => {
-            console.log("Updating Stats to discordextremelist.xyz");
+            let webembed = new Discord.MessageEmbed()
+            webembed.setTitle("Discordextremelist.xyz")
+            webembed.setURL("https://discordextremelist.xyz/en-US/bots/802868654957789204")
+            webembed.setDescription("Bot Stats - Updated")
+            webembed.setColor('GREEN')
+            webembed.setTimestamp()
+            client.channels.cache.get("807298871486709803").send(webembed)
         }).catch((err) => {
             console.error(err);
         })
@@ -202,7 +250,13 @@ client.on('ready', () => {
             },
             body: JSON.stringify({ "serverCount": client.guilds.cache.size }),
         }).then(() => {
-            console.log("Updating Stats to sentcord.com");
+            let webembed = new Discord.MessageEmbed()
+            webembed.setTitle("Sentcord.com")
+            webembed.setURL("https://sentcord.com/bot/802868654957789204")
+            webembed.setDescription("Bot Stats - Updated")
+            webembed.setColor('GREEN')
+            webembed.setTimestamp()
+            client.channels.cache.get("807298871486709803").send(webembed)
         }).catch((err) => {
             console.error(err);
         })
@@ -216,7 +270,7 @@ client.on('message', message => {
     // Required Credentials
     let mcIP = predb.get(`guild_${message.guild.id}_ip`) || "Not Setup"
 
-    let botlogo = 'https://cdn.discordapp.com/attachments/715672683207196803/803324498992169099/Minecraft_Status_Bot.jpg'
+    let botlogo = 'https://cdn.discordapp.com/attachments/771781595220017193/816696687170420797/Minecraft_Server_Status.png'
 
     let mcPort = predb.get(`guild_${message.guild.id}_port`) || "Not Setup"
 
@@ -248,7 +302,15 @@ client.on('message', message => {
         embedipnum.setFooter(`${message.author.tag}`, message.author.displayAvatarURL())
         embedipnum.setTimestamp()
 
-        if (!isNaN(args[1])) return message.channel.send(embedipnum)
+        if (isNaN(parseInt(args[1]))) return message.channel.send(embedipnum)
+
+        let embedportnum = new Discord.MessageEmbed()
+        embedportnum.setDescription(`Make Sure That The **PORT** you are entering is numeric`)
+        embedportnum.setColor('RED')
+        embedportnum.setFooter(`${message.author.tag}`, message.author.displayAvatarURL())
+        embedportnum.setTimestamp()
+
+        if (isNaN(parseInt(args[2]))) return message.channel.send(embedportnum)
 
         let embedportlength = new Discord.MessageEmbed()
         embedportlength.setDescription(`Make Sure That The **PORT** you are entering is not more than 5 numbers`)
@@ -264,7 +326,7 @@ client.on('message', message => {
         embedsameip.setFooter(`${message.author.tag}`, message.author.displayAvatarURL())
         embedsameip.setTimestamp()
 
-        if (args[1] === predb.get(`guild_${message.guild.id}_ip`)) return message.channel.send(embedsameip)
+        if (args[1] === predb.has(`guild_${message.guild.id}_ip`)) return message.channel.send(embedsameip)
 
         let embedsameport = new Discord.MessageEmbed()
         embedsameport.setDescription(`This One Is Already Your PORT , For Reset Use **${prefix}reset**`)
@@ -272,7 +334,7 @@ client.on('message', message => {
         embedsameport.setFooter(`${message.author.tag}`, message.author.displayAvatarURL())
         embedsameport.setTimestamp()
 
-        if (args[2] === predb.get(`guild_${message.guild.id}_port`)) return message.channel.send(embedsameport)
+        if (args[2] === predb.has(`guild_${message.guild.id}_port`)) return message.channel.send(embedsameport)
 
         predb.set(`guild_${message.guild.id}_ip`, args[1])
         predb.set(`guild_${message.guild.id}_port`, args[2])
@@ -306,6 +368,22 @@ client.on('message', message => {
         // bot-perm
         if (!message.guild.me.hasPermission('EMBED_LINKS')) return message.channel.send('Please Give Me **EMBED_LINKS** permission in this channel .')
 
+        let embednoip = new Discord.MessageEmbed()
+        embednoip.setDescription(`No IP has been setuped , For Setup Use **${prefix}setup**`)
+        embednoip.setColor('YELLOW')
+        embednoip.setFooter(`${message.author.tag}`, message.author.displayAvatarURL())
+        embednoip.setTimestamp()
+
+        if (!message.guild.id === predb.has(`guild_${message.guild.id}_ip`)) return message.channel.send(embednoip)
+
+        let embednoport = new Discord.MessageEmbed()
+        embednoport.setDescription(`No PORT has been setuped , For Setup Use **${prefix}setup**`)
+        embednoport.setColor('YELLOW')
+        embednoport.setFooter(`${message.author.tag}`, message.author.displayAvatarURL())
+        embednoport.setTimestamp()
+
+        if (!message.guild.id === predb.has(`guild_${message.guild.id}_port`)) return message.channel.send(embednoport)
+
         predb.delete(`guild_${message.guild.id}_ip`)
         predb.delete(`guild_${message.guild.id}_port`)
 
@@ -318,7 +396,7 @@ client.on('message', message => {
             "inline": true
         },
         {
-            "name": "IP",
+            "name": "PORT",
             "value": "Successfully Reset"
         }
         ])
@@ -375,7 +453,6 @@ client.on('message', message => {
                 status = "Online";
                 color = 65280
             }
-            if (body.players.now) { } else { }
 
             let embedStatus = new Discord.MessageEmbed();
             embedStatus.setTitle("Minecraft Server Status")
