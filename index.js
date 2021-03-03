@@ -25,7 +25,7 @@ client.on('ready', () => {
 
         let a = `${client.guilds.cache.reduce((total, guild) => total + guild.memberCount, 0)}`
         let b = 1000
-    
+        
         let c = Math.round(a/b)
 
         let statuses = [
@@ -236,16 +236,32 @@ client.on('message', message => {
         let embedargs = new Discord.MessageEmbed()
         embedargs.setDescription(`Please Use **${prefix}setup** command like : **${prefix}setup serverip serverport**`)
         embedargs.setColor('RED')
-        embedargs.setFooter('Requested By' + message.author.tag)
+        embedargs.setFooter(`${message.author.tag}`, message.author.displayAvatarURL())
         embedargs.setTimestamp()
 
         if (!args[1]) return message.channel.send(embedargs)
         if (!args[2]) return message.channel.send(embedargs)
 
+        let embedipnum = new Discord.MessageEmbed()
+        embedipnum.setDescription(`Make Sure That The **IP** you are entering is numeric`)
+        embedipnum.setColor('RED')
+        embedipnum.setFooter(`${message.author.tag}`, message.author.displayAvatarURL())
+        embedipnum.setTimestamp()
+
+        if (isNaN(args[1])) return message.channel.send(embedipnum)
+
+        let embedportnum = new Discord.MessageEmbed()
+        embedportnum.setDescription(`Make Sure That The **PORT** you are entering is numeric`)
+        embedportnum.setColor('RED')
+        embedportnum.setFooter(`${message.author.tag}`, message.author.displayAvatarURL())
+        embedportnum.setTimestamp()
+
+        if (isNaN(args[2])) return message.channel.send(embedportnum)
+
         let embedportlength = new Discord.MessageEmbed()
         embedportlength.setDescription(`Make Sure That The **PORT** you are entering is not more than 5 numbers`)
         embedportlength.setColor('RED')
-        embedportlength.setFooter('Requested By' + message.author.tag)
+        embedportlength.setFooter(`${message.author.tag}`, message.author.displayAvatarURL())
         embedportlength.setTimestamp()
 
         if (args[2].length > 5) return message.channel.send(embedportlength)
@@ -253,7 +269,7 @@ client.on('message', message => {
         let embedsameip = new Discord.MessageEmbed()
         embedsameip.setDescription(`This One Is Already Your IP , For Reset Use **${prefix}reset**`)
         embedsameip.setColor('YELLOW')
-        embedsameip.setFooter('Requested By' + message.author.tag)
+        embedsameip.setFooter(`${message.author.tag}`, message.author.displayAvatarURL())
         embedsameip.setTimestamp()
 
         if (args[1] === predb.get(`guild_${message.guild.id}_ip`)) return message.channel.send(embedsameip)
@@ -261,7 +277,7 @@ client.on('message', message => {
         let embedsameport = new Discord.MessageEmbed()
         embedsameport.setDescription(`This One Is Already Your PORT , For Reset Use **${prefix}reset**`)
         embedsameport.setColor('YELLOW')
-        embedsameport.setFooter('Requested By' + message.author.tag)
+        embedsameport.setFooter(`${message.author.tag}`, message.author.displayAvatarURL())
         embedsameport.setTimestamp()
 
         if (args[2] === predb.get(`guild_${message.guild.id}_port`)) return message.channel.send(embedsameport)
@@ -269,29 +285,22 @@ client.on('message', message => {
         predb.set(`guild_${message.guild.id}_ip`, args[1])
         predb.set(`guild_${message.guild.id}_port`, args[2])
 
-        let before = [
-            "IP", "PORT"
-        ]
-        let after = [
-            `***${args[1]}***`, `***${args[2]}***`
-        ]
         let embedSetup = new Discord.MessageEmbed();
         embedSetup.setTitle("Minecraft Server Status")
         embedSetup.setDescription("Setup Panel Here :-")
         embedSetup.addFields([{
-            "name": "Server",
-            "value": before,
+            "name": "IP",
+            "value": `${args[1]}`,
             "inline": true
         },
         {
-            "name": "New",
-            "value": after,
-            "inline": true
+            "name": "PORT",
+            "value": `${args[2]}`
         }
         ])
         embedSetup.setColor("BLUE");
         embedSetup.setThumbnail(botlogo)
-        embedSetup.setFooter('Requested By' + message.author.tag);
+        embedSetup.setFooter(`${message.author.tag}`, message.author.displayAvatarURL());
         embedSetup.setTimestamp();
         return message.channel.send(embedSetup);
     }
@@ -305,13 +314,6 @@ client.on('message', message => {
         // bot-perm
         if (!message.guild.me.hasPermission('EMBED_LINKS')) return message.channel.send('Please Give Me **EMBED_LINKS** permission in this channel .')
 
-        let before = [
-            "IP", "PORT"
-        ]
-        let after = [
-            "**Successfully Reset**", "**Successfully Reset**"
-        ]
-
         predb.delete(`guild_${message.guild.id}_ip`)
         predb.delete(`guild_${message.guild.id}_port`)
 
@@ -319,19 +321,18 @@ client.on('message', message => {
         embedReset.setTitle("Minecraft Server Status")
         embedReset.setDescription("Reset Panel Here :-")
         embedReset.addFields([{
-            "name": "IP & PORT",
-            "value": before,
+            "name": "IP",
+            "value": "Successfully Reset",
             "inline": true
         },
         {
-            "name": "IP & PORT",
-            "value": after,
-            "inline": true
+            "name": "IP",
+            "value": "Successfully Reset"
         }
         ])
         embedReset.setColor("BLUE");
         embedReset.setThumbnail(botlogo)
-        embedReset.setFooter('Requested By' + message.author.tag);
+        embedReset.setFooter(`${message.author.tag}`, message.author.displayAvatarURL());
         embedReset.setTimestamp();
         message.channel.send(embedReset);
     }
@@ -345,7 +346,7 @@ client.on('message', message => {
         let embedstatuserr = new Discord.MessageEmbed()
         embedstatuserr.setDescription(`Maybe, IP and PORT Has Been Not Setuped For This Server or if you thought that bot is giving wrong reply then use **${prefix}reset** for reset and then **${prefix}setup** command for setup your server ip and port again`)
         embedstatuserr.setColor('RED')
-        embedstatuserr.setFooter('Requested By' + message.author.tag)
+        embedstatuserr.setFooter(`${message.author.tag}`, message.author.displayAvatarURL())
         embedstatuserr.setTimestamp()
 
         if (!message.guild.id === predb.has(`guild_${message.guild.id}_ip`)) return message.channel.send(embedstatuserr)
@@ -355,29 +356,22 @@ client.on('message', message => {
         request(url, function (err, _response, body) {
             if (err) {
                 console.log(err)
-                let issues = [
-                    "Query-Port on SERVER.PROPERTIES", "IP/PORT"
-                ]
-                let fixes = [
-                    "Must Be Set To TRUE", "Invalid"
-                ]
                 let embedError = new Discord.MessageEmbed();
                 embedError.setTitle("Minecraft Server Status")
                 embedError.setDescription("Possible Issues & Fixes Panel Here :-")
                 embedError.addFields([{
-                    "name": "Issues",
-                    "value": issues,
+                    "name": "Query-Port on SERVER.PROPERTIES",
+                    "value": "Must Be Set To TRUE",
                     "inline": true
                 },
                 {
-                    "name": "Fixes",
-                    "value": fixes,
-                    "inline": true
+                    "name": "IP/PORT",
+                    "value": "Invalid"
                 }
                 ])
                 embedError.setColor("BLUE");
                 embedError.setThumbnail(botlogo)
-                embedError.setFooter('Requested By' + message.author.tag);
+                embedError.setFooter(`${message.author.tag}`, message.author.displayAvatarURL());
                 embedError.setTimestamp();
                 return message.channel.send(embedError);
             }
@@ -414,7 +408,7 @@ client.on('message', message => {
             )
             embedStatus.setColor(color);
             embedStatus.setThumbnail(botlogo)
-            embedStatus.setFooter('Requested By' + message.author.tag);
+            embedStatus.setFooter(`${message.author.tag}`, message.author.displayAvatarURL());
             embedStatus.setTimestamp();
             message.channel.send(embedStatus);
         });
@@ -426,29 +420,22 @@ client.on('message', message => {
         // bot-perm
         if (!message.guild.me.hasPermission('EMBED_LINKS')) return message.channel.send('Please Give Me **EMBED_LINKS** permission in this channel .')
 
-        let ipportnotsaved = [
-            "IP", "PORT"
-        ]
-        let ipportsaved = [
-            `**${mcIP}**`, `**${mcPort}**`
-        ]
         let embedIP = new Discord.MessageEmbed();
         embedIP.setTitle("Minecraft Server Status")
         embedIP.setDescription("Your Minecraft Server IP & PORT Panel Here :-")
         embedIP.addFields([{
-            "name": "IP & PORT",
-            "value": ipportnotsaved,
+            "name": "IP",
+            "value": `**${mcIP}**`,
             "inline": true
         },
         {
-            "name": "IP & PORT",
-            "value": ipportsaved,
-            "inline": true
+            "name": "PORT",
+            "value": `${mcPort}`
         }
         ])
         embedIP.setColor("BLUE");
         embedIP.setThumbnail(botlogo)
-        embedIP.setFooter('Requested By' + message.author.tag);
+        embedIP.setFooter(`${message.author.tag}`, message.author.displayAvatarURL());
         embedIP.setTimestamp();
         message.channel.send(embedIP);
     }
@@ -459,29 +446,15 @@ client.on('message', message => {
         // bot-perm
         if (!message.guild.me.hasPermission('EMBED_LINKS')) return message.channel.send('Please Give Me **EMBED_LINKS** permission in this channel .')
 
-        let invite = [
-            "Invitation"
-        ]
-        let myinvitelink = [
-            "[Here](https://discord.com/api/oauth2/authorize?client_id=802868654957789204&permissions=84992&scope=bot)"
-        ]
+        let invlink = "[Here](https://discord.com/api/oauth2/authorize?client_id=802868654957789204&permissions=84992&scope=bot)"
+
         let embedInvite = new Discord.MessageEmbed();
         embedInvite.setTitle("Minecraft Server Status")
         embedInvite.setDescription("Invite Link Panel Here :-")
-        embedInvite.addFields([{
-            "name": "Invite",
-            "value": invite,
-            "inline": true
-        },
-        {
-            "name": "Link",
-            "value": myinvitelink,
-            "inline": true
-        }
-        ])
+        embedInvite.addField("Invite", invlink)
         embedInvite.setColor("BLUE");
         embedInvite.setThumbnail(botlogo)
-        embedInvite.setFooter('Requested By' + message.author.tag);
+        embedInvite.setFooter(`${message.author.tag}`, message.author.displayAvatarURL());
         embedInvite.setTimestamp();
         message.channel.send(embedInvite);
     }
@@ -492,29 +465,47 @@ client.on('message', message => {
         // bot-perm
         if (!message.guild.me.hasPermission('EMBED_LINKS')) return message.channel.send('Please Give Me **EMBED_LINKS** permission in this channel .')
 
-        let vote = [
-            "top.gg", "topcord.xyz", "botsfordiscord.com", "discordbotlist.com", "botlist.space", "discord.boats", "discordextremelist.xyz"
-        ]
-        let votelink = [
-            "[Here](https://top.gg/bot/802868654957789204)", "[Here](https://topcord.xyz/bot/802868654957789204)", "[Here](https://botsfordiscord.com/bot/802868654957789204)", "[Here](https://discordbotlist.com/bots/minecraft-server-status-5845)", "[Here](https://botlist.space/bot/802868654957789204)", "[Here](https://discord.boats/bot/802868654957789204)", "[Here](https://discordextremelist.xyz/en-US/bots/802868654957789204)"
-        ]
         let embedVote = new Discord.MessageEmbed();
         embedVote.setTitle("Minecraft Server Status")
         embedVote.setDescription("Voting Link Panel Here :-")
         embedVote.addFields([{
-            "name": "Voting Sites",
-            "value": vote,
+            "name": "top.gg",
+            "value": "[Here](https://top.gg/bot/802868654957789204)",
             "inline": true
         },
         {
-            "name": "Link",
-            "value": votelink,
+            "name": "topcord.xyz",
+            "value": "[Here](https://topcord.xyz/bot/802868654957789204)",
             "inline": true
+        },
+        {
+            "name": "botsfordiscord.com",
+            "value": "[Here](https://botsfordiscord.com/bot/802868654957789204)",
+            "inline": true
+        },
+        {
+            "name": "discordbotlist.com",
+            "value": "[Here](https://discordbotlist.com/bots/minecraft-server-status-5845)",
+            "inline": true
+        },
+        {
+            "name": "botlist.space",
+            "value": "[Here](https://botlist.space/bot/802868654957789204)",
+            "inline": true
+        },
+        {
+            "name": "discord.boats",
+            "value": "[Here](https://discord.boats/bot/802868654957789204)",
+            "inline": true
+        },
+        {
+            "name": "discordextremelist.xyz",
+            "value": "[Here](https://discordextremelist.xyz/en-US/bots/802868654957789204)"
         }
         ])
         embedVote.setColor("BLUE");
         embedVote.setThumbnail(botlogo)
-        embedVote.setFooter('Requested By' + message.author.tag);
+        embedVote.setFooter(`${message.author.tag}`, message.author.displayAvatarURL());
         embedVote.setTimestamp();
         message.channel.send(embedVote);
     }
@@ -528,29 +519,55 @@ client.on('message', message => {
         let botservers = client.guilds.cache.size;
         let botusers = client.guilds.cache.reduce((total, guild) => total + guild.memberCount, 0);
         let botchannels = client.channels.cache.size;
-        let statname = [
-            "Name", "Id", "Prefix", "Servers", "Users", "Channels"
-        ]
-        let statvalue = [
-            `${client.user.tag}`, `${client.user.id}`, `***${prefix}***`, `***${botservers}***`, `***${botusers}***`, `***${botchannels}***`
-        ]
+        let botping = client.ws.ping;
+        let botcreate = client.user.createdAt;
+
         let embedBotstats = new Discord.MessageEmbed();
         embedBotstats.setTitle("Minecraft Server Status")
         embedBotstats.setDescription("My Stats Panel Here :-")
         embedBotstats.addFields([{
             "name": "Name",
-            "value": statname,
+            "value": `${client.user.tag}`,
             "inline": true
         },
         {
-            "name": "Stats",
-            "value": statvalue,
+            "name": "Id",
+            "value": `${client.user.id}`,
             "inline": true
+        },
+        {
+            "name": "Prefix",
+            "value": `${prefix}`,
+            "inline": true
+        },
+        {
+            "name": "Servers",
+            "value": `${botservers}`,
+            "inline": true
+        },
+        {
+            "name": "Users",
+            "value": `${botusers}`,
+            "inline": true
+        },
+        {
+            "name": "Channels",
+            "value": `${botchannels}`,
+            "inline": true
+        },
+        {
+            "name": "Ping",
+            "value": `${Math.round(botping)}ms`,
+            "inline": true
+        },
+        {
+            "name": "Creation",
+            "value": `${botcreate}`
         }
         ])
         embedBotstats.setColor("BLUE");
         embedBotstats.setThumbnail(botlogo)
-        embedBotstats.setFooter('Requested By' + message.author.tag);
+        embedBotstats.setFooter(`${message.author.tag}`, message.author.displayAvatarURL());
         embedBotstats.setTimestamp();
         message.channel.send(embedBotstats);
     }
@@ -561,29 +578,52 @@ client.on('message', message => {
         // bot-perm
         if (!message.guild.me.hasPermission('EMBED_LINKS')) return message.channel.send('Please Give Me **EMBED_LINKS** permission in this channel .')
 
-        let ifname = [
-            "Language", "Platform", "Library", "Packages", "Api", "Database", "Github", "Privacy"
-        ]
-        let ifvalue = [
-            "**[JavaScript](https://www.javascript.com)**", "**[NodeJS](https://nodejs.org/en)**", "**[Discord.js](https://discordjs.guide)**", "**[NPM](https://www.npmjs.com)**", "**[McApi](http://mcapi.us)**", "**[Quick.db](https://quickdb.js.org)**", "**[Here](https://github.com/LOG-LEGENDX/Minecraft-Server-Status-Bot)**", "**[Here](https://github.com/LOG-LEGENDX/Minecraft-Server-Status-Bot/blob/master/PRIVACY.md)**"
-        ]
         let embedInfo = new Discord.MessageEmbed();
         embedInfo.setTitle("Minecraft Server Status")
         embedInfo.setDescription("Info Panel Here :-")
         embedInfo.addFields([{
-            "name": "Name",
-            "value": ifname,
+            "name": "Language",
+            "value": "**[JavaScript](https://www.javascript.com)**",
             "inline": true
         },
         {
-            "name": "Info",
-            "value": ifvalue,
+            "name": "Platform",
+            "value": "**[NodeJS](https://nodejs.org/en)**",
             "inline": true
+        },
+        {
+            "name": "Library",
+            "value": "**[Discord.js](https://discordjs.guide)**",
+            "inline": true
+        },
+        {
+            "name": "Packages",
+            "value": "**[NPM](https://www.npmjs.com)**",
+            "inline": true
+        },
+        {
+            "name": "Api",
+            "value": "**[McApi](http://mcapi.us)**",
+            "inline": true
+        },
+        {
+            "name": "Database",
+            "value": "**[Quick.db](https://quickdb.js.org)**",
+            "inline": true
+        },
+        {
+            "name": "Github",
+            "value": "**[Here](https://github.com/LOG-LEGENDX/Minecraft-Server-Status-Bot)**",
+            "inline": true
+        },
+        {
+            "name": "Privacy",
+            "value": "**[Here](https://github.com/LOG-LEGENDX/Minecraft-Server-Status-Bot/blob/master/PRIVACY.md)**"
         }
         ])
         embedInfo.setColor("BLUE");
         embedInfo.setThumbnail(botlogo)
-        embedInfo.setFooter('Requested By' + message.author.tag);
+        embedInfo.setFooter(`${message.author.tag}`, message.author.displayAvatarURL());
         embedInfo.setTimestamp();
         message.channel.send(embedInfo);
     }
@@ -601,29 +641,28 @@ client.on('message', message => {
         totalSeconds %= 3600;
         let minutes = Math.floor(totalSeconds / 60);
 
-        let up = [
-            "Days", "Hours", "Minutes"
-        ]
-        let time = [
-            `***${days}***`, `***${hours}***`, `***${minutes}***`
-        ]
         let embedUptime = new Discord.MessageEmbed();
         embedUptime.setTitle("Minecraft Server Status")
         embedUptime.setDescription("Uptime Panel Here :-")
         embedUptime.addFields([{
-            "name": "Units",
-            "value": up,
+            "name": "Days",
+            "value": `***${days}***`,
             "inline": true
         },
         {
-            "name": "Time",
-            "value": time,
+            "name": "Hours",
+            "value": `***${hours}***`,
+            "inline": true
+        },
+        {
+            "name": "Minutes",
+            "value": `***${minutes}***`,
             "inline": true
         }
         ])
         embedUptime.setColor("BLUE");
         embedUptime.setThumbnail(botlogo)
-        embedUptime.setFooter('Requested By' + message.author.tag);
+        embedUptime.setFooter(`${message.author.tag}`, message.author.displayAvatarURL());
         embedUptime.setTimestamp();
         message.channel.send(embedUptime);
     }
@@ -639,7 +678,7 @@ client.on('message', message => {
         let embednoinv = new Discord.MessageEmbed()
         embednoinv.setDescription(`Please Use **${prefix}report** command like : **${prefix}report your-server-invite-link your-issue**`)
         embednoinv.setColor('RED')
-        embednoinv.setFooter('Requested By' + message.author.tag);
+        embednoinv.setFooter(`${message.author.tag}`, message.author.displayAvatarURL());
         embednoinv.setTimestamp()
 
         if (!args[1]) return message.channel.send(embednoinv)
@@ -647,7 +686,7 @@ client.on('message', message => {
         const embednoinvlink = new Discord.MessageEmbed()
         embednoinvlink.setDescription("Your Server Invite Link Must Be Like - **https://discord.gg/EtCsyts**")
         embednoinvlink.setColor('RED')
-        embednoinvlink.setFooter('Requested By' + message.author.tag);
+        embednoinvlink.setFooter(`${message.author.tag}`, message.author.displayAvatarURL());
         embednoinvlink.setTimestamp()
 
         if (!ReportInvLink.includes('https://discord.gg')) return message.channel.send(embednoinvlink)
@@ -660,36 +699,47 @@ client.on('message', message => {
         embedmemreport.setDescription(`You're issue have been succesfully sent to the developers!`)
         embedmemreport.setThumbnail(botlogo)
         embedmemreport.setColor('GREEN')
-        embedmemreport.setFooter('Requested By' + message.author.tag);
+        embedmemreport.setFooter(`${message.author.tag}`, message.author.displayAvatarURL());
         embedmemreport.setTimestamp()
 
         message.channel.send(embedmemreport)
-
-        let creds = [
-            "Reporter Name", "Reporter ID", "Reported Guild Name", "Reported Guild ID", "Reported Guild Invite Link", "Reported Issue"
-        ]
-
-        let credsans = [
-            `${message.author.tag}`, `${message.author.id}`, `${message.guild.name}`, `${message.guild.id}`, `[Here](${ReportInvLink})`, `${ReportMessage}`
-        ]
 
         let embedmemtodevreport = new Discord.MessageEmbed()
         embedmemtodevreport.setTitle("Minecraft Server Status")
         embedmemtodevreport.setDescription("Report Panel Here :-")
         embedmemtodevreport.addFields([{
-            "name": "Credentials",
-            "value": creds,
+            "name": "Reporter Name",
+            "value": `${message.author.tag}`,
             "inline": true
         },
         {
-            "name": "Description",
-            "value": credsans,
+            "name": "Reporter ID",
+            "value": `${message.author.id}`,
             "inline": true
+        },
+        {
+            "name": "Reported Guild Name",
+            "value": `${message.guild.name}`,
+            "inline": true
+        },
+        {
+            "name": "Reported Guild ID",
+            "value": `${message.guild.id}`,
+            "inline": true
+        },
+        {
+            "name": "Reported Guild Invite Link",
+            "value": `[Here](${ReportInvLink})`,
+            "inline": true
+        },
+        {
+            "name": "Reported Issue",
+            "value": `${ReportMessage}`
         }
         ])
         embedmemtodevreport.setColor('YELLOW');
         embedmemtodevreport.setThumbnail(botlogo)
-        embedmemtodevreport.setFooter('Requested By' + message.author.tag);
+        embedmemtodevreport.setFooter(`${message.author.tag}`, message.author.displayAvatarURL());
         embedmemtodevreport.setTimestamp();
 
         client.channels.cache.get("806564358686507008").send(embedmemtodevreport)
@@ -729,10 +779,10 @@ client.on('message', message => {
             "inline": true
         }
         ])
-        embedHelp.addField("Updates", "For Updates [Join My Discord Server](https://discord.gg/EtCsyts)")
+        embedHelp.addField("Help & Updates", "For Any Help & Updates [Join My Discord Server](https://discord.gg/EtCsyts)")
         embedHelp.setColor("BLUE");
         embedHelp.setThumbnail(botlogo)
-        embedHelp.setFooter('Requested By' + message.author.tag);
+        embedHelp.setFooter(`${message.author.tag}`, message.author.displayAvatarURL());
         embedHelp.setTimestamp();
         message.channel.send(embedHelp);
     }
