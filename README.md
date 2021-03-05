@@ -24,7 +24,7 @@ Use **`.help`** to get all Bot Commands .
 
 Use **`.setup`** to setup Ip and Port of your server .
 
-<img src="https://cdn.discordapp.com/attachments/771781595220017193/816634953341075526/Setup.png" alt="Setup Command"/>
+<img src="https://cdn.discordapp.com/attachments/771781595220017193/817352386880208936/Setup.png" alt="Setup Command"/>
 
 Use **`.reset`** to reset Ip and Port of your server .
 
@@ -32,11 +32,13 @@ Use **`.reset`** to reset Ip and Port of your server .
 
 Use **`.status`** to know Status of your minecraft server after setup has been done .
 
-<img src="https://cdn.discordapp.com/attachments/771781595220017193/816631194041057320/Status.png" alt="Status Command"/>
+In Place of **`No Body In Server`** it will show **`players names when any player is playing`**
+
+<img src="https://cdn.discordapp.com/attachments/771781595220017193/817352394320511016/Status.png" alt="Status Command"/>
 
 Use **`.ip`** to know that server Ip and Port if setuped .
 
-<img src="https://cdn.discordapp.com/attachments/771781595220017193/816634952745091112/Ip.png" alt="Ip and Port Command"/>
+<img src="https://cdn.discordapp.com/attachments/771781595220017193/817352385382580234/Ip.png" alt="Ip and Port Command"/>
 
 Use **`.invite`** to Invite bot to your server .
 
