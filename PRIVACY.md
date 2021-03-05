@@ -12,4 +12,4 @@ Please Read This Privacy Policy Because It Will Help You To Get Tthat What We Do
 
 4 - **How Users Can Remove Their Data** - `Users Can Remove Their Data By .reset command .`
 
-5 - **API of Minecraft Server Status Bot** - **[MCAPI](http://mcapi.us)**
+5 - **API of Minecraft Server Status Bot** - **[MCSRVSTAT](https://api.mcsrvstat.us)**

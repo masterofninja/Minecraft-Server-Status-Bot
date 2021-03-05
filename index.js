@@ -4,7 +4,6 @@ const client = new Discord.Client();
 const predb = require('quick.db')
 const fetch = require('node-fetch')
 const bconfig = require("./config.json");
-let request = require('request');
 
 // Bot Prefix
 const prefix = bconfig.prefix;
@@ -265,7 +264,7 @@ client.on('ready', () => {
 })
 
 // Bot Commands Setup Begins
-client.on('message', message => {
+client.on('message', async message => {
 
     // Required Credentials
     let mcIP = predb.get(`guild_${message.guild.id}_ip`) || "Not Setup"
@@ -406,66 +405,75 @@ client.on('message', message => {
         if (!message.guild.id === predb.has(`guild_${message.guild.id}_ip`)) return message.channel.send(embedstatuserr)
         if (!message.guild.id === predb.has(`guild_${message.guild.id}_port`)) return message.channel.send(embedstatuserr)
 
-        let url = 'http://mcapi.us/server/status?ip='+mcIP+'&port='+mcPort;
-        request(url, function (err, _response, body) {
-            if (err) {
-                console.log(err)
-                let embedError = new Discord.MessageEmbed();
-                embedError.setTitle("Minecraft Server Status")
-                embedError.setDescription("Possible Issues & Fixes Panel Here :-")
-                embedError.addFields([{
-                    "name": "Query-Port on SERVER.PROPERTIES",
-                    "value": "Must Be Set To TRUE",
-                    "inline": true
-                },
-                {
-                    "name": "IP/PORT",
-                    "value": "Invalid"
-                }
-                ])
-                embedError.setColor("BLUE");
-                embedError.setThumbnail(botlogo)
-                embedError.setFooter(`${message.author.tag}`, message.author.displayAvatarURL());
-                embedError.setTimestamp();
-                return message.channel.send(embedError);
-            }
+        let serverURL = `https://api.mcsrvstat.us/2/${mcIP}:${mcPort}`;
 
-            body = JSON.parse(body);
-            let status = "Offline"
-            let color = 16711680
-            if (body.online) {
-                status = "Online";
-                color = 65280
-            }
+        await fetch(serverURL)
+            .then(response => response.json())
+            .then(data => {
 
-            let embedStatus = new Discord.MessageEmbed();
-            embedStatus.setTitle("Minecraft Server Status")
-            embedStatus.setDescription("Your Minecraft Server Panel Here :-")
-            embedStatus.addFields(
-                [
-                    {
-                        "name": "Status",
-                        "value": status,
-                        "inline": true
-                    },
-                    {
-                        "name": "Player Count",
-                        "value": body.players.now + "/" + body.players.max,
-                        "inline": true
-                    },
-                    {
-                        "name": "Version",
-                        "value": body.server.name + " - v" + body.server.protocol
+                let status = "Offline"
+                let color = 16711680
+                let people = "Hidden"
+
+                if (data.online === true) {
+
+                    status = "Online"
+                    color = 65280
+
+                    if (data.players.list) {
+
+                        people = JSON.stringify(data.players.list)
+
                     }
-                ]
-            )
-            embedStatus.setColor(color);
-            embedStatus.setThumbnail(botlogo)
-            embedStatus.setFooter(`${message.author.tag}`, message.author.displayAvatarURL());
-            embedStatus.setTimestamp();
-            message.channel.send(embedStatus);
-        });
-    };
+                    else if (data.players.online === 0) {
+
+                        people = "Nobody Playing In Server"
+                    }
+                }
+
+                let embedStatus = new Discord.MessageEmbed();
+                embedStatus.setTitle("Minecraft Server Status")
+                embedStatus.setDescription("Your Minecraft Server Panel Here :-")
+                embedStatus.addFields(
+                    [
+                        {
+                            "name": "Ip",
+                            "value": `${data.hostname}`,
+                            "inline": true
+                        },
+                        {
+                            "name": "Port",
+                            "value": `${data.port}`,
+                            "inline": true
+                        },
+                        {
+                            "name": "Status",
+                            "value": status,
+                            "inline": true
+                        },
+                        {
+                            "name": "Player Count",
+                            "value": data.players.online + "/" + data.players.max,
+                            "inline": true
+                        },
+                        {
+                            "name": "Version",
+                            "value": `${data.version} -v${data.protocol}`,
+                            "inline": true
+                        },
+                        {
+                            "name": "Players",
+                            "value": people
+                        }
+                    ]
+                )
+                embedStatus.setColor(color);
+                embedStatus.setThumbnail(botlogo)
+                embedStatus.setFooter(`${message.author.tag}`, message.author.displayAvatarURL());
+                embedStatus.setTimestamp();
+                message.channel.send(embedStatus);
+            })
+    }
 
     // IP & PORT Command
     if (message.content.startsWith(`${prefix}ip`)) {
@@ -656,7 +664,7 @@ client.on('message', message => {
         },
         {
             "name": "Api",
-            "value": "**[McApi](http://mcapi.us)**",
+            "value": "**[Mcsrvstat](https://api.mcsrvstat.us)**",
             "inline": true
         },
         {
