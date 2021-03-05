@@ -32,7 +32,7 @@ Use **`.reset`** to reset Ip and Port of your server .
 
 Use **`.status`** to know Status of your minecraft server after setup has been done .
 
-In Place of **`No Body In Server`** it will show **`players names when any player is playing`**
+In Place of **`Nobody Playing In Server`** it will show **`players names when any player is playing`**
 
 <img src="https://cdn.discordapp.com/attachments/771781595220017193/817352394320511016/Status.png" alt="Status Command"/>
 
