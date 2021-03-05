@@ -422,7 +422,7 @@ client.on('message', async message => {
 
                     if (data.players.list) {
 
-                        people = JSON.stringify(data.players.list)
+                        people = data.players.list.join('   ,   ')
 
                     }
                     else if (data.players.online === 0) {
