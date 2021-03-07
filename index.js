@@ -295,6 +295,14 @@ client.on('message', async message => {
         if (!args[1]) return message.channel.send(embedargs)
         if (!args[2]) return message.channel.send(embedargs)
 
+        let embedportnum = new Discord.MessageEmbed()
+        embedportnum.setDescription(`Make Sure That The **PORT** you are entering is numeric`)
+        embedportnum.setColor('RED')
+        embedportnum.setFooter(`${message.author.tag}`, message.author.displayAvatarURL())
+        embedportnum.setTimestamp()
+
+        if (isNaN(parseInt(args[2]))) return message.channel.send(embedportnum)
+
         let embedportlength = new Discord.MessageEmbed()
         embedportlength.setDescription(`Make Sure That The **PORT** you are entering is not more than 5 numbers`)
         embedportlength.setColor('RED')
