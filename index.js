@@ -333,15 +333,16 @@ client.on('message', async message => {
         let embedSetup = new Discord.MessageEmbed();
         embedSetup.setTitle("Minecraft Server Status")
         embedSetup.setDescription("Setup Panel Here :-")
-        embedSetup.addFields([{
-            "name": "IP",
-            "value": `${args[1]}`,
-            "inline": true
-        },
-        {
-            "name": "PORT",
-            "value": `${args[2]}`
-        }
+        embedSetup.addFields([
+            {
+                "name": "IP",
+                "value": `${args[1]}`,
+                "inline": true
+            },
+            {
+                "name": "PORT",
+                "value": `${args[2]}`
+            }
         ])
         embedSetup.setColor("BLUE");
         embedSetup.setThumbnail(botlogo)
@@ -381,15 +382,16 @@ client.on('message', async message => {
         let embedReset = new Discord.MessageEmbed();
         embedReset.setTitle("Minecraft Server Status")
         embedReset.setDescription("Reset Panel Here :-")
-        embedReset.addFields([{
-            "name": "IP",
-            "value": "Successfully Reset",
-            "inline": true
-        },
-        {
-            "name": "PORT",
-            "value": "Successfully Reset"
-        }
+        embedReset.addFields([
+            {
+                "name": "IP",
+                "value": "Successfully Reset",
+                "inline": true
+            },
+            {
+                "name": "PORT",
+                "value": "Successfully Reset"
+            }
         ])
         embedReset.setColor("BLUE");
         embedReset.setThumbnail(botlogo)
@@ -442,39 +444,37 @@ client.on('message', async message => {
                 let embedStatus = new Discord.MessageEmbed();
                 embedStatus.setTitle("Minecraft Server Status")
                 embedStatus.setDescription("Your Minecraft Server Panel Here :-")
-                embedStatus.addFields(
-                    [
-                        {
-                            "name": "Ip",
-                            "value": `${data.hostname}`,
-                            "inline": true
-                        },
-                        {
-                            "name": "Port",
-                            "value": `${data.port}`,
-                            "inline": true
-                        },
-                        {
-                            "name": "Status",
-                            "value": status,
-                            "inline": true
-                        },
-                        {
-                            "name": "Player Count",
-                            "value": data.players.online + "/" + data.players.max,
-                            "inline": true
-                        },
-                        {
-                            "name": "Version",
-                            "value": `${data.version} -v${data.protocol}`,
-                            "inline": true
-                        },
-                        {
-                            "name": "Players",
-                            "value": people
-                        }
-                    ]
-                )
+                embedStatus.addFields([
+                    {
+                        "name": "Ip",
+                        "value": `${data.hostname}`,
+                        "inline": true
+                    },
+                    {
+                        "name": "Port",
+                        "value": `${data.port}`,
+                        "inline": true
+                    },
+                    {
+                        "name": "Status",
+                        "value": status,
+                        "inline": true
+                    },
+                    {
+                        "name": "Player Count",
+                        "value": data.players.online + "/" + data.players.max,
+                        "inline": true
+                    },
+                    {
+                        "name": "Version",
+                        "value": `${data.version} -v${data.protocol}`,
+                        "inline": true
+                    },
+                    {
+                        "name": "Players",
+                        "value": people
+                    }
+                ])
                 embedStatus.setColor(color);
                 embedStatus.setThumbnail(botlogo)
                 embedStatus.setFooter(`${message.author.tag}`, message.author.displayAvatarURL());
@@ -492,15 +492,16 @@ client.on('message', async message => {
         let embedIP = new Discord.MessageEmbed();
         embedIP.setTitle("Minecraft Server Status")
         embedIP.setDescription("Your Minecraft Server IP & PORT Panel Here :-")
-        embedIP.addFields([{
-            "name": "IP",
-            "value": `**${mcIP}**`,
-            "inline": true
-        },
-        {
-            "name": "PORT",
-            "value": `${mcPort}`
-        }
+        embedIP.addFields([
+            {
+                "name": "IP",
+                "value": `**${mcIP}**`,
+                "inline": true
+            },
+            {
+                "name": "PORT",
+                "value": `${mcPort}`
+            }
         ])
         embedIP.setColor("BLUE");
         embedIP.setThumbnail(botlogo)
@@ -537,40 +538,41 @@ client.on('message', async message => {
         let embedVote = new Discord.MessageEmbed();
         embedVote.setTitle("Minecraft Server Status")
         embedVote.setDescription("Voting Link Panel Here :-")
-        embedVote.addFields([{
-            "name": "top.gg",
-            "value": "[Here](https://top.gg/bot/802868654957789204)",
-            "inline": true
-        },
-        {
-            "name": "topcord.xyz",
-            "value": "[Here](https://topcord.xyz/bot/802868654957789204)",
-            "inline": true
-        },
-        {
-            "name": "botsfordiscord.com",
-            "value": "[Here](https://botsfordiscord.com/bot/802868654957789204)",
-            "inline": true
-        },
-        {
-            "name": "discordbotlist.com",
-            "value": "[Here](https://discordbotlist.com/bots/minecraft-server-status-5845)",
-            "inline": true
-        },
-        {
-            "name": "botlist.space",
-            "value": "[Here](https://botlist.space/bot/802868654957789204)",
-            "inline": true
-        },
-        {
-            "name": "discord.boats",
-            "value": "[Here](https://discord.boats/bot/802868654957789204)",
-            "inline": true
-        },
-        {
-            "name": "discordextremelist.xyz",
-            "value": "[Here](https://discordextremelist.xyz/en-US/bots/802868654957789204)"
-        }
+        embedVote.addFields([
+            {
+                "name": "top.gg",
+                "value": "[Here](https://top.gg/bot/802868654957789204)",
+                "inline": true
+            },
+            {
+                "name": "topcord.xyz",
+                "value": "[Here](https://topcord.xyz/bot/802868654957789204)",
+                "inline": true
+            },
+            {
+                "name": "botsfordiscord.com",
+                "value": "[Here](https://botsfordiscord.com/bot/802868654957789204)",
+                "inline": true
+            },
+            {
+                "name": "discordbotlist.com",
+                "value": "[Here](https://discordbotlist.com/bots/minecraft-server-status-5845)",
+                "inline": true
+            },
+            {
+                "name": "botlist.space",
+                "value": "[Here](https://botlist.space/bot/802868654957789204)",
+                "inline": true
+            },
+            {
+                "name": "discord.boats",
+                "value": "[Here](https://discord.boats/bot/802868654957789204)",
+                "inline": true
+            },
+            {
+                "name": "discordextremelist.xyz",
+                "value": "[Here](https://discordextremelist.xyz/en-US/bots/802868654957789204)"
+            }
         ])
         embedVote.setColor("BLUE");
         embedVote.setThumbnail(botlogo)
@@ -594,45 +596,46 @@ client.on('message', async message => {
         let embedBotstats = new Discord.MessageEmbed();
         embedBotstats.setTitle("Minecraft Server Status")
         embedBotstats.setDescription("My Stats Panel Here :-")
-        embedBotstats.addFields([{
-            "name": "Name",
-            "value": `${client.user.tag}`,
-            "inline": true
-        },
-        {
-            "name": "Id",
-            "value": `${client.user.id}`,
-            "inline": true
-        },
-        {
-            "name": "Prefix",
-            "value": `${prefix}`,
-            "inline": true
-        },
-        {
-            "name": "Servers",
-            "value": `${botservers}`,
-            "inline": true
-        },
-        {
-            "name": "Users",
-            "value": `${botusers}`,
-            "inline": true
-        },
-        {
-            "name": "Channels",
-            "value": `${botchannels}`,
-            "inline": true
-        },
-        {
-            "name": "Ping",
-            "value": `${Math.round(botping)}ms`,
-            "inline": true
-        },
-        {
-            "name": "Creation",
-            "value": `${botcreate}`
-        }
+        embedBotstats.addFields([
+            {
+                "name": "Name",
+                "value": `${client.user.tag}`,
+                "inline": true
+            },
+            {
+                "name": "Id",
+                "value": `${client.user.id}`,
+                "inline": true
+            },
+            {
+                "name": "Prefix",
+                "value": `${prefix}`,
+                "inline": true
+            },
+            {
+                "name": "Servers",
+                "value": `${botservers}`,
+                "inline": true
+            },
+            {
+                "name": "Users",
+                "value": `${botusers}`,
+                "inline": true
+            },
+            {
+                "name": "Channels",
+                "value": `${botchannels}`,
+                "inline": true
+            },
+            {
+                "name": "Ping",
+                "value": `${Math.round(botping)}ms`,
+                "inline": true
+            },
+            {
+                "name": "Creation",
+                "value": `${botcreate}`
+            }
         ])
         embedBotstats.setColor("BLUE");
         embedBotstats.setThumbnail(botlogo)
@@ -650,45 +653,52 @@ client.on('message', async message => {
         let embedInfo = new Discord.MessageEmbed();
         embedInfo.setTitle("Minecraft Server Status")
         embedInfo.setDescription("Info Panel Here :-")
-        embedInfo.addFields([{
-            "name": "Language",
-            "value": "**[JavaScript](https://www.javascript.com)**",
-            "inline": true
-        },
-        {
-            "name": "Platform",
-            "value": "**[NodeJS](https://nodejs.org/en)**",
-            "inline": true
-        },
-        {
-            "name": "Library",
-            "value": "**[Discord.js](https://discordjs.guide)**",
-            "inline": true
-        },
-        {
-            "name": "Packages",
-            "value": "**[NPM](https://www.npmjs.com)**",
-            "inline": true
-        },
-        {
-            "name": "Api",
-            "value": "**[Mcsrvstat](https://api.mcsrvstat.us)**",
-            "inline": true
-        },
-        {
-            "name": "Database",
-            "value": "**[Quick.db](https://quickdb.js.org)**",
-            "inline": true
-        },
-        {
-            "name": "Github",
-            "value": "**[Here](https://github.com/LOG-LEGENDX/Minecraft-Server-Status-Bot)**",
-            "inline": true
-        },
-        {
-            "name": "Privacy",
-            "value": "**[Here](https://github.com/LOG-LEGENDX/Minecraft-Server-Status-Bot/blob/master/PRIVACY.md)**"
-        }
+        embedInfo.addFields([
+            {
+                "name": "Language",
+                "value": "**[JavaScript](https://www.javascript.com)**",
+                "inline": true
+            },
+            {
+                "name": "Platform",
+                "value": "**[NodeJS](https://nodejs.org/en)**",
+                "inline": true
+            },
+            {
+                "name": "Library",
+                "value": "**[Discord.js](https://discordjs.guide)**",
+                "inline": true
+            },
+            {
+                "name": "Packages",
+                "value": "**[NPM](https://www.npmjs.com)**",
+                "inline": true
+            },
+            {
+                "name": "Api",
+                "value": "**[Mcsrvstat](https://api.mcsrvstat.us)**",
+                "inline": true
+            },
+            {
+                "name": "Database",
+                "value": "**[Quick.db](https://quickdb.js.org)**",
+                "inline": true
+            },
+            {
+                "name": "Hosting",
+                "value": "**[Petrodactyl](https://pterodactyl.io)**",
+                "inline": true
+            },
+            {
+                "name": "Github",
+                "value": "**[Here](https://github.com/LOG-LEGENDX/Minecraft-Server-Status-Bot)**",
+                "inline": true
+            },
+            {
+                "name": "Privacy",
+                "value": "**[Here](https://github.com/LOG-LEGENDX/Minecraft-Server-Status-Bot/blob/master/PRIVACY.md)**",
+                "inline": true
+            }
         ])
         embedInfo.setColor("BLUE");
         embedInfo.setThumbnail(botlogo)
@@ -713,21 +723,22 @@ client.on('message', async message => {
         let embedUptime = new Discord.MessageEmbed();
         embedUptime.setTitle("Minecraft Server Status")
         embedUptime.setDescription("Uptime Panel Here :-")
-        embedUptime.addFields([{
-            "name": "Days",
-            "value": `***${days}***`,
-            "inline": true
-        },
-        {
-            "name": "Hours",
-            "value": `***${hours}***`,
-            "inline": true
-        },
-        {
-            "name": "Minutes",
-            "value": `***${minutes}***`,
-            "inline": true
-        }
+        embedUptime.addFields([
+            {
+                "name": "Days",
+                "value": `***${days}***`,
+                "inline": true
+            },
+            {
+                "name": "Hours",
+                "value": `***${hours}***`,
+                "inline": true
+            },
+            {
+                "name": "Minutes",
+                "value": `***${minutes}***`,
+                "inline": true
+            }
         ])
         embedUptime.setColor("BLUE");
         embedUptime.setThumbnail(botlogo)
@@ -776,35 +787,36 @@ client.on('message', async message => {
         let embedmemtodevreport = new Discord.MessageEmbed()
         embedmemtodevreport.setTitle("Minecraft Server Status")
         embedmemtodevreport.setDescription("Report Panel Here :-")
-        embedmemtodevreport.addFields([{
-            "name": "Reporter Name",
-            "value": `${message.author.tag}`,
-            "inline": true
-        },
-        {
-            "name": "Reporter ID",
-            "value": `${message.author.id}`,
-            "inline": true
-        },
-        {
-            "name": "Reported Guild Name",
-            "value": `${message.guild.name}`,
-            "inline": true
-        },
-        {
-            "name": "Reported Guild ID",
-            "value": `${message.guild.id}`,
-            "inline": true
-        },
-        {
-            "name": "Reported Guild Invite Link",
-            "value": `[Here](${ReportInvLink})`,
-            "inline": true
-        },
-        {
-            "name": "Reported Issue",
-            "value": `${ReportMessage}`
-        }
+        embedmemtodevreport.addFields([
+            {
+                "name": "Reporter Name",
+                "value": `${message.author.tag}`,
+                "inline": true
+            },
+            {
+                "name": "Reporter ID",
+                "value": `${message.author.id}`,
+                "inline": true
+            },
+            {
+                "name": "Reported Guild Name",
+                "value": `${message.guild.name}`,
+                "inline": true
+            },
+            {
+                "name": "Reported Guild ID",
+                "value": `${message.guild.id}`,
+                "inline": true
+            },
+            {
+                "name": "Reported Guild Invite Link",
+                "value": `[Here](${ReportInvLink})`,
+                "inline": true
+            },
+            {
+                "name": "Reported Issue",
+                "value": `${ReportMessage}`
+            }
         ])
         embedmemtodevreport.setColor('YELLOW');
         embedmemtodevreport.setThumbnail(botlogo)
@@ -832,21 +844,22 @@ client.on('message', async message => {
         let embedHelp = new Discord.MessageEmbed();
         embedHelp.setTitle("Minecraft Server Status")
         embedHelp.setDescription("Helping Panel Here :-")
-        embedHelp.addFields([{
-            "name": "Commands",
-            "value": helpingcommands,
-            "inline": true
-        },
-        {
-            "name": "Description",
-            "value": helpingcommandsdescription,
-            "inline": true
-        },
-        {
-            "name": "Usage",
-            "value": helpingcommandsusage,
-            "inline": true
-        }
+        embedHelp.addFields([
+            {
+                "name": "Commands",
+                "value": helpingcommands,
+                "inline": true
+            },
+            {
+                "name": "Description",
+                "value": helpingcommandsdescription,
+                "inline": true
+            },
+            {
+                "name": "Usage",
+                "value": helpingcommandsusage,
+                "inline": true
+            }
         ])
         embedHelp.addField("Help & Updates", "For Any Help & Updates [Join My Discord Server](https://discord.gg/EtCsyts)")
         embedHelp.setColor("BLUE");
