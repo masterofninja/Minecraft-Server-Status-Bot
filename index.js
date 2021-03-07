@@ -413,7 +413,7 @@ client.on('message', async message => {
 
                 let status = "Offline"
                 let color = 16711680
-                let people = "Hidden"
+                let people = "Currently Players are Hidden For This Server"
 
                 if (data.online === true) {
 
@@ -427,7 +427,7 @@ client.on('message', async message => {
                     }
                     else if (data.players.online === 0) {
 
-                        people = "Nobody Playing In Server"
+                        people = "Currently No One Is Playing In Server"
                     }
                 }
 
