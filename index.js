@@ -332,12 +332,12 @@ client.on('message', async message => {
 
         let embedSetup = new Discord.MessageEmbed();
         embedSetup.setTitle("Minecraft Server Status")
+        embedSetup.setURL("https://top.gg/bot/802868654957789204")
         embedSetup.setDescription("Setup Panel Here :-")
         embedSetup.addFields([
             {
                 "name": "IP",
-                "value": `${args[1]}`,
-                "inline": true
+                "value": `${args[1]}`
             },
             {
                 "name": "PORT",
@@ -381,12 +381,12 @@ client.on('message', async message => {
 
         let embedReset = new Discord.MessageEmbed();
         embedReset.setTitle("Minecraft Server Status")
+        embedReset.setURL("https://top.gg/bot/802868654957789204")
         embedReset.setDescription("Reset Panel Here :-")
         embedReset.addFields([
             {
                 "name": "IP",
-                "value": "Successfully Reset",
-                "inline": true
+                "value": "Successfully Reset"
             },
             {
                 "name": "PORT",
@@ -443,6 +443,7 @@ client.on('message', async message => {
 
                 let embedStatus = new Discord.MessageEmbed();
                 embedStatus.setTitle("Minecraft Server Status")
+                embedStatus.setURL("https://top.gg/bot/802868654957789204")
                 embedStatus.setDescription("Your Minecraft Server Panel Here :-")
                 embedStatus.addFields([
                     {
@@ -491,12 +492,12 @@ client.on('message', async message => {
 
         let embedIP = new Discord.MessageEmbed();
         embedIP.setTitle("Minecraft Server Status")
+        embedIP.setURL("https://top.gg/bot/802868654957789204")
         embedIP.setDescription("Your Minecraft Server IP & PORT Panel Here :-")
         embedIP.addFields([
             {
                 "name": "IP",
-                "value": `**${mcIP}**`,
-                "inline": true
+                "value": `**${mcIP}**`
             },
             {
                 "name": "PORT",
@@ -520,6 +521,7 @@ client.on('message', async message => {
 
         let embedInvite = new Discord.MessageEmbed();
         embedInvite.setTitle("Minecraft Server Status")
+        embedInvite.setURL("https://top.gg/bot/802868654957789204")
         embedInvite.setDescription("Invite Link Panel Here :-")
         embedInvite.addField("Invite", invlink)
         embedInvite.setColor("BLUE");
@@ -537,6 +539,7 @@ client.on('message', async message => {
 
         let embedVote = new Discord.MessageEmbed();
         embedVote.setTitle("Minecraft Server Status")
+        embedVote.setURL("https://top.gg/bot/802868654957789204")
         embedVote.setDescription("Voting Link Panel Here :-")
         embedVote.addFields([
             {
@@ -590,11 +593,22 @@ client.on('message', async message => {
         let botservers = client.guilds.cache.size;
         let botusers = client.guilds.cache.reduce((total, guild) => total + guild.memberCount, 0);
         let botchannels = client.channels.cache.size;
-        let botping = client.ws.ping;
+        let botemojis = client.emojis.cache.size;
+        let botping = Math.round(client.ws.ping);
+        let totalSeconds = (client.uptime / 1000);
+        let days = Math.floor(totalSeconds / 86400);
+        totalSeconds %= 86400;
+        let hours = Math.floor(totalSeconds / 3600);
+        totalSeconds %= 3600;
+        let minutes = Math.floor(totalSeconds / 60);
+        let memusage = Math.round((process.memoryUsage().heapUsed / 1024 / 1024) * 100) / 100
         let botcreate = client.user.createdAt;
+        let now = Date.now() - botcreate;
+        let ago = Math.floor(now / bconfig.botago)
 
         let embedBotstats = new Discord.MessageEmbed();
         embedBotstats.setTitle("Minecraft Server Status")
+        embedBotstats.setURL("https://top.gg/bot/802868654957789204")
         embedBotstats.setDescription("My Stats Panel Here :-")
         embedBotstats.addFields([
             {
@@ -628,13 +642,44 @@ client.on('message', async message => {
                 "inline": true
             },
             {
+                "name": "Emojis",
+                "value": `${botemojis}`,
+                "inline": true
+            },
+            {
                 "name": "Ping",
-                "value": `${Math.round(botping)}ms`,
+                "value": `${botping} ms`,
+                "inline": true
+            },
+            {
+                "name": "Memory Usage",
+                "value": `${memusage} mb`,
+                "inline": true
+            },
+            {
+                "name": "Uptime Days",
+                "value": `${days} days`,
+                "inline": true
+            },
+            {
+                "name": "Uptime Hours",
+                "value": `${hours} hours`,
+                "inline": true
+            },
+            {
+                "name": "Uptime Minutes",
+                "value": `${minutes} minutes`,
                 "inline": true
             },
             {
                 "name": "Creation",
-                "value": `${botcreate}`
+                "value": `${botcreate}`,
+                "inline": true
+            },
+            {
+                "name": "Creation Days",
+                "value": `${ago}`,
+                "inline": true
             }
         ])
         embedBotstats.setColor("BLUE");
@@ -652,6 +697,7 @@ client.on('message', async message => {
 
         let embedInfo = new Discord.MessageEmbed();
         embedInfo.setTitle("Minecraft Server Status")
+        embedInfo.setURL("https://top.gg/bot/802868654957789204")
         embedInfo.setDescription("Info Panel Here :-")
         embedInfo.addFields([
             {
@@ -707,46 +753,6 @@ client.on('message', async message => {
         message.channel.send(embedInfo);
     }
 
-    // Uptime Command
-    if (message.content.startsWith(`${prefix}uptime`)) {
-
-        // bot-perm
-        if (!message.guild.me.hasPermission('EMBED_LINKS')) return message.channel.send('Please Give Me **EMBED_LINKS** permission in this channel .')
-
-        let totalSeconds = (client.uptime / 1000);
-        let days = Math.floor(totalSeconds / 86400);
-        totalSeconds %= 86400;
-        let hours = Math.floor(totalSeconds / 3600);
-        totalSeconds %= 3600;
-        let minutes = Math.floor(totalSeconds / 60);
-
-        let embedUptime = new Discord.MessageEmbed();
-        embedUptime.setTitle("Minecraft Server Status")
-        embedUptime.setDescription("Uptime Panel Here :-")
-        embedUptime.addFields([
-            {
-                "name": "Days",
-                "value": `***${days}***`,
-                "inline": true
-            },
-            {
-                "name": "Hours",
-                "value": `***${hours}***`,
-                "inline": true
-            },
-            {
-                "name": "Minutes",
-                "value": `***${minutes}***`,
-                "inline": true
-            }
-        ])
-        embedUptime.setColor("BLUE");
-        embedUptime.setThumbnail(botlogo)
-        embedUptime.setFooter(`${message.author.tag}`, message.author.displayAvatarURL());
-        embedUptime.setTimestamp();
-        message.channel.send(embedUptime);
-    }
-
     // Report Command
     if (message.content.startsWith(`${prefix}report`)) {
 
@@ -776,6 +782,8 @@ client.on('message', async message => {
         if (!ReportMessage) return message.channel.send(embednoinv)
 
         let embedmemreport = new Discord.MessageEmbed()
+        embedmemreport.setTitle("Minecraft Server Status")
+        embedmemreport.setURL("https://top.gg/bot/802868654957789204")
         embedmemreport.setDescription(`You're issue have been succesfully sent to the developers!`)
         embedmemreport.setThumbnail(botlogo)
         embedmemreport.setColor('GREEN')
@@ -786,6 +794,7 @@ client.on('message', async message => {
 
         let embedmemtodevreport = new Discord.MessageEmbed()
         embedmemtodevreport.setTitle("Minecraft Server Status")
+        embedmemtodevreport.setURL("https://top.gg/bot/802868654957789204")
         embedmemtodevreport.setDescription("Report Panel Here :-")
         embedmemtodevreport.addFields([
             {
@@ -833,16 +842,17 @@ client.on('message', async message => {
         if (!message.guild.me.hasPermission('EMBED_LINKS')) return message.channel.send('Please Give Me **EMBED_LINKS** permission in this channel .')
 
         let helpingcommands = [
-            "help", "setup", "reset", "status", "ip", "invite", "stats", "info", "uptime", "vote", "report"
+            "help", "setup", "reset", "status", "ip", "invite", "stats", "info", "vote", "report"
         ]
         let helpingcommandsdescription = [
-            "Shows This Panel", "Sets Your IP and PORT", "Resets Your IP and PORT", "Shows Your Server Status", "Gives Your IP and PORT", "Gives My Invite Link", "Gives My Stats", "Gives My Info", "Gives My Uptime", "Gives My Voting Sites Link", "Report Your Issue To My Dev"
+            "Shows This Panel", "Sets Your IP and PORT", "Resets Your IP and PORT", "Shows Your Server Status", "Gives Your IP and PORT", "Gives My Invite Link", "Gives My Stats", "Gives My Info", "Gives My Voting Sites Link", "Report Your Issue To My Dev"
         ]
         let helpingcommandsusage = [
-            `${prefix}help`, `${prefix}setup <ip> <port>`, `${prefix}reset`, `${prefix}status`, `${prefix}ip`, `${prefix}invite`, `${prefix}stats`, `${prefix}info`, `${prefix}uptime`, `${prefix}vote`, `${prefix}report`
+            `${prefix}help`, `${prefix}setup <ip> <port>`, `${prefix}reset`, `${prefix}status`, `${prefix}ip`, `${prefix}invite`, `${prefix}stats`, `${prefix}info`, `${prefix}vote`, `${prefix}report`
         ]
         let embedHelp = new Discord.MessageEmbed();
         embedHelp.setTitle("Minecraft Server Status")
+        embedHelp.setURL("https://top.gg/bot/802868654957789204")
         embedHelp.setDescription("Helping Panel Here :-")
         embedHelp.addFields([
             {
