@@ -36,7 +36,7 @@ client.on('ready', () => {
 
         client.user.setActivity(status, { type: "WATCHING" })
 
-    }, 5000)
+    }, bconfig.botstatustime)
 
     // Top.gg API
     setInterval(() => {
@@ -57,11 +57,11 @@ client.on('ready', () => {
             webembed.setDescription("Bot Stats - Updated")
             webembed.setColor('GREEN')
             webembed.setTimestamp()
-            client.channels.cache.get("807298871486709803").send(webembed)
+            client.channels.cache.get(bconfig.botpostchannel).send(webembed)
         }).catch((err) => {
             console.error(err);
         })
-    }, 300000)
+    }, bconfig.apiupdatetime)
 
     // Topcord.xyz API
     setInterval(() => {
@@ -82,11 +82,11 @@ client.on('ready', () => {
             webembed.setDescription("Bot Stats - Updated")
             webembed.setColor('GREEN')
             webembed.setTimestamp()
-            client.channels.cache.get("807298871486709803").send(webembed)
+            client.channels.cache.get(bconfig.botpostchannel).send(webembed)
         }).catch((err) => {
             console.error(err);
         })
-    }, 300000)
+    }, bconfig.apiupdatetime)
 
     // BotsForDiscord.com API
     setInterval(() => {
@@ -107,11 +107,11 @@ client.on('ready', () => {
             webembed.setDescription("Bot Stats - Updated")
             webembed.setColor('GREEN')
             webembed.setTimestamp()
-            client.channels.cache.get("807298871486709803").send(webembed)
+            client.channels.cache.get(bconfig.botpostchannel).send(webembed)
         }).catch((err) => {
             console.error(err);
         })
-    }, 300000)
+    }, bconfig.apiupdatetime)
 
     // Discord.Bots.gg API
     setInterval(() => {
@@ -132,11 +132,11 @@ client.on('ready', () => {
             webembed.setDescription("Bot Stats - Updated")
             webembed.setColor('GREEN')
             webembed.setTimestamp()
-            client.channels.cache.get("807298871486709803").send(webembed)
+            client.channels.cache.get(bconfig.botpostchannel).send(webembed)
         }).catch((err) => {
             console.error(err);
         })
-    }, 300000)
+    }, bconfig.apiupdatetime)
 
     // Discord.Boats API
     setInterval(() => {
@@ -157,11 +157,11 @@ client.on('ready', () => {
             webembed.setDescription("Bot Stats - Updated")
             webembed.setColor('GREEN')
             webembed.setTimestamp()
-            client.channels.cache.get("807298871486709803").send(webembed)
+            client.channels.cache.get(bconfig.botpostchannel).send(webembed)
         }).catch((err) => {
             console.error(err);
         })
-    }, 300000)
+    }, bconfig.apiupdatetime)
 
     // Discordbotlist.com API
     setInterval(() => {
@@ -183,11 +183,11 @@ client.on('ready', () => {
             webembed.setDescription("Bot Stats - Updated")
             webembed.setColor('GREEN')
             webembed.setTimestamp()
-            client.channels.cache.get("807298871486709803").send(webembed)
+            client.channels.cache.get(bconfig.botpostchannel).send(webembed)
         }).catch((err) => {
             console.error(err);
         })
-    }, 300000)
+    }, bconfig.apiupdatetime)
 
     // Botlist.space API
     setInterval(() => {
@@ -208,11 +208,11 @@ client.on('ready', () => {
             webembed.setDescription("Bot Stats - Updated")
             webembed.setColor('GREEN')
             webembed.setTimestamp()
-            client.channels.cache.get("807298871486709803").send(webembed)
+            client.channels.cache.get(bconfig.botpostchannel).send(webembed)
         }).catch((err) => {
             console.error(err);
         })
-    }, 300000)
+    }, bconfig.apiupdatetime)
 
     // Discordextremelist.xyz API
     setInterval(() => {
@@ -233,11 +233,11 @@ client.on('ready', () => {
             webembed.setDescription("Bot Stats - Updated")
             webembed.setColor('GREEN')
             webembed.setTimestamp()
-            client.channels.cache.get("807298871486709803").send(webembed)
+            client.channels.cache.get(bconfig.botpostchannel).send(webembed)
         }).catch((err) => {
             console.error(err);
         })
-    }, 300000)
+    }, bconfig.apiupdatetime)
 
     // Sentcord.com API
     setInterval(() => {
@@ -255,11 +255,11 @@ client.on('ready', () => {
             webembed.setDescription("Bot Stats - Updated")
             webembed.setColor('GREEN')
             webembed.setTimestamp()
-            client.channels.cache.get("807298871486709803").send(webembed)
+            client.channels.cache.get(bconfig.botpostchannel).send(webembed)
         }).catch((err) => {
             console.error(err);
         })
-    }, 300000)
+    }, bconfig.apiupdatetime)
 
 })
 
@@ -269,7 +269,7 @@ client.on('message', async message => {
     // Required Credentials
     let mcIP = predb.get(`guild_${message.guild.id}_ip`) || "Not Setup"
 
-    let botlogo = 'https://cdn.discordapp.com/attachments/771781595220017193/816696687170420797/Minecraft_Server_Status.png'
+    let botlogo = bconfig.logo
 
     let mcPort = predb.get(`guild_${message.guild.id}_port`) || "Not Setup"
 
@@ -422,13 +422,13 @@ client.on('message', async message => {
             .then(data => {
 
                 let status = "Offline"
-                let color = 16711680
+                let color = bconfig.botoldcolor
                 let people = "Currently Players are Hidden For This Server"
 
                 if (data.online === true) {
 
                     status = "Online"
-                    color = 65280
+                    color = bconfig.botnewcolor
 
                     if (data.players.list) {
 
@@ -832,7 +832,7 @@ client.on('message', async message => {
         embedmemtodevreport.setFooter(`${message.author.tag}`, message.author.displayAvatarURL());
         embedmemtodevreport.setTimestamp();
 
-        client.channels.cache.get("806564358686507008").send(embedmemtodevreport)
+        client.channels.cache.get(bconfig.botreportchannel).send(embedmemtodevreport)
     }
 
     // Help Command
