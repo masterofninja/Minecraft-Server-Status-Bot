@@ -40,7 +40,7 @@ client.on('ready', () => {
 
     // Top.gg API
     setInterval(() => {
-        fetch("https://top.gg/api/bots/802868654957789204/stats", {
+        fetch(`https://top.gg/api/bots/${bconfig.botid}/stats`, {
             method: 'post',
             data: {
                 "server_count": `${client.guilds.cache.size}`
@@ -65,7 +65,7 @@ client.on('ready', () => {
 
     // Topcord.xyz API
     setInterval(() => {
-        fetch("https://api.topcord.xyz/bot/802868654957789204/stats", {
+        fetch(`https://api.topcord.xyz/bot/${bconfig.botid}/stats`, {
             method: 'post',
             data: {
                 "guilds": `${client.guilds.cache.size}`
@@ -90,7 +90,7 @@ client.on('ready', () => {
 
     // BotsForDiscord.com API
     setInterval(() => {
-        fetch("https://botsfordiscord.com/api/bot/802868654957789204", {
+        fetch(`https://botsfordiscord.com/api/bot/${bconfig.botid}`, {
             method: 'post',
             data: {
                 "server_count": `${client.guilds.cache.size}`
@@ -115,7 +115,7 @@ client.on('ready', () => {
 
     // Discord.Bots.gg API
     setInterval(() => {
-        fetch("https://discord.bots.gg/api/v1/bots/802868654957789204/stats", {
+        fetch(`https://discord.bots.gg/api/v1/bots/${bconfig.botid}/stats`, {
             method: 'post',
             data: {
                 "guildCount": `${client.guilds.cache.size}`
@@ -140,7 +140,7 @@ client.on('ready', () => {
 
     // Discord.Boats API
     setInterval(() => {
-        fetch("https://discord.boats/api/bot/802868654957789204", {
+        fetch(`https://discord.boats/api/bot/${bconfig.botid}`, {
             method: 'post',
             data: {
                 "server_count": `${client.guilds.cache.size}`
@@ -165,7 +165,7 @@ client.on('ready', () => {
 
     // Discordbotlist.com API
     setInterval(() => {
-        fetch("https://discordbotlist.com/api/v1/bots/802868654957789204/stats", {
+        fetch(`https://discordbotlist.com/api/v1/bots/${bconfig.botid}/stats`, {
             method: 'post',
             data: {
                 "guilds": `${client.guilds.cache.size}`,
@@ -179,7 +179,7 @@ client.on('ready', () => {
         }).then(() => {
             let webembed = new Discord.MessageEmbed()
             webembed.setTitle("Discordbotlist.com")
-            webembed.setURL("https://discordbotlist.com/bots/minecraft-server-status-5845")
+            webembed.setURL("https://discordbotlist.com/bots/802868654957789204")
             webembed.setDescription("Bot Stats - Updated")
             webembed.setColor('GREEN')
             webembed.setTimestamp()
@@ -191,7 +191,7 @@ client.on('ready', () => {
 
     // Botlist.space API
     setInterval(() => {
-        fetch("https://api.botlist.space/v1/bots/802868654957789204", {
+        fetch(`https://api.botlist.space/v1/bots/${bconfig.botid}`, {
             method: 'post',
             data: {
                 "server_count": `${client.guilds.cache.size}`
@@ -216,7 +216,7 @@ client.on('ready', () => {
 
     // Discordextremelist.xyz API
     setInterval(() => {
-        fetch("https://api.discordextremelist.xyz/v2/bot/802868654957789204/stats", {
+        fetch(`https://api.discordextremelist.xyz/v2/bot/${bconfig.botid}/stats`, {
             method: 'post',
             data: {
                 "guildCount": `${client.guilds.cache.size}`
@@ -241,7 +241,7 @@ client.on('ready', () => {
 
     // Sentcord.com API
     setInterval(() => {
-        fetch("https://sentcord.com/api/bot/802868654957789204", {
+        fetch(`https://sentcord.com/api/bot/${bconfig.botid}`, {
             method: 'post',
             headers: {
                 "Content-Type": "application/json",
@@ -424,6 +424,7 @@ client.on('message', async message => {
                 let status = "Offline"
                 let color = bconfig.botoldcolor
                 let people = "Currently Players are Hidden For This Server"
+                let attachment = new Discord.MessageAttachment(Buffer.from(data.icon.substr('data:image\/png;base64,'.length), 'base64'), "icon.png")
 
                 if (data.online === true) {
 
@@ -468,7 +469,7 @@ client.on('message', async message => {
                     },
                     {
                         "name": "Version",
-                        "value": `${data.version} -v${data.protocol}`,
+                        "value": `${data.version}`,
                         "inline": true
                     },
                     {
@@ -477,7 +478,8 @@ client.on('message', async message => {
                     }
                 ])
                 embedStatus.setColor(color);
-                embedStatus.setThumbnail(botlogo)
+                embedStatus.attachFiles(attachment)
+                embedStatus.setThumbnail("attachment://icon.png")
                 embedStatus.setFooter(`${message.author.tag}`, message.author.displayAvatarURL());
                 embedStatus.setTimestamp();
                 message.channel.send(embedStatus);
@@ -559,7 +561,7 @@ client.on('message', async message => {
             },
             {
                 "name": "discordbotlist.com",
-                "value": "[Here](https://discordbotlist.com/bots/minecraft-server-status-5845)",
+                "value": "[Here](https://discordbotlist.com/bots/802868654957789204)",
                 "inline": true
             },
             {
