@@ -20,27 +20,14 @@ client.on('ready', () => {
     `
     console.log(ontext);
 
-    setInterval(() => {
+    let status = `${prefix}help | ${prefix}setup`
 
-        let a = `${client.guilds.cache.reduce((total, guild) => total + guild.memberCount, 0)}`
-        let b = 1000
+    client.user.setActivity(status, { type: "WATCHING" })
 
-        let c = Math.round(a / b)
-
-        let statuses = [
-            `${prefix}help | ${prefix}setup`,
-            `${c}k Users on ${client.guilds.cache.size} Servers`
-        ]
-
-        let status = statuses[Math.floor(Math.random() * statuses.length)]
-
-        client.user.setActivity(status, { type: "WATCHING" })
-
-    }, bconfig.botstatustime)
 
     // Top.gg API
     setInterval(() => {
-        fetch(`https://top.gg/api/bots/${bconfig.botid}/stats`, {
+        fetch(`https://top.gg/api/bots/${client.user.id}/stats`, {
             method: 'post',
             data: {
                 "server_count": `${client.guilds.cache.size}`
@@ -65,7 +52,7 @@ client.on('ready', () => {
 
     // Topcord.xyz API
     setInterval(() => {
-        fetch(`https://api.topcord.xyz/bot/${bconfig.botid}/stats`, {
+        fetch(`https://api.topcord.xyz/bot/${client.user.id}/stats`, {
             method: 'post',
             data: {
                 "guilds": `${client.guilds.cache.size}`
@@ -90,7 +77,7 @@ client.on('ready', () => {
 
     // BotsForDiscord.com API
     setInterval(() => {
-        fetch(`https://botsfordiscord.com/api/bot/${bconfig.botid}`, {
+        fetch(`https://botsfordiscord.com/api/bot/${client.user.id}`, {
             method: 'post',
             data: {
                 "server_count": `${client.guilds.cache.size}`
@@ -115,7 +102,7 @@ client.on('ready', () => {
 
     // Discord.Bots.gg API
     setInterval(() => {
-        fetch(`https://discord.bots.gg/api/v1/bots/${bconfig.botid}/stats`, {
+        fetch(`https://discord.bots.gg/api/v1/bots/${client.user.id}/stats`, {
             method: 'post',
             data: {
                 "guildCount": `${client.guilds.cache.size}`
@@ -140,7 +127,7 @@ client.on('ready', () => {
 
     // Discord.Boats API
     setInterval(() => {
-        fetch(`https://discord.boats/api/bot/${bconfig.botid}`, {
+        fetch(`https://discord.boats/api/bot/${client.user.id}`, {
             method: 'post',
             data: {
                 "server_count": `${client.guilds.cache.size}`
@@ -165,7 +152,7 @@ client.on('ready', () => {
 
     // Discordbotlist.com API
     setInterval(() => {
-        fetch(`https://discordbotlist.com/api/v1/bots/${bconfig.botid}/stats`, {
+        fetch(`https://discordbotlist.com/api/v1/bots/${client.user.id}/stats`, {
             method: 'post',
             data: {
                 "guilds": `${client.guilds.cache.size}`,
@@ -191,7 +178,7 @@ client.on('ready', () => {
 
     // Botlist.space API
     setInterval(() => {
-        fetch(`https://api.botlist.space/v1/bots/${bconfig.botid}`, {
+        fetch(`https://api.botlist.space/v1/bots/${client.user.id}`, {
             method: 'post',
             data: {
                 "server_count": `${client.guilds.cache.size}`
@@ -216,7 +203,7 @@ client.on('ready', () => {
 
     // Discordextremelist.xyz API
     setInterval(() => {
-        fetch(`https://api.discordextremelist.xyz/v2/bot/${bconfig.botid}/stats`, {
+        fetch(`https://api.discordextremelist.xyz/v2/bot/${client.user.id}/stats`, {
             method: 'post',
             data: {
                 "guildCount": `${client.guilds.cache.size}`
@@ -241,7 +228,7 @@ client.on('ready', () => {
 
     // Sentcord.com API
     setInterval(() => {
-        fetch(`https://sentcord.com/api/bot/${bconfig.botid}`, {
+        fetch(`https://sentcord.com/api/bot/${client.user.id}`, {
             method: 'post',
             headers: {
                 "Content-Type": "application/json",
@@ -268,8 +255,6 @@ client.on('message', async message => {
 
     // Required Credentials
     let mcIP = predb.get(`guild_${message.guild.id}_ip`) || "Not Setup"
-
-    let botlogo = bconfig.logo
 
     let mcPort = predb.get(`guild_${message.guild.id}_port`) || "Not Setup"
 
@@ -345,7 +330,7 @@ client.on('message', async message => {
             }
         ])
         embedSetup.setColor("BLUE");
-        embedSetup.setThumbnail(botlogo)
+        embedSetup.setThumbnail(client.user.displayAvatarURL({ format: "png", size: 128, dynamic: true }))
         embedSetup.setFooter(`${message.author.tag}`, message.author.displayAvatarURL());
         embedSetup.setTimestamp();
         return message.channel.send(embedSetup);
@@ -394,7 +379,7 @@ client.on('message', async message => {
             }
         ])
         embedReset.setColor("BLUE");
-        embedReset.setThumbnail(botlogo)
+        embedReset.setThumbnail(client.user.displayAvatarURL({ format: "png", size: 128, dynamic: true }))
         embedReset.setFooter(`${message.author.tag}`, message.author.displayAvatarURL());
         embedReset.setTimestamp();
         message.channel.send(embedReset);
@@ -507,7 +492,7 @@ client.on('message', async message => {
             }
         ])
         embedIP.setColor("BLUE");
-        embedIP.setThumbnail(botlogo)
+        embedIP.setThumbnail(client.user.displayAvatarURL({ format: "png", size: 128, dynamic: true }))
         embedIP.setFooter(`${message.author.tag}`, message.author.displayAvatarURL());
         embedIP.setTimestamp();
         message.channel.send(embedIP);
@@ -527,7 +512,7 @@ client.on('message', async message => {
         embedInvite.setDescription("Invite Link Panel Here :-")
         embedInvite.addField("Invite", invlink)
         embedInvite.setColor("BLUE");
-        embedInvite.setThumbnail(botlogo)
+        embedInvite.setThumbnail(client.user.displayAvatarURL({ format: "png", size: 128, dynamic: true }))
         embedInvite.setFooter(`${message.author.tag}`, message.author.displayAvatarURL());
         embedInvite.setTimestamp();
         message.channel.send(embedInvite);
@@ -580,7 +565,7 @@ client.on('message', async message => {
             }
         ])
         embedVote.setColor("BLUE");
-        embedVote.setThumbnail(botlogo)
+        embedVote.setThumbnail(client.user.displayAvatarURL({ format: "png", size: 128, dynamic: true }))
         embedVote.setFooter(`${message.author.tag}`, message.author.displayAvatarURL());
         embedVote.setTimestamp();
         message.channel.send(embedVote);
@@ -685,7 +670,7 @@ client.on('message', async message => {
             }
         ])
         embedBotstats.setColor("BLUE");
-        embedBotstats.setThumbnail(botlogo)
+        embedBotstats.setThumbnail(client.user.displayAvatarURL({ format: "png", size: 128, dynamic: true }))
         embedBotstats.setFooter(`${message.author.tag}`, message.author.displayAvatarURL());
         embedBotstats.setTimestamp();
         message.channel.send(embedBotstats);
@@ -749,7 +734,7 @@ client.on('message', async message => {
             }
         ])
         embedInfo.setColor("BLUE");
-        embedInfo.setThumbnail(botlogo)
+        embedInfo.setThumbnail(client.user.displayAvatarURL({ format: "png", size: 128, dynamic: true }))
         embedInfo.setFooter(`${message.author.tag}`, message.author.displayAvatarURL());
         embedInfo.setTimestamp();
         message.channel.send(embedInfo);
@@ -787,7 +772,7 @@ client.on('message', async message => {
         embedmemreport.setTitle("Minecraft Server Status")
         embedmemreport.setURL("https://top.gg/bot/802868654957789204")
         embedmemreport.setDescription(`You're issue have been succesfully sent to the developers!`)
-        embedmemreport.setThumbnail(botlogo)
+        embedmemreport.setThumbnail(client.user.displayAvatarURL({ format: "png", size: 128, dynamic: true }))
         embedmemreport.setColor('GREEN')
         embedmemreport.setFooter(`${message.author.tag}`, message.author.displayAvatarURL());
         embedmemreport.setTimestamp()
@@ -830,7 +815,7 @@ client.on('message', async message => {
             }
         ])
         embedmemtodevreport.setColor('YELLOW');
-        embedmemtodevreport.setThumbnail(botlogo)
+        embedmemtodevreport.setThumbnail(client.user.displayAvatarURL({ format: "png", size: 128, dynamic: true }))
         embedmemtodevreport.setFooter(`${message.author.tag}`, message.author.displayAvatarURL());
         embedmemtodevreport.setTimestamp();
 
@@ -875,7 +860,7 @@ client.on('message', async message => {
         ])
         embedHelp.addField("Help & Updates", "For Any Help & Updates [Join My Discord Server](https://discord.gg/EtCsyts)")
         embedHelp.setColor("BLUE");
-        embedHelp.setThumbnail(botlogo)
+        embedHelp.setThumbnail(client.user.displayAvatarURL({ format: "png", size: 128, dynamic: true }))
         embedHelp.setFooter(`${message.author.tag}`, message.author.displayAvatarURL());
         embedHelp.setTimestamp();
         message.channel.send(embedHelp);
