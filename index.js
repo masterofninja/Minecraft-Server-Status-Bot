@@ -409,7 +409,6 @@ client.on('message', async message => {
                 let status = "Offline"
                 let color = bconfig.botoldcolor
                 let people = "Currently Players are Hidden For This Server"
-                let attachment = new Discord.MessageAttachment(Buffer.from(data.icon.substr('data:image\/png;base64,'.length), 'base64'), "icon.png")
 
                 if (data.online === true) {
 
@@ -418,7 +417,7 @@ client.on('message', async message => {
 
                     if (data.players.list) {
 
-                        people = data.players.list.join('   ,   ')
+                        people = data.players.list.join(' , ')
 
                     }
                     else if (data.players.online === 0) {
@@ -434,37 +433,40 @@ client.on('message', async message => {
                 embedStatus.addFields([
                     {
                         "name": "Ip",
-                        "value": `${data.hostname}`,
+                        "value": "```" + `${mcIP}` + "```",
                         "inline": true
                     },
                     {
                         "name": "Port",
-                        "value": `${data.port}`,
+                        "value": "```" + `${mcPort}` + "```",
                         "inline": true
                     },
                     {
                         "name": "Status",
-                        "value": status,
+                        "value": "```" + status + "```",
                         "inline": true
                     },
                     {
+                        "name": "Motd",
+                        "value": "```" + `${data.motd.clean}` + "```"
+                    },
+                    {
                         "name": "Player Count",
-                        "value": data.players.online + "/" + data.players.max,
+                        "value": "```" + data.players.online + "/" + data.players.max + "```",
                         "inline": true
                     },
                     {
                         "name": "Version",
-                        "value": `${data.version}`,
+                        "value": "```" + `${data.version}` + "```",
                         "inline": true
                     },
                     {
                         "name": "Players",
-                        "value": people
+                        "value": "```" + people + "```"
                     }
                 ])
                 embedStatus.setColor(color);
-                embedStatus.attachFiles(attachment)
-                embedStatus.setThumbnail("attachment://icon.png")
+                embedStatus.setThumbnail(client.user.displayAvatarURL({ format: "png", size: 128, dynamic: true }))
                 embedStatus.setFooter(`${message.author.tag}`, message.author.displayAvatarURL());
                 embedStatus.setTimestamp();
                 message.channel.send(embedStatus);
