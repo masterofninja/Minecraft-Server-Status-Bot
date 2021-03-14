@@ -270,15 +270,15 @@ client.on('guildCreate', guild => {
                             embedGC.setTitle("Minecraft Server Status")
                             embedGC.setURL("https://top.gg/bot/802868654957789204")
                             embedGC.setDescription(`
-        Thanks for adding me to your server , To Get List Of All Commands Run **.help** Command .
+        • Thanks for adding me to your server , To Get List Of All Commands Run **.help** Command .
 
-        For Setting Up The Bot Run **.setup** Command , This Command Setups Your Server Ip and Port , Correct Way Of Using This Command Is **.setup ip port** .
+        • For Setting Up The Bot Run **.setup** Command , This Command Setups Your Server Ip and Port , Correct Way Of Using This Command Is **.setup ip port** .
 
-        After Setup Run **.status** Command To Get Your Minecraft Server Status .
+        • After Setup Run **.status** Command To Get Your Minecraft Server Status .
 
-        For Reset The Ip and Port Run **.reset** Command and Run **.setup** Command Again For Setup The Bot.
+        • For Reset The Ip and Port Run **.reset** Command and Run **.setup** Command Again For Setup The Bot.
 
-        If You Need Any Help With Minecraft Server Status Bot Feel Free To Join Minecraft Server Status **[Support Server](https://discord.gg/EtCsyts)** To Get Your Answers .
+        • If You Need Any Help With Minecraft Server Status Bot Feel Free To Join Minecraft Server Status **[Support Server](https://discord.gg/EtCsyts)** To Get Your Answers .
         
         `)
                             embedGC.setColor("BLUE");
@@ -317,7 +317,7 @@ client.on('message', async message => {
         if (!message.guild.me.hasPermission('EMBED_LINKS')) return message.channel.send('Please Give Me **EMBED_LINKS** permission in this channel .')
 
         let embedargs = new Discord.MessageEmbed()
-        embedargs.setDescription(`Please Use **${prefix}setup** command like : **${prefix}setup serverip serverport**`)
+        embedargs.setDescription(`• Please Use **${prefix}setup** command like : **${prefix}setup serverip serverport**`)
         embedargs.setColor('RED')
         embedargs.setFooter(`${message.author.tag}`, message.author.displayAvatarURL())
         embedargs.setTimestamp()
@@ -326,7 +326,7 @@ client.on('message', async message => {
         if (!args[2]) return message.channel.send(embedargs)
 
         let embedportnum = new Discord.MessageEmbed()
-        embedportnum.setDescription(`Make Sure That The **PORT** you are entering is numeric`)
+        embedportnum.setDescription(`• Make Sure That The **PORT** you are entering is numeric`)
         embedportnum.setColor('RED')
         embedportnum.setFooter(`${message.author.tag}`, message.author.displayAvatarURL())
         embedportnum.setTimestamp()
@@ -334,7 +334,7 @@ client.on('message', async message => {
         if (isNaN(parseInt(args[2]))) return message.channel.send(embedportnum)
 
         let embedportlength = new Discord.MessageEmbed()
-        embedportlength.setDescription(`Make Sure That The **PORT** you are entering is not more than 5 numbers`)
+        embedportlength.setDescription(`• Make Sure That The **PORT** you are entering is not more than 5 numbers`)
         embedportlength.setColor('RED')
         embedportlength.setFooter(`${message.author.tag}`, message.author.displayAvatarURL())
         embedportlength.setTimestamp()
@@ -342,7 +342,7 @@ client.on('message', async message => {
         if (args[2].length > 5) return message.channel.send(embedportlength)
 
         let embedsameip = new Discord.MessageEmbed()
-        embedsameip.setDescription(`This One Is Already Your IP , For Reset Use **${prefix}reset**`)
+        embedsameip.setDescription(`• This One Is Already Your IP , For Reset Use **${prefix}reset**`)
         embedsameip.setColor('YELLOW')
         embedsameip.setFooter(`${message.author.tag}`, message.author.displayAvatarURL())
         embedsameip.setTimestamp()
@@ -350,7 +350,7 @@ client.on('message', async message => {
         if (args[1] === predb.has(`guild_${message.guild.id}_ip`)) return message.channel.send(embedsameip)
 
         let embedsameport = new Discord.MessageEmbed()
-        embedsameport.setDescription(`This One Is Already Your PORT , For Reset Use **${prefix}reset**`)
+        embedsameport.setDescription(`• This One Is Already Your PORT , For Reset Use **${prefix}reset**`)
         embedsameport.setColor('YELLOW')
         embedsameport.setFooter(`${message.author.tag}`, message.author.displayAvatarURL())
         embedsameport.setTimestamp()
@@ -391,7 +391,7 @@ client.on('message', async message => {
         if (!message.guild.me.hasPermission('EMBED_LINKS')) return message.channel.send('Please Give Me **EMBED_LINKS** permission in this channel .')
 
         let embednoip = new Discord.MessageEmbed()
-        embednoip.setDescription(`No IP has been setuped , For Setup Use **${prefix}setup**`)
+        embednoip.setDescription(`• No IP has been setuped , For Setup Use **${prefix}setup**`)
         embednoip.setColor('YELLOW')
         embednoip.setFooter(`${message.author.tag}`, message.author.displayAvatarURL())
         embednoip.setTimestamp()
@@ -399,7 +399,7 @@ client.on('message', async message => {
         if (!message.guild.id === predb.has(`guild_${message.guild.id}_ip`)) return message.channel.send(embednoip)
 
         let embednoport = new Discord.MessageEmbed()
-        embednoport.setDescription(`No PORT has been setuped , For Setup Use **${prefix}setup**`)
+        embednoport.setDescription(`• No PORT has been setuped , For Setup Use **${prefix}setup**`)
         embednoport.setColor('YELLOW')
         embednoport.setFooter(`${message.author.tag}`, message.author.displayAvatarURL())
         embednoport.setTimestamp()
@@ -437,7 +437,10 @@ client.on('message', async message => {
         if (!message.guild.me.hasPermission('EMBED_LINKS')) return message.channel.send('Please Give Me **EMBED_LINKS** permission in this channel .')
 
         let embedstatuserr = new Discord.MessageEmbed()
-        embedstatuserr.setDescription(`Maybe, IP and PORT Has Been Not Setuped For This Server or if you thought that bot is giving wrong reply then use **${prefix}reset** for reset and then **${prefix}setup** command for setup your server ip and port again`)
+        embedstatuserr.setDescription(`
+        • Maybe, IP and PORT Has Been Not Setuped For This Server .
+
+        • If you thought that bot is giving wrong reply then use **${prefix}reset** for reset and then **${prefix}setup** command for setup your server ip and port again`)
         embedstatuserr.setColor('RED')
         embedstatuserr.setFooter(`${message.author.tag}`, message.author.displayAvatarURL())
         embedstatuserr.setTimestamp()
@@ -796,7 +799,7 @@ client.on('message', async message => {
         const ReportInvLink = args[1];
 
         let embednoinv = new Discord.MessageEmbed()
-        embednoinv.setDescription(`Please Use **${prefix}report** command like : **${prefix}report your-server-invite-link your-issue**`)
+        embednoinv.setDescription(`• Please Use **${prefix}report** command like : **${prefix}report your-server-invite-link your-issue**`)
         embednoinv.setColor('RED')
         embednoinv.setFooter(`${message.author.tag}`, message.author.displayAvatarURL());
         embednoinv.setTimestamp()
@@ -804,7 +807,7 @@ client.on('message', async message => {
         if (!args[1]) return message.channel.send(embednoinv)
 
         const embednoinvlink = new Discord.MessageEmbed()
-        embednoinvlink.setDescription("Your Server Invite Link Must Be Like - **https://discord.gg/EtCsyts**")
+        embednoinvlink.setDescription("• Your Server Invite Link Must Be Like - **https://discord.gg/EtCsyts**")
         embednoinvlink.setColor('RED')
         embednoinvlink.setFooter(`${message.author.tag}`, message.author.displayAvatarURL());
         embednoinvlink.setTimestamp()
@@ -905,7 +908,7 @@ client.on('message', async message => {
                 "inline": true
             }
         ])
-        embedHelp.addField("Help & Updates", "For Any Help & Updates [Join My Discord Server](https://discord.gg/EtCsyts)")
+        embedHelp.addField("Help & Updates", "• For Any Help & Updates [Join My Discord Server](https://discord.gg/EtCsyts)")
         embedHelp.setColor("BLUE");
         embedHelp.setThumbnail(client.user.displayAvatarURL({ format: "png", size: 128, dynamic: true }))
         embedHelp.setFooter(`${message.author.tag}`, message.author.displayAvatarURL());
