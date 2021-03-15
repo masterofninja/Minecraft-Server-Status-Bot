@@ -22,7 +22,7 @@ client.on('ready', () => {
 
     let status = `${prefix}help | ${prefix}setup`
 
-    client.user.setActivity(status, { type: "WATCHING" })
+    client.user.setActivity(status, { type: "PLAYING" })
 
 
     // Top.gg API
