@@ -20,7 +20,7 @@ client.on('ready', () => {
     `
     console.log(ontext);
 
-    let status = `${prefix}help | ${prefix}setup`
+    let status = `mss.logesport.in | ${prefix}help`
 
     client.user.setActivity(status, { type: "PLAYING" })
 
@@ -768,8 +768,8 @@ client.on('message', async message => {
                 "inline": true
             },
             {
-                "name": "Hosting",
-                "value": "**[Petrodactyl](https://pterodactyl.io)**",
+                "name": "Website",
+                "value": "**[Here](https://mss.logesport.in)**",
                 "inline": true
             },
             {
