@@ -20,21 +20,21 @@
 
 Use **`.setup`** to setup Ip and Port of your server .
 
-<img src="https://cdn.discordapp.com/attachments/771781595220017193/817352386880208936/Setup.png" alt="Setup Command"/>
+<img src="assets/images/Setup.png" alt="Setup Command"/>
 
 Use **`.reset`** to reset Ip and Port of your server .
 
-<img src="https://cdn.discordapp.com/attachments/771781595220017193/816629938236686356/Reset.png" alt="Reset Command"/>
+<img src="assets/images/Reset.png" alt="Reset Command"/>
 
 Use **`.status`** to know Status of your minecraft server after setup has been done .
 
-In Place of **`Currently No One Is Playing In Server`** it will show **`Players names when any player is playing in server`** and if players are hidden for server then it will show **`Currently Players are Hidden In Server`** .
+In Place of **`Players names`** it will show **`Currently No One Is Playing In Server`** if no one is playing in server and if players are hidden for server then it will show **`Currently Players are Hidden In Server`** .
 
-<img src="https://cdn.discordapp.com/attachments/771781595220017193/817977461606187038/Status.png" alt="Status Command"/>
+<img src="assets/images/Status.png" alt="Status Command"/>
 
 Use **`.report`** to report any Issue regarding Bot to Developer .
 
-<img src="https://cdn.discordapp.com/attachments/771781595220017193/816629936038871040/Report.png" alt="Report Command"/>
+<img src="assets/images/Report.png" alt="Report Command"/>
 
 There Are Many More Commands , Use **`.help`** To Get All Bot Commands .
 
