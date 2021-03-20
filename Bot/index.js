@@ -779,7 +779,7 @@ client.on('message', async message => {
             },
             {
                 "name": "Privacy",
-                "value": "**[Here](https://github.com/LOG-LEGENDX/Minecraft-Server-Status-Bot/blob/master/Bot/PRIVACY.md)**",
+                "value": "**[Here](https://github.com/LOG-LEGENDX/Minecraft-Server-Status-Bot/blob/master/PRIVACY.md)**",
                 "inline": true
             }
         ])
