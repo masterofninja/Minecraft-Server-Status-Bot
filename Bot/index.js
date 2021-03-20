@@ -268,7 +268,7 @@ client.on('guildCreate', guild => {
 
                             let embedGC = new Discord.MessageEmbed();
                             embedGC.setTitle("Minecraft Server Status")
-                            embedGC.setURL("https://top.gg/bot/802868654957789204")
+                            embedGC.setUrl("https://mss.logesport.in")
                             embedGC.setDescription(`
         • Thanks for adding me to your server , To Get List Of All Commands Run **.help** Command .
 
@@ -362,16 +362,16 @@ client.on('message', async message => {
 
         let embedSetup = new Discord.MessageEmbed();
         embedSetup.setTitle("Minecraft Server Status")
-        embedSetup.setURL("https://top.gg/bot/802868654957789204")
+        embedSetup.setUrl("https://mss.logesport.in")
         embedSetup.setDescription("Setup Panel Here :-")
         embedSetup.addFields([
             {
                 "name": "IP",
-                "value": `${args[1]}`
+                "value": "```" + `${args[1]}` + "```"
             },
             {
                 "name": "PORT",
-                "value": `${args[2]}`
+                "value": "```" + `${args[2]}` + "```"
             }
         ])
         embedSetup.setColor("BLUE");
@@ -411,16 +411,16 @@ client.on('message', async message => {
 
         let embedReset = new Discord.MessageEmbed();
         embedReset.setTitle("Minecraft Server Status")
-        embedReset.setURL("https://top.gg/bot/802868654957789204")
+        embedReset.setUrl("https://mss.logesport.in")
         embedReset.setDescription("Reset Panel Here :-")
         embedReset.addFields([
             {
                 "name": "IP",
-                "value": "Successfully Reset"
+                "value": "```" + `Successfully Reset` + "```"
             },
             {
                 "name": "PORT",
-                "value": "Successfully Reset"
+                "value": "```" + "Successfully Reset" + "```"
             }
         ])
         embedReset.setColor("BLUE");
@@ -476,7 +476,7 @@ client.on('message', async message => {
 
                 let embedStatus = new Discord.MessageEmbed();
                 embedStatus.setTitle("Minecraft Server Status")
-                embedStatus.setURL("https://top.gg/bot/802868654957789204")
+                embedStatus.setUrl("https://mss.logesport.in")
                 embedStatus.setDescription("Your Minecraft Server Panel Here :-")
                 embedStatus.addFields([
                     {
@@ -529,16 +529,16 @@ client.on('message', async message => {
 
         let embedIP = new Discord.MessageEmbed();
         embedIP.setTitle("Minecraft Server Status")
-        embedIP.setURL("https://top.gg/bot/802868654957789204")
+        embedIP.setUrl("https://mss.logesport.in")
         embedIP.setDescription("Your Minecraft Server IP & PORT Panel Here :-")
         embedIP.addFields([
             {
                 "name": "IP",
-                "value": `**${mcIP}**`
+                "value": "```" + `${mcIP}` + "```"
             },
             {
                 "name": "PORT",
-                "value": `${mcPort}`
+                "value": "```" + `${mcPort}` + "```"
             }
         ])
         embedIP.setColor("BLUE");
@@ -558,7 +558,7 @@ client.on('message', async message => {
 
         let embedInvite = new Discord.MessageEmbed();
         embedInvite.setTitle("Minecraft Server Status")
-        embedInvite.setURL("https://top.gg/bot/802868654957789204")
+        embedInvite.setUrl("https://mss.logesport.in")
         embedInvite.setDescription("Invite Link Panel Here :-")
         embedInvite.addField("Invite", invlink)
         embedInvite.setColor("BLUE");
@@ -576,7 +576,7 @@ client.on('message', async message => {
 
         let embedVote = new Discord.MessageEmbed();
         embedVote.setTitle("Minecraft Server Status")
-        embedVote.setURL("https://top.gg/bot/802868654957789204")
+        embedVote.setUrl("https://mss.logesport.in")
         embedVote.setDescription("Voting Link Panel Here :-")
         embedVote.addFields([
             {
@@ -645,77 +645,77 @@ client.on('message', async message => {
 
         let embedBotstats = new Discord.MessageEmbed();
         embedBotstats.setTitle("Minecraft Server Status")
-        embedBotstats.setURL("https://top.gg/bot/802868654957789204")
+        embedBotstats.setUrl("https://mss.logesport.in")
         embedBotstats.setDescription("My Stats Panel Here :-")
         embedBotstats.addFields([
             {
                 "name": "Name",
-                "value": `${client.user.tag}`,
+                "value": "```" + `${client.user.tag}` + "```",
                 "inline": true
             },
             {
                 "name": "Id",
-                "value": `${client.user.id}`,
+                "value": "```" + `${client.user.id}` + "```",
                 "inline": true
             },
             {
                 "name": "Prefix",
-                "value": `${prefix}`,
+                "value": "```" + `${prefix}` + "```",
                 "inline": true
             },
             {
                 "name": "Servers",
-                "value": `${botservers}`,
+                "value": "```" + `${botservers}` + "```",
                 "inline": true
             },
             {
                 "name": "Users",
-                "value": `${botusers}`,
+                "value": "```" + `${botusers}` + "```",
                 "inline": true
             },
             {
                 "name": "Channels",
-                "value": `${botchannels}`,
+                "value": "```" + `${botchannels}` + "```",
                 "inline": true
             },
             {
                 "name": "Emojis",
-                "value": `${botemojis}`,
+                "value": "```" + `${botemojis}` + "```",
                 "inline": true
             },
             {
                 "name": "Ping",
-                "value": `${botping} ms`,
+                "value": "```" + `${botping} ms` + "```",
                 "inline": true
             },
             {
                 "name": "Memory Usage",
-                "value": `${memusage} mb`,
+                "value": "```" + `${memusage} mb` + "```",
                 "inline": true
             },
             {
                 "name": "Uptime Days",
-                "value": `${days} days`,
+                "value": "```" + `${days} days` + "```",
                 "inline": true
             },
             {
                 "name": "Uptime Hours",
-                "value": `${hours} hours`,
+                "value": "```" + `${hours} hours` + "```",
                 "inline": true
             },
             {
                 "name": "Uptime Minutes",
-                "value": `${minutes} minutes`,
+                "value": "```" + `${minutes} minutes` + "```",
                 "inline": true
             },
             {
                 "name": "Creation",
-                "value": `${botcreate}`,
+                "value": "```" + `${botcreate}` + "```",
                 "inline": true
             },
             {
                 "name": "Creation Days",
-                "value": `${ago}`,
+                "value": "```" + `${ago}` + "```",
                 "inline": true
             }
         ])
@@ -734,7 +734,7 @@ client.on('message', async message => {
 
         let embedInfo = new Discord.MessageEmbed();
         embedInfo.setTitle("Minecraft Server Status")
-        embedInfo.setURL("https://top.gg/bot/802868654957789204")
+        embedInfo.setUrl("https://mss.logesport.in")
         embedInfo.setDescription("Info Panel Here :-")
         embedInfo.addFields([
             {
@@ -820,7 +820,7 @@ client.on('message', async message => {
 
         let embedmemreport = new Discord.MessageEmbed()
         embedmemreport.setTitle("Minecraft Server Status")
-        embedmemreport.setURL("https://top.gg/bot/802868654957789204")
+        embedmemreport.setUrl("https://mss.logesport.in")
         embedmemreport.setDescription(`You're issue have been succesfully sent to the developers!`)
         embedmemreport.setThumbnail(client.user.displayAvatarURL({ format: "png", size: 128, dynamic: true }))
         embedmemreport.setColor('GREEN')
@@ -831,27 +831,27 @@ client.on('message', async message => {
 
         let embedmemtodevreport = new Discord.MessageEmbed()
         embedmemtodevreport.setTitle("Minecraft Server Status")
-        embedmemtodevreport.setURL("https://top.gg/bot/802868654957789204")
+        embedmemtodevreport.setUrl("https://mss.logesport.in")
         embedmemtodevreport.setDescription("Report Panel Here :-")
         embedmemtodevreport.addFields([
             {
                 "name": "Reporter Name",
-                "value": `${message.author.tag}`,
+                "value": "```" + `${message.author.tag}` + "```",
                 "inline": true
             },
             {
                 "name": "Reporter ID",
-                "value": `${message.author.id}`,
+                "value": "```" + `${message.author.id}` + "```",
                 "inline": true
             },
             {
                 "name": "Reported Guild Name",
-                "value": `${message.guild.name}`,
+                "value": "```" + `${message.guild.name}` + "```",
                 "inline": true
             },
             {
                 "name": "Reported Guild ID",
-                "value": `${message.guild.id}`,
+                "value": "```" + `${message.guild.id}` + "```",
                 "inline": true
             },
             {
@@ -861,7 +861,7 @@ client.on('message', async message => {
             },
             {
                 "name": "Reported Issue",
-                "value": `${ReportMessage}`
+                "value": "```" + `${ReportMessage}` + "```"
             }
         ])
         embedmemtodevreport.setColor('YELLOW');
@@ -889,7 +889,7 @@ client.on('message', async message => {
         ]
         let embedHelp = new Discord.MessageEmbed();
         embedHelp.setTitle("Minecraft Server Status")
-        embedHelp.setURL("https://top.gg/bot/802868654957789204")
+        embedHelp.setUrl("https://mss.logesport.in")
         embedHelp.setDescription("Helping Panel Here :-")
         embedHelp.addFields([
             {
