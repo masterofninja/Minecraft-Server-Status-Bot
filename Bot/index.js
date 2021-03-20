@@ -268,7 +268,7 @@ client.on('guildCreate', guild => {
 
                             let embedGC = new Discord.MessageEmbed();
                             embedGC.setTitle("Minecraft Server Status")
-                            embedGC.setUrl("https://mss.logesport.in")
+                            embedGC.setURL("https://mss.logesport.in")
                             embedGC.setDescription(`
         • Thanks for adding me to your server , To Get List Of All Commands Run **.help** Command .
 
@@ -362,7 +362,7 @@ client.on('message', async message => {
 
         let embedSetup = new Discord.MessageEmbed();
         embedSetup.setTitle("Minecraft Server Status")
-        embedSetup.setUrl("https://mss.logesport.in")
+        embedSetup.setURL("https://mss.logesport.in")
         embedSetup.setDescription("Setup Panel Here :-")
         embedSetup.addFields([
             {
@@ -411,7 +411,7 @@ client.on('message', async message => {
 
         let embedReset = new Discord.MessageEmbed();
         embedReset.setTitle("Minecraft Server Status")
-        embedReset.setUrl("https://mss.logesport.in")
+        embedReset.setURL("https://mss.logesport.in")
         embedReset.setDescription("Reset Panel Here :-")
         embedReset.addFields([
             {
@@ -476,7 +476,7 @@ client.on('message', async message => {
 
                 let embedStatus = new Discord.MessageEmbed();
                 embedStatus.setTitle("Minecraft Server Status")
-                embedStatus.setUrl("https://mss.logesport.in")
+                embedStatus.setURL("https://mss.logesport.in")
                 embedStatus.setDescription("Your Minecraft Server Panel Here :-")
                 embedStatus.addFields([
                     {
@@ -529,7 +529,7 @@ client.on('message', async message => {
 
         let embedIP = new Discord.MessageEmbed();
         embedIP.setTitle("Minecraft Server Status")
-        embedIP.setUrl("https://mss.logesport.in")
+        embedIP.setURL("https://mss.logesport.in")
         embedIP.setDescription("Your Minecraft Server IP & PORT Panel Here :-")
         embedIP.addFields([
             {
@@ -558,7 +558,7 @@ client.on('message', async message => {
 
         let embedInvite = new Discord.MessageEmbed();
         embedInvite.setTitle("Minecraft Server Status")
-        embedInvite.setUrl("https://mss.logesport.in")
+        embedInvite.setURL("https://mss.logesport.in")
         embedInvite.setDescription("Invite Link Panel Here :-")
         embedInvite.addField("Invite", invlink)
         embedInvite.setColor("BLUE");
@@ -576,7 +576,7 @@ client.on('message', async message => {
 
         let embedVote = new Discord.MessageEmbed();
         embedVote.setTitle("Minecraft Server Status")
-        embedVote.setUrl("https://mss.logesport.in")
+        embedVote.setURL("https://mss.logesport.in")
         embedVote.setDescription("Voting Link Panel Here :-")
         embedVote.addFields([
             {
@@ -645,7 +645,7 @@ client.on('message', async message => {
 
         let embedBotstats = new Discord.MessageEmbed();
         embedBotstats.setTitle("Minecraft Server Status")
-        embedBotstats.setUrl("https://mss.logesport.in")
+        embedBotstats.setURL("https://mss.logesport.in")
         embedBotstats.setDescription("My Stats Panel Here :-")
         embedBotstats.addFields([
             {
@@ -734,7 +734,7 @@ client.on('message', async message => {
 
         let embedInfo = new Discord.MessageEmbed();
         embedInfo.setTitle("Minecraft Server Status")
-        embedInfo.setUrl("https://mss.logesport.in")
+        embedInfo.setURL("https://mss.logesport.in")
         embedInfo.setDescription("Info Panel Here :-")
         embedInfo.addFields([
             {
@@ -820,7 +820,7 @@ client.on('message', async message => {
 
         let embedmemreport = new Discord.MessageEmbed()
         embedmemreport.setTitle("Minecraft Server Status")
-        embedmemreport.setUrl("https://mss.logesport.in")
+        embedmemreport.setURL("https://mss.logesport.in")
         embedmemreport.setDescription(`You're issue have been succesfully sent to the developers!`)
         embedmemreport.setThumbnail(client.user.displayAvatarURL({ format: "png", size: 128, dynamic: true }))
         embedmemreport.setColor('GREEN')
@@ -831,7 +831,7 @@ client.on('message', async message => {
 
         let embedmemtodevreport = new Discord.MessageEmbed()
         embedmemtodevreport.setTitle("Minecraft Server Status")
-        embedmemtodevreport.setUrl("https://mss.logesport.in")
+        embedmemtodevreport.setURL("https://mss.logesport.in")
         embedmemtodevreport.setDescription("Report Panel Here :-")
         embedmemtodevreport.addFields([
             {
@@ -889,7 +889,7 @@ client.on('message', async message => {
         ]
         let embedHelp = new Discord.MessageEmbed();
         embedHelp.setTitle("Minecraft Server Status")
-        embedHelp.setUrl("https://mss.logesport.in")
+        embedHelp.setURL("https://mss.logesport.in")
         embedHelp.setDescription("Helping Panel Here :-")
         embedHelp.addFields([
             {
