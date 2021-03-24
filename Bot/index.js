@@ -448,77 +448,97 @@ client.on('message', async message => {
         if (!message.guild.id === predb.has(`guild_${message.guild.id}_ip`)) return message.channel.send(embedstatuserr)
         if (!message.guild.id === predb.has(`guild_${message.guild.id}_port`)) return message.channel.send(embedstatuserr)
 
+        let embederr = new Discord.MessageEmbed()
+        embederr.setDescription(`
+        Your Server Is Not Reachable , Here Are Possible Reasons -
+
+        • Your IP and PORT Is Wrong .
+
+        • Your Minecraft Server Is Offline .
+
+        • Your Minecraft Server Query Is False .
+        `)
+        embederr.setColor('RED')
+        embederr.setFooter(`${message.author.tag}`, message.author.displayAvatarURL())
+        embederr.setTimestamp()
+
         let serverURL = `https://api.mcsrvstat.us/2/${mcIP}:${mcPort}`;
 
-        await fetch(serverURL)
-            .then(response => response.json())
-            .then(data => {
+        try {
 
-                let status = "Offline"
-                let color = bconfig.botoldcolor
-                let people = "Currently Players are Hidden For This Server"
+            await fetch(serverURL)
+                .then(response => response.json())
+                .then(data => {
 
-                if (data.online === true) {
+                    let status = "Offline"
+                    let color = bconfig.botoldcolor
+                    let people = "Currently Players are Hidden For This Server"
 
-                    status = "Online"
-                    color = bconfig.botnewcolor
+                    if (data.online === true) {
 
-                    if (data.players.list) {
+                        status = "Online"
+                        color = bconfig.botnewcolor
 
-                        people = data.players.list.join(' , ')
+                        if (data.players.list) {
 
+                            people = data.players.list.join(' , ')
+
+                        }
+                        else if (data.players.online === 0) {
+
+                            people = "Currently No One Is Playing In Server"
+                        }
                     }
-                    else if (data.players.online === 0) {
 
-                        people = "Currently No One Is Playing In Server"
-                    }
-                }
+                    let embedStatus = new Discord.MessageEmbed();
+                    embedStatus.setTitle("Minecraft Server Status")
+                    embedStatus.setURL("https://mss.logesport.in")
+                    embedStatus.setDescription("Your Minecraft Server Panel Here :-")
+                    embedStatus.addFields([
+                        {
+                            "name": "Ip",
+                            "value": "```" + `${mcIP}` + "```",
+                            "inline": true
+                        },
+                        {
+                            "name": "Port",
+                            "value": "```" + `${mcPort}` + "```",
+                            "inline": true
+                        },
+                        {
+                            "name": "Status",
+                            "value": "```" + status + "```",
+                            "inline": true
+                        },
+                        {
+                            "name": "Motd",
+                            "value": "```" + `${data.motd.clean}` + "```"
+                        },
+                        {
+                            "name": "Player Count",
+                            "value": "```" + data.players.online + "/" + data.players.max + "```",
+                            "inline": true
+                        },
+                        {
+                            "name": "Version",
+                            "value": "```" + `${data.version}` + "```",
+                            "inline": true
+                        },
+                        {
+                            "name": "Players",
+                            "value": "```" + people + "```"
+                        }
+                    ])
+                    embedStatus.setColor(color);
+                    embedStatus.setThumbnail(client.user.displayAvatarURL({ format: "png", size: 128, dynamic: true }))
+                    embedStatus.setFooter(`${message.author.tag}`, message.author.displayAvatarURL());
+                    embedStatus.setTimestamp();
+                    message.channel.send(embedStatus);
+                })
 
-                let embedStatus = new Discord.MessageEmbed();
-                embedStatus.setTitle("Minecraft Server Status")
-                embedStatus.setURL("https://mss.logesport.in")
-                embedStatus.setDescription("Your Minecraft Server Panel Here :-")
-                embedStatus.addFields([
-                    {
-                        "name": "Ip",
-                        "value": "```" + `${mcIP}` + "```",
-                        "inline": true
-                    },
-                    {
-                        "name": "Port",
-                        "value": "```" + `${mcPort}` + "```",
-                        "inline": true
-                    },
-                    {
-                        "name": "Status",
-                        "value": "```" + status + "```",
-                        "inline": true
-                    },
-                    {
-                        "name": "Motd",
-                        "value": "```" + `${data.motd.clean}` + "```"
-                    },
-                    {
-                        "name": "Player Count",
-                        "value": "```" + data.players.online + "/" + data.players.max + "```",
-                        "inline": true
-                    },
-                    {
-                        "name": "Version",
-                        "value": "```" + `${data.version}` + "```",
-                        "inline": true
-                    },
-                    {
-                        "name": "Players",
-                        "value": "```" + people + "```"
-                    }
-                ])
-                embedStatus.setColor(color);
-                embedStatus.setThumbnail(client.user.displayAvatarURL({ format: "png", size: 128, dynamic: true }))
-                embedStatus.setFooter(`${message.author.tag}`, message.author.displayAvatarURL());
-                embedStatus.setTimestamp();
-                message.channel.send(embedStatus);
-            })
+        } catch (err) {
+            return message.channel.send(embederr);
+        }
     }
 
     // IP & PORT Command
