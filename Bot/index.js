@@ -29,16 +29,18 @@ client.on('ready', () => {
 
         let botservers = client.guilds.cache.size
 
-        client.channels.cache.get(bconfig.botguildsupdateschannel).setName(`Guilds - ${botservers}`)
+        client.channels.cache.get(bconfig.botguildsupdateschannel).setName(`Trusted By ${botservers} Guilds`)
 
     }, bconfig.botstatsupdatetime)
 
     // Main Server Memory Usage Updates
     setInterval(() => {
 
-        let memusage = Math.round((process.memoryUsage().heapUsed / 1024 / 1024) * 100) / 100
+        let a = `${client.guilds.cache.reduce((total, guild) => total + guild.memberCount, 0)}`
+        let b = 1000
+        let c = Math.round(a / b)
 
-        client.channels.cache.get(bconfig.botmemupdateschannel).setName(`Usage - ${memusage} mb`)
+        client.channels.cache.get(bconfig.botmemupdateschannel).setName(`Trusted By ${c}k Users`)
 
     }, bconfig.botstatsupdatetime)
 
