@@ -8,7 +8,7 @@ const bconfig = require("./config.json");
 // Bot Prefix
 const prefix = bconfig.prefix;
 
-// Bot Activity , Login Text and Website Post Stats API's
+// Bot Activity , Main Server Stats Updates , Login Text and Website Post Stats API's
 client.on('ready', () => {
 
     const ontext = ` 
@@ -24,6 +24,34 @@ client.on('ready', () => {
 
     client.user.setActivity(status, { type: "PLAYING" })
 
+    // Main Server Guilds Updates
+    setInterval(() => {
+
+        let botservers = client.guilds.cache.size
+
+        client.channels.cache.get(bconfig.botguildsupdateschannel).setName(`Guilds - ${botservers}`)
+
+    }, bconfig.botstatsupdatetime)
+
+    // Main Server Memory Usage Updates
+    setInterval(() => {
+
+        let memusage = Math.round((process.memoryUsage().heapUsed / 1024 / 1024) * 100) / 100
+
+        client.channels.cache.get(bconfig.botmemupdateschannel).setName(`Usage - ${memusage} mb`)
+
+    }, bconfig.botstatsupdatetime)
+
+    // Main Server Creation Updates
+    setInterval(() => {
+
+        let botcreate = client.user.createdAt;
+        let now = Date.now() - botcreate;
+        let ago = Math.floor(now / bconfig.botago)
+
+        client.channels.cache.get(bconfig.botcreationupdateschannel).setName(`Created - ${ago} Days Ago`)
+
+    }, bconfig.botstatsupdatetime)
 
     // Top.gg API
     setInterval(() => {
@@ -452,7 +480,7 @@ client.on('message', async message => {
         embederr.setDescription(`
         Your Server Is Not Reachable , Here Are Possible Reasons -
 
-        • Your IP and PORT Is Wrong .
+        • Your IP/PORT Is Wrong .
 
         • Your Minecraft Server Is Offline .
 
@@ -473,11 +501,16 @@ client.on('message', async message => {
                     let status = "Offline"
                     let color = bconfig.botoldcolor
                     let people = "Currently Players are Hidden For This Server"
+                    let attachment = new Discord.MessageAttachment(client.user.displayAvatarURL({ format: "png", size: 64, dynamic: true }), "icon.png")
 
                     if (data.online === true) {
 
                         status = "Online"
                         color = bconfig.botnewcolor
+
+                        if (data.icon) {
+                            attachment = new Discord.MessageAttachment(Buffer.from(data.icon.substr('data:image\/png;base64,'.length), 'base64'), "icon.png")
+                        }
 
                         if (data.players.list) {
 
@@ -530,7 +563,8 @@ client.on('message', async message => {
                         }
                     ])
                     embedStatus.setColor(color);
-                    embedStatus.setThumbnail(client.user.displayAvatarURL({ format: "png", size: 128, dynamic: true }))
+                    embedStatus.attachFiles(attachment)
+                    embedStatus.setThumbnail("attachment://icon.png")
                     embedStatus.setFooter(`${message.author.tag}`, message.author.displayAvatarURL());
                     embedStatus.setTimestamp();
                     message.channel.send(embedStatus);
