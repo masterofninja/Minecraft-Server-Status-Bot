@@ -504,6 +504,7 @@ client.on('message', async message => {
                     let color = bconfig.botoldcolor
                     let people = "Currently Players are Hidden For This Server"
                     let attachment = new Discord.MessageAttachment(client.user.displayAvatarURL({ format: "png", size: 64, dynamic: true }), "icon.png")
+                    let motd = "A Minecraft Server"
 
                     if (data.online === true) {
 
@@ -512,6 +513,10 @@ client.on('message', async message => {
 
                         if (data.icon) {
                             attachment = new Discord.MessageAttachment(Buffer.from(data.icon.substr('data:image\/png;base64,'.length), 'base64'), "icon.png")
+                        }
+
+                        if (data.motd.clean) {
+                            motd = data.motd.clean
                         }
 
                         if (data.players.list) {
@@ -547,7 +552,7 @@ client.on('message', async message => {
                         },
                         {
                             "name": "Motd",
-                            "value": "```" + `${data.motd.clean}` + "```"
+                            "value": "```" + motd + "```"
                         },
                         {
                             "name": "Player Count",
@@ -556,7 +561,7 @@ client.on('message', async message => {
                         },
                         {
                             "name": "Version",
-                            "value": "```" + `${data.version}` + "```",
+                            "value": "```" + data.version + "```",
                             "inline": true
                         },
                         {
