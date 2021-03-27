@@ -8,7 +8,7 @@ const bconfig = require("./config.json");
 // Bot Prefix
 const prefix = bconfig.prefix;
 
-// Bot Activity , Main Server Stats Updates , Login Text and Website Post Stats API's
+// Bot Status , Activity , Main Server Stats Updates , Login Text and Website Post Stats API's
 client.on('ready', () => {
 
     const ontext = ` 
@@ -20,9 +20,20 @@ client.on('ready', () => {
     `
     console.log(ontext);
 
-    let status = `mss.logesport.in | ${prefix}help`
+    client.user.setStatus("online")
 
-    client.user.setActivity(status, { type: "PLAYING" })
+    setInterval(() => {
+
+        let statuses = [
+            `${prefix}help`,
+            "mss.logesport.in"
+        ]
+
+        let status = statuses[Math.floor(Math.random() * statuses.length)]
+
+        client.user.setActivity(status, { type: "PLAYING" })
+
+    }, bconfig.botactivityupdatetime)
 
     // Main Server Guilds Updates
     setInterval(() => {
@@ -333,6 +344,7 @@ client.on('message', async message => {
 
     let mcPort = predb.get(`guild_${message.guild.id}_port`) || "Not Setup"
 
+    // Bot Args
     const args = message.content.slice(prefix.length).trim().split(/ +/);
 
     if (!message.content.startsWith(prefix) || message.author.bot) return;
@@ -412,7 +424,7 @@ client.on('message', async message => {
     }
 
     // Reset Command
-    if (message.content.startsWith(`${prefix}reset`)) {
+    if (message.content === `${prefix}reset`) {
 
         // user-perm
         if (!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('Make Sure You Have **MANAGE_GUILD** permission to use this command .')
@@ -461,7 +473,7 @@ client.on('message', async message => {
     }
 
     // Status Command
-    if (message.content.startsWith(`${prefix}status`)) {
+    if (message.content === `${prefix}status`) {
 
         // bot-perm
         if (!message.guild.me.hasPermission('EMBED_LINKS')) return message.channel.send('Please Give Me **EMBED_LINKS** permission in this channel .')
@@ -583,7 +595,7 @@ client.on('message', async message => {
     }
 
     // IP & PORT Command
-    if (message.content.startsWith(`${prefix}ip`)) {
+    if (message.content === `${prefix}ip`) {
 
         // bot-perm
         if (!message.guild.me.hasPermission('EMBED_LINKS')) return message.channel.send('Please Give Me **EMBED_LINKS** permission in this channel .')
@@ -610,7 +622,7 @@ client.on('message', async message => {
     }
 
     // Invite Command
-    if (message.content.startsWith(`${prefix}invite`)) {
+    if (message.content === `${prefix}invite`) {
 
         // bot-perm
         if (!message.guild.me.hasPermission('EMBED_LINKS')) return message.channel.send('Please Give Me **EMBED_LINKS** permission in this channel .')
@@ -630,7 +642,7 @@ client.on('message', async message => {
     }
 
     // Vote Command
-    if (message.content.startsWith(`${prefix}vote`)) {
+    if (message.content === `${prefix}vote`) {
 
         // bot-perm
         if (!message.guild.me.hasPermission('EMBED_LINKS')) return message.channel.send('Please Give Me **EMBED_LINKS** permission in this channel .')
@@ -683,7 +695,7 @@ client.on('message', async message => {
     }
 
     // Stats Command
-    if (message.content.startsWith(`${prefix}stats`)) {
+    if (message.content === `${prefix}stats`) {
 
         // bot-perm
         if (!message.guild.me.hasPermission('EMBED_LINKS')) return message.channel.send('Please Give Me **EMBED_LINKS** permission in this channel .')
@@ -788,7 +800,7 @@ client.on('message', async message => {
     }
 
     // Info Command
-    if (message.content.startsWith(`${prefix}info`)) {
+    if (message.content === `${prefix}info`) {
 
         // bot-perm
         if (!message.guild.me.hasPermission('EMBED_LINKS')) return message.channel.send('Please Give Me **EMBED_LINKS** permission in this channel .')
@@ -934,7 +946,7 @@ client.on('message', async message => {
     }
 
     // Help Command
-    if (message.content.startsWith(`${prefix}help`)) {
+    if (message.content === `${prefix}help`) {
 
         // bot-perm
         if (!message.guild.me.hasPermission('EMBED_LINKS')) return message.channel.send('Please Give Me **EMBED_LINKS** permission in this channel .')
