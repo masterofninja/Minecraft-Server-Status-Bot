@@ -217,22 +217,22 @@ client.on('ready', () => {
         })
     }, bconfig.apiupdatetime)
 
-    // Botlist.space API
+    // Discordlist.space API
     setInterval(() => {
-        fetch(`https://api.botlist.space/v1/bots/${client.user.id}`, {
+        fetch(`https://api.discordlist.space/v1/bots/${client.user.id}`, {
             method: 'post',
             data: {
                 "server_count": `${client.guilds.cache.size}`
             },
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": bconfig.blspacetoken
+                "Authorization": bconfig.dlspacetoken
             },
             body: JSON.stringify({ "server_count": client.guilds.cache.size }),
         }).then(() => {
             let webembed = new Discord.MessageEmbed()
             webembed.setTitle("Botlist.space")
-            webembed.setURL("https://botlist.space/bot/802868654957789204")
+            webembed.setURL("https://discordlist.space/bot/802868654957789204")
             webembed.setDescription("Bot Stats - Updated")
             webembed.setColor('GREEN')
             webembed.setTimestamp()
@@ -347,7 +347,7 @@ client.on('message', async message => {
     // Bot Args
     const args = message.content.slice(prefix.length).trim().split(/ +/);
 
-    if (!message.content.startsWith(prefix) || message.author.bot) return;
+    if (!message.content.startsWith(prefix) || message.author.bot || message.channel.type === "dm") return;
 
     // Setup Command
     if (message.content.startsWith(`${prefix}setup`)) {
@@ -674,7 +674,7 @@ client.on('message', async message => {
             },
             {
                 "name": "botlist.space",
-                "value": "[Here](https://botlist.space/bot/802868654957789204)",
+                "value": "[Here](https://discordlist.space/bot/802868654957789204)",
                 "inline": true
             },
             {
