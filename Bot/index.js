@@ -22,49 +22,9 @@ client.on('ready', () => {
 
     client.user.setStatus("online")
 
-    setInterval(() => {
+    let status = `.help | mss.logesport.in`
 
-        let statuses = [
-            `${prefix}help`,
-            "mss.logesport.in"
-        ]
-
-        let status = statuses[Math.floor(Math.random() * statuses.length)]
-
-        client.user.setActivity(status, { type: "PLAYING" })
-
-    }, bconfig.botactivityupdatetime)
-
-    // Main Server Guilds Updates
-    setInterval(() => {
-
-        let botservers = client.guilds.cache.size
-
-        client.channels.cache.get(bconfig.botguildsupdateschannel).setName(`Trusted By ${botservers} Guilds`)
-
-    }, bconfig.botstatsupdatetime)
-
-    // Main Server Memory Usage Updates
-    setInterval(() => {
-
-        let a = `${client.guilds.cache.reduce((total, guild) => total + guild.memberCount, 0)}`
-        let b = 1000
-        let c = Math.round(a / b)
-
-        client.channels.cache.get(bconfig.botmemupdateschannel).setName(`Trusted By ${c}k Users`)
-
-    }, bconfig.botstatsupdatetime)
-
-    // Main Server Creation Updates
-    setInterval(() => {
-
-        let botcreate = client.user.createdAt;
-        let now = Date.now() - botcreate;
-        let ago = Math.floor(now / bconfig.botago)
-
-        client.channels.cache.get(bconfig.botcreationupdateschannel).setName(`Created - ${ago} Days Ago`)
-
-    }, bconfig.botstatsupdatetime)
+    client.user.setActivity(status, { type: "PLAYING" })
 
     // Top.gg API
     setInterval(() => {
